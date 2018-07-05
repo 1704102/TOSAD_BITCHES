@@ -5,10 +5,66 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example.jersey</groupId>
-    <artifactId>com.example.jersey</artifactId>
+    <artifactId>TOSAD_BITCHES</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    
+    <name>TOSAD_BITCHES</name>
+    <url>https:maven.apache.org</url>
+    
+    <properties>
+	  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	  <maven.compiler.source>1.8</maven.compiler.source>
+	  <maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
 
     <dependencies>
+    
+	<!-- https://mvnrepository.com/artifact/org.zenframework.z8.dependencies.commons/ojdbc6 -->
+	<dependency>
+	    <groupId>org.zenframework.z8.dependencies.commons</groupId>
+	    <artifactId>ojdbc6</artifactId>
+	    <version>2.0</version>
+	    <type>pom</type>
+	</dependency>
+	<!-- https://opensource.org/licenses/MIT -->
+			    
+	    
+	    <dependency>	
+	      <groupId>javax.servlet</groupId>
+		  <artifactId>javax.servlet-api</artifactId>
+		  <version>3.1.0</version>
+		  <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.glassfish.jersey.containers</groupId>
+		  <artifactId>jersey-container-servlet</artifactId>
+		  <version>2.26</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.glassfish.jersey.inject</groupId>
+		  <artifactId>jersey-hk2</artifactId>
+		  <version>2.26</version>
+		</dependency>
+		<dependency>
+		  <groupId>javax.xml.bind</groupId>
+		  <artifactId>jaxb-api</artifactId>
+		  <version>2.2.11</version>
+		</dependency>
+		<dependency>
+		  <groupId>javax.activation</groupId>
+		  <artifactId>activation</artifactId>
+		  <version>1.1.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.json</artifactId>
+			<version>1.0.4</version>
+		</dependency>
+    	
+    	<!-- einde dependencies JanHub -->
 
         <dependency>
             <groupId>com.sun.jersey</groupId>

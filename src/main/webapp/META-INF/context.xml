@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+<Resource name="jdbc/myoracle"
+url="jdbc:oracle:thin:@127.0.0.1:1521:mysid"
+driverClassName="oracle.jdbc.OracleDriver"
+auth="Container"
+type="javax.sql.DataSource" 
+username="admin"
+password="geheim" />
+</Context>
