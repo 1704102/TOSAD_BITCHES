@@ -2,6 +2,7 @@ package com.example.jersey.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class DatabaseHelper {
@@ -27,5 +28,14 @@ public class DatabaseHelper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public PreparedStatement getPreparedStatement(String sql){
+        try {
+            return connection.prepareStatement(sql);
+        }catch (Exception e){
+            return null;
+        }
+
     }
 }

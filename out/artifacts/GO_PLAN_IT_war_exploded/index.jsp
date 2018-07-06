@@ -13,6 +13,6 @@
     <script src="script/rest.js"></script>
   </head>
   <body>
-
+    test;
   </body>
 </html>
