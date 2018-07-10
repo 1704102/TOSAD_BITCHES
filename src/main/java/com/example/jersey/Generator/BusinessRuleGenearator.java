@@ -9,6 +9,8 @@ public class BusinessRuleGenearator {
         System.out.println(rule.getComponentName());
     }
 
+
+    //TODO add parameters
     public void generateAttributeRangeRule(){
         String name = "new rule";
         String table = "car";

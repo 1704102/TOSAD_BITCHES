@@ -9,8 +9,8 @@ public class DatabaseHelper {
 
     private String url = "ondora02.hu.nl";
     private String port = "8521";
-    private String username = "tosad_2017_het_team1";
-    private String password = "tosad_2017_het_team1";
+    private String username = "tosad_2017_her_team1";
+    private String password = "tosad_2017_her_team1";
     private String service = "cursus02.hu.nl";
 
     Connection connection;
