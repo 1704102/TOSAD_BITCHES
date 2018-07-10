@@ -1,6 +1,6 @@
 package com.example.jersey.domain;
 
-public class CompareRule implements BusinessRuleComponent<CompareRule>{
+public class CompareRule extends BusinessRuleComponent{
 	
 	private String compareA;
 	
@@ -23,6 +23,11 @@ public class CompareRule implements BusinessRuleComponent<CompareRule>{
 		Attibrute List Rule
 		*/
 		return "compare";
+	}
+
+	@Override
+	public String toString() {
+		return "type: " + this.getComponentName() + " \n comparison: " + this.getCompareA();
 	}
 	
 }

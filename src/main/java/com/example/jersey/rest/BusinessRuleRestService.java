@@ -120,9 +120,9 @@ public class BusinessRuleRestService {
 				return false;
 			}
 		}
-		String brCode = ""; // Dat mag lekker iemand anders gaan doen
+		String brCode = "ACMP"; // Dat mag lekker iemand anders gaan doen
 		
-		BusinessRuleComposite brc = new BusinessRuleComposite(brCode, components);
+		BusinessRuleComposite brc = new BusinessRuleComposite(brCode);
 		if( brcompositeDao.saveComposite(brc)) {
 			return true;
 		} else {

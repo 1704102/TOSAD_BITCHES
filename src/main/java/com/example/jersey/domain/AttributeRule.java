@@ -1,6 +1,6 @@
 package com.example.jersey.domain;
 
-public class AttributeRule implements BusinessRuleComponent<AttributeRule>{
+public class AttributeRule extends BusinessRuleComponent{
 
 	private String attribute;
 	
@@ -23,5 +23,9 @@ public class AttributeRule implements BusinessRuleComponent<AttributeRule>{
 		Attibrute List Rule
 		*/
 		return "attribute";
+	}
+	
+	public String toString() {
+		return "name: " + this.getAttribute() + "\n ruleType:" + this.getComponentName();
 	}
 }
