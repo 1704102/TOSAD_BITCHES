@@ -23,7 +23,11 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="bf4443c2-4f32-4016-af7f-0d1cdfd46119">
+        <schema name="VBMG" object-types="materialized view, table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bf4443c2-4f32-4016-af7f-0d1cdfd46119">
