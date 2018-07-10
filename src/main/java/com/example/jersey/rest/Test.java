@@ -24,7 +24,7 @@ public class Test {
 
         database.disconnect();
 
-        return "test";
+        return "test12";
     }
 
 }
