@@ -1,7 +1,8 @@
 package com.example.jersey.domain;
 
 
-public interface BusinessRuleComponent<T> {
+public abstract class BusinessRuleComponent {
 	// interpret the type of component
-	public String getComponentName();
+	public abstract String getComponentName();
+	public abstract String toString();
 }

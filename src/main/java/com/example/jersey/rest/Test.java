@@ -1,4 +1,4 @@
-package com.example.jersey.resource;
+package com.example.jersey.rest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

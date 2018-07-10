@@ -3,7 +3,7 @@ package com.example.jersey.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Operator implements BusinessRuleComponent<Operator> {
+public class Operator extends BusinessRuleComponent {
 	
 	private String operator;
 	
@@ -40,6 +40,11 @@ public class Operator implements BusinessRuleComponent<Operator> {
 			result = true;
 		}	
 		return result;
+	}
+
+	@Override
+	public String toString() {
+		return "type: " + this.getComponentName() + " \n operator: " + this.operator;
 	}
 
 }
