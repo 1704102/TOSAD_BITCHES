@@ -10,7 +10,7 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <servlet>
+ <!--    <servlet>
 
         <servlet-name>Example API</servlet-name>
 
@@ -25,14 +25,14 @@
             <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
             <param-value>true</param-value>
         </init-param>
-    </servlet>
+    </servlet> -->
 
     <servlet-mapping>
         <servlet-name>Example API</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
     
-        <servlet>
+    <servlet>
 
         <servlet-name>Rest API</servlet-name>
 
@@ -42,11 +42,12 @@
             <param-name>com.sun.jersey.config.provider.packages</param-name>
             <param-value>com.example.jersey.rest</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>Rest API</servlet-name>
-        <url-pattern>/newrest/*</url-pattern>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
     
    
@@ -58,7 +59,7 @@
 			<param-name>jersey.config.server.provider.packages</param-name>
 			<param-value>com.example.jersey.servlet</param-value>
 		</init-param>
-		
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 	
 	<servlet-mapping>
