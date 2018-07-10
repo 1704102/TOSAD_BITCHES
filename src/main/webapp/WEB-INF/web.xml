@@ -48,5 +48,22 @@
         <servlet-name>Rest API</servlet-name>
         <url-pattern>/newrest/*</url-pattern>
     </servlet-mapping>
+    
+   
+	<servlet>
+		<servlet-name>First BusinessRule Demo</servlet-name>
+		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+		
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+			<param-value>com.example.jersey.servlet</param-value>
+		</init-param>
+		
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>First BusinessRule Demo</servlet-name>
+		<url-pattern>/servlet/*</url-pattern>
+	</servlet-mapping>
 
 </web-app>
