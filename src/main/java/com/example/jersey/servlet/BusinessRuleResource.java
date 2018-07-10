@@ -1,5 +1,6 @@
 package com.example.jersey.servlet;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import com.example.jersey.domain.BusinessRuleComposite;
 import com.example.jersey.domain.CompareRule;
 import com.example.jersey.domain.Operator;
 
-@Path("composite")
+@Path("composites")
 public class BusinessRuleResource {
 	private static final DefineBusinessRuleService definerservice = ServiceProvider.getDefineBusinessRuleService();
 	
@@ -31,15 +32,22 @@ public class BusinessRuleResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getAllRules() {
 		JSONArray jab = new JSONArray();
-		for(BusinessRuleComposite composite : definerservice.getAllComposites()) {
+		List<BusinessRuleComposite> composites = new ArrayList<BusinessRuleComposite>();
+		jab.put(composites);
+		System.out.println("com.example.jersey.servlet Resource getAll: " + composites);
+		//TODO: mapmappableexception en nullpointerexception oplossen
+		for(BusinessRuleComposite composite : composites) {
 			JSONArray jab2 = new JSONArray();
 			for(BusinessRuleComponent component : composite.getChildren()) {
 				// TODO: Missing functionality
 				// get the inferred type of each component dynamically
 				JSONObject job = new JSONObject();
+				System.out.println("com.example.jersey.servlet Resource getAll: " + component.getComponentName());
+				System.out.println("com.example.jersey.servlet Resource getAll: " + component.toString());
 				job.accumulate("attribute", component.getComponentName());
 				job.accumulate("data", component.toString());
 				jab2.put(job);
+				System.out.println(job.toString());
 			}
 			jab.put(jab2);
 		}
@@ -56,14 +64,17 @@ public class BusinessRuleResource {
 		String x
 		) {
 		JSONObject job = new JSONObject(x);
-		System.out.println(job);
+		System.out.println("x waarde " + x);
+		System.out.println("job waarde " + job);
 		
 		List<BusinessRuleComponent> components = new ArrayList<BusinessRuleComponent>();
 			components.add(new AttributeRule(job.getString("attributeValue")));
 			components.add(new CompareRule(job.getString("comparison")));
 			components.add(new Operator(job.getString("operator")));
 		
-			System.out.println("Hello World");
+			System.out.println(components.get(0).toString());
+			System.out.println(components.get(1).toString());
+			System.out.println(components.get(2).toString());
 		BusinessRuleComposite newComposite = definerservice.getCompositeByComponents(components);
 		if(definerservice.newBusinessRule(newComposite)) {
 			return Response.status(Response.Status.OK).build();

@@ -1,6 +1,7 @@
 package com.example.jersey.Visitor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -49,7 +50,14 @@ public class DefineBusinessRuleService {
 	}
 	
 	public boolean newBusinessRule(BusinessRuleComposite composite) {
-		return filledComposites.put(filledComposites.size() + 1, composite) != null;
+		int index = filledComposites.size();
+		int oldSize = filledComposites.size();
+		System.out.println("serviceprovider newcomposite: " + index);
+		filledComposites.put(index, composite);
+		if(filledComposites.size() +1 != oldSize) { 
+			return true;
+			}
+		return false;
 	}
 	
 	public BusinessRuleComposite getCompositeByKey(int key) {
@@ -57,7 +65,11 @@ public class DefineBusinessRuleService {
 	}
 	
 	public List<BusinessRuleComposite> getAllComposites() {
-		return (List<BusinessRuleComposite>) filledComposites.values();
+		System.out.println(filledComposites.values());
+		List<BusinessRuleComposite> converted = new ArrayList<BusinessRuleComposite>(filledComposites.values());
+		System.out.println(converted);
+		System.out.println("serviceprovider get size: " + converted.size());
+		return converted;
 	}
 	
 }

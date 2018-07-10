@@ -1,0 +1,18 @@
+Index: out/artifacts/GO_PLAN_IT_war_exploded/index.jsp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><%--\n  Created by IntelliJ IDEA.\n  User: marti\n  Date: 5-4-2018\n  Time: 12:58\n  To change this template use File | Settings | File Templates.\n--%>\n<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>\n<html>\n  <head>\n    <title>$Title$</title>\n    <script src=\"script/jquery-3.2.1.min.js\"></script>\n    <script src=\"script/rest.js\"></script>\n  </head>\n  <body>\n    test;\n  </body>\n</html>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- out/artifacts/GO_PLAN_IT_war_exploded/index.jsp	(date 1531216865000)
++++ out/artifacts/GO_PLAN_IT_war_exploded/index.jsp	(date 1531216255941)
+@@ -9,8 +9,6 @@
+ <html>
+   <head>
+     <title>$Title$</title>
+-    <script src="script/jquery-3.2.1.min.js"></script>
+-    <script src="script/rest.js"></script>
+   </head>
+   <body>
+     test;

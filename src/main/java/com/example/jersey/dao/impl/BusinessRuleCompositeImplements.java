@@ -2,9 +2,7 @@ package com.example.jersey.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.example.jersey.dao.BusinessRuleCompositeDao;
 import com.example.jersey.domain.BusinessRuleComponent;
