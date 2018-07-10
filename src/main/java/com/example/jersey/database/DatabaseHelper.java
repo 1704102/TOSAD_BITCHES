@@ -7,15 +7,18 @@ import java.sql.SQLException;
 
 public class DatabaseHelper {
 
-    private final String USERNAME = "root";
-    private final String PASSWORD = "Klbxjmpv526f_";
+    private String url = "ondora02.hu.nl";
+    private String port = "8521";
+    private String username = "tosad_2017_het_team1";
+    private String password = "tosad_2017_het_team1";
+    private String service = "cursus02.hu.nl";
 
     Connection connection;
 
     public void connect() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/webshop?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", USERNAME, PASSWORD);
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@//"+ url +":"+ port + "/" + service,username, password);
         } catch (Exception e) {
             e.printStackTrace();
         }

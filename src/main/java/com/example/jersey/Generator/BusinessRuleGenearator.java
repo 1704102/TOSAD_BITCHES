@@ -1,16 +1,25 @@
 package com.example.jersey.Generator;
 
+import com.example.jersey.database.TargetDatabase;
+import com.example.jersey.domain.BusinessRuleComponent;
+
 public class BusinessRuleGenearator {
 
-    public void generateBusinessRule(){
-
+    public void generateBusinessRule(BusinessRuleComponent rule){
+        System.out.println(rule.getComponentName());
     }
 
     public void generateAttributeRangeRule(){
-        String table;
-        String column;
-        int valueLow;
-        int valueHigh;
+        String name = "new rule";
+        String table = "car";
+        String column = "brand";
+        int valueLow = 1;
+        int valueHigh = 10;
+
+        String sql = "alter table " + table + " add constraint " + name + " check(" + column + " between " + valueLow + " and " + valueHigh + " )ENABLE NOVALIDATE";
+
+        TargetDatabase database = new TargetDatabase();
+        database.saveRule(sql);
     }
     public void generateAttributeCompareRule(){
         String table;
