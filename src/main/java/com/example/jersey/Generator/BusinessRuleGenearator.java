@@ -8,7 +8,11 @@ public class BusinessRuleGenearator {
     public void generateBusinessRule(BusinessRuleComponent rule){
         System.out.println(rule.getComponentName());
     }
-
+	// businessruleName_database_table-column_operator_comparisontype
+	// 4				4		 3	   3	  2		   4			 = 24 digits
+	// ACMP_prod_modepks_<#_str
+	// ACMP_deal_vehisea_<#_num (24 digits)
+	// 123456789012345678901234
 
     //TODO add parameters
     public void generateAttributeRangeRule(){

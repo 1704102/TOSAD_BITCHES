@@ -33,6 +33,7 @@ public class BusinessRuleResource {
 	public String getAllRules() {
 		JSONArray jab = new JSONArray();
 		List<BusinessRuleComposite> composites = new ArrayList<BusinessRuleComposite>();
+		composites.addAll(definerservice.getAllComposites());
 		jab.put(composites);
 		System.out.println("com.example.jersey.servlet Resource getAll: " + composites);
 		//TODO: mapmappableexception en nullpointerexception oplossen
@@ -106,9 +107,6 @@ public class BusinessRuleResource {
 		// System.out.println(equals);
 		
 		System.out.println("null? \n" + acmp.getChildren().get(0).toString());
-		
-		
-		
 		return Response.status(Response.Status.NO_CONTENT).build();
 		
 	}
