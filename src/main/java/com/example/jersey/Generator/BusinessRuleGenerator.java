@@ -3,18 +3,19 @@ package com.example.jersey.Generator;
 import com.example.jersey.database.TargetDatabase;
 import com.example.jersey.domain.BusinessRuleComponent;
 
-public class BusinessRuleGenearator {
+public class BusinessRuleGenerator {
 
     public void generateBusinessRule(BusinessRuleComponent rule){
-        System.out.println(rule.getComponentName());
+       // System.out.println(rule.getComponentName());
+        generateAttributeRangeRule();
     }
 
 
     //TODO add parameters
     public void generateAttributeRangeRule(){
-        String name = "new rule";
-        String table = "car";
-        String column = "brand";
+        String name = "new_rule";
+        String table = "CAR";
+        String column = "AMOUNT";
         int valueLow = 1;
         int valueHigh = 10;
 
