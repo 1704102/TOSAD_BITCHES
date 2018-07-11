@@ -1,6 +1,7 @@
 package com.example.jersey.Visitor;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -17,18 +18,11 @@ public class DefineBusinessRuleService {
 	
 	private List<BusinessRuleComposite> allComposites = new ArrayList<BusinessRuleComposite>();
 	// NOTE: how about an observable for the next Demo?
-	private Map<Integer,BusinessRuleComposite> filledComposites = new HashMap<Integer,BusinessRuleComposite>();
-
+	private List<BusinessRuleComposite> filledComposites;
+	private DefineBusinessRule mediator;
+	
 	public DefineBusinessRuleService() {
-		BusinessRuleComposite acmp = new BusinessRuleComposite("ACMP");
-		acmp.add(new AttributeRule(new String()));
-		acmp.add(new CompareRule(new String()));
-		acmp.add(new Operator(new String()));
-		allComposites.add(acmp);
-		
-		// ACMP_apple_<_5_prod
-		
-		
+
 	}
 	
 	// TODO: missing functionality: generate businessRule
@@ -49,7 +43,14 @@ public class DefineBusinessRuleService {
 	}
 	
 	public boolean newBusinessRule(BusinessRuleComposite composite) {
-		return filledComposites.put(filledComposites.size() + 1, composite) != null;
+		int index = filledComposites.size();
+		int oldSize = filledComposites.size();
+		System.out.println("serviceprovider newcomposite: " + index);
+		filledComposites.add(composite);
+		if(filledComposites.size() +1 != oldSize) { 
+			return true;
+			}
+		return false;
 	}
 	
 	public BusinessRuleComposite getCompositeByKey(int key) {
@@ -57,7 +58,11 @@ public class DefineBusinessRuleService {
 	}
 	
 	public List<BusinessRuleComposite> getAllComposites() {
-		return (List<BusinessRuleComposite>) filledComposites.values();
+//		System.out.println("serviceprovider getAll: " + filledComposites.values());
+//		List<BusinessRuleComposite> converted = new ArrayList<BusinessRuleComposite>(filledComposites.values());
+//		System.out.println( "serviceprovider getAll: " + converted);
+//		System.out.println("serviceprovider get size: " + converted.size());
+		return filledComposites;
 	}
 	
 }

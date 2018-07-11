@@ -2,9 +2,7 @@ package com.example.jersey.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.example.jersey.dao.BusinessRuleCompositeDao;
 import com.example.jersey.domain.BusinessRuleComponent;
@@ -12,6 +10,7 @@ import com.example.jersey.domain.BusinessRuleComposite;
 
 public class BusinessRuleCompositeImplements extends BaseDao implements BusinessRuleCompositeDao{
 
+	
 	// 3. save Composite
 	@Override
 	public boolean saveComposite(BusinessRuleComposite composite) {
@@ -21,8 +20,8 @@ public class BusinessRuleCompositeImplements extends BaseDao implements Business
 		int result = 0;
 		try(Connection con = super.getConnection()){
 			String statementOne = "INSERT INTO (name) businessrule VALUES";
-			// 2.1 save the components first
 			for (BusinessRuleComponent component : composite.getChildren()){
+				
 				if ( !saveComponent(component)) {
 					System.out.println("oops!: step 1 didn't go as expected");
 					

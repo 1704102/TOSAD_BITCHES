@@ -4,9 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.jersey</groupId>
-    <artifactId>com.example.jersey</artifactId>
-    <version>1.0-SNAPSHOT</version>
+  <groupId>com.example.jersey</groupId>
+  <artifactId>TOSAD-BITCHES</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+
+  <name>TOSAD-BITCHES</name>
+  <url>http://maven.apache.org</url>
+    <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
     <repositories>
         <repository>
             <id>Datanucleus</id>
@@ -14,7 +23,8 @@
         </repository>
     </repositories>
     <dependencies>
-		
+    
+    
 		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-servlet -->
 		<dependency>
 		    <groupId>com.sun.jersey</groupId>
@@ -79,4 +89,5 @@
             </plugin>
         </plugins>
     </build>
+    
 </project>

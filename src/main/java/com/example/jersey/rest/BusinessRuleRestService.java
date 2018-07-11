@@ -2,26 +2,19 @@ package com.example.jersey.rest;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.json.JSONObject;
-import org.json.JSONArray;
-import org.json.HTTP;
-
-import javax.ws.rs.PathParam;
-
 import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
+import org.json.JSONObject;
 
 import com.example.jersey.dao.BusinessRuleComponentDao;
 import com.example.jersey.dao.BusinessRuleCompositeDao;
@@ -33,7 +26,7 @@ import com.example.jersey.domain.BusinessRuleComposite;
 import com.example.jersey.domain.CompareRule;
 import com.example.jersey.domain.Operator;
 
-@Path("composites")
+@Path("compositestest")
 public class BusinessRuleRestService {
 	
 	private static final BusinessRuleComponentDao brcomponentDao = new BusinessRuleComponentImplements();
