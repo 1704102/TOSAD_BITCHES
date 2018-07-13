@@ -17,9 +17,13 @@ public class DatabaseHelper {
 
     public void connect() {
         try {
+            System.out.println("connecting to " + url + " with username " + username);
+            System.out.println(url);
             Class.forName("oracle.jdbc.driver.OracleDriver");
             connection = DriverManager.getConnection("jdbc:oracle:thin:@//"+ url +":"+ port + "/" + service,username, password);
+            System.out.println("connection successful");
         } catch (Exception e) {
+            System.out.println("connection failed");
             e.printStackTrace();
         }
 

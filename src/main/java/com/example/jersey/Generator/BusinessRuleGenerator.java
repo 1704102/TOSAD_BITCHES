@@ -17,10 +17,10 @@ public class BusinessRuleGenerator {
 
     //TODO add parameters
     public void generateAttributeRangeRule(){
-        String name = "new_rule";
+        String name = "haha";
         String table = "CAR";
         String column = "AMOUNT";
-        int valueLow = 1;
+        int valueLow = 5 ;
         int valueHigh = 10;
 
         String sql = "alter table " + table + " add constraint " + name + " check(" + column + " between " + valueLow + " and " + valueHigh + " )ENABLE NOVALIDATE";
