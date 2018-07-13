@@ -1,6 +1,7 @@
 package com.example.jersey.database;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class TargetDatabase extends DatabaseHelper {
 

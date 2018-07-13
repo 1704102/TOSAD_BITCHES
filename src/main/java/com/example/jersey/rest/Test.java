@@ -1,11 +1,10 @@
 package com.example.jersey.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-
+import com.example.jersey.Generator.BusinessRuleGenerator;
 import com.example.jersey.database.TargetDatabase;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
 
 @Path("/test")
@@ -14,10 +13,8 @@ public class Test {
     @GET
     @Produces(MediaType.TEXT_HTML)
     public String getString(){
-        TargetDatabase database = new TargetDatabase();
-        database.connect();
-
-        database.disconnect();
+        BusinessRuleGenerator generator = new BusinessRuleGenerator();
+        generator.generateBusinessRule(null);
 
         return "test";
     }

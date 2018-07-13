@@ -3,10 +3,11 @@ package com.example.jersey.Generator;
 import com.example.jersey.database.TargetDatabase;
 import com.example.jersey.domain.BusinessRuleComponent;
 
-public class BusinessRuleGenearator {
+public class BusinessRuleGenerator {
 
     public void generateBusinessRule(BusinessRuleComponent rule){
-        System.out.println(rule.getComponentName());
+       // System.out.println(rule.getComponentName());
+        generateAttributeRangeRule();
     }
 	// businessruleName_database_table-column_operator_comparisontype
 	// 4				4		 3	   3	  2		   4			 = 24 digits
@@ -16,10 +17,10 @@ public class BusinessRuleGenearator {
 
     //TODO add parameters
     public void generateAttributeRangeRule(){
-        String name = "new rule";
-        String table = "car";
-        String column = "brand";
-        int valueLow = 1;
+        String name = "haha";
+        String table = "CAR";
+        String column = "AMOUNT";
+        int valueLow = 5 ;
         int valueHigh = 10;
 
         String sql = "alter table " + table + " add constraint " + name + " check(" + column + " between " + valueLow + " and " + valueHigh + " )ENABLE NOVALIDATE";
