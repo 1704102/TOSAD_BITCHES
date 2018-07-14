@@ -2,10 +2,10 @@ package com.example.jersey.domainTest.Composit;
 
 public class AttributeRange implements BusinessRuleComposite {
 
-    String column;
+    private String column;
 
-    int valueLow;
-    int valueHigh;
+    private int valueLow;
+    private int valueHigh;
 
     public AttributeRange(String column, int valueLow, int valueHigh) {
         this.column = column;
