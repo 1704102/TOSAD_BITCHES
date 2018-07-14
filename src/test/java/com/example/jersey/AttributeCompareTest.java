@@ -2,7 +2,6 @@ package com.example.jersey;
 
 import com.example.jersey.domainTest.BusinessRule;
 import com.example.jersey.domainTest.Composit.AttributeCompare;
-import com.example.jersey.domainTest.Composit.AttributeRange;
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import junit.framework.Assert;

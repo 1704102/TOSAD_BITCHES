@@ -14,7 +14,7 @@ public class BusinessRule {
     }
 
     public String getCode(){
-        return "alter table " + table + " add constraint " + getName() + " " + composite.getRuleCode() + " ENABLE NOVALIDATE";
+        return composite.getRuleCode(getName(), table);
     }
 
     public String getName(){
@@ -30,4 +30,6 @@ public class BusinessRule {
     public void addComposite(BusinessRuleComposite composite){
         this.composite = composite;
     }
+
+
 }

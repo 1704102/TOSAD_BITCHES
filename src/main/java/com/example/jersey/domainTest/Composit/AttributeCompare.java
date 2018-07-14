@@ -15,8 +15,8 @@ public class AttributeCompare implements BusinessRuleComposite{
     }
 
     @Override
-    public String getRuleCode() {
-        return "check(" + column + " " + operator.getValue() + " " + value + ")";
+    public String getRuleCode(String name, String table) {
+        return "alter table " + table +  " add constraint " + name + " check(" + column + " " + operator.getValue() + " " + value + ") ENABLE NOVALIDATE";
     }
 
     @Override
