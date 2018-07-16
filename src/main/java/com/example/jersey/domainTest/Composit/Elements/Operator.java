@@ -11,11 +11,11 @@ public class Operator {
 
     private String value;
 
-    public Operator(String value){
-        if (validate(value)) this.value = value;
+    public Operator(String value) {
+        this.value = value;
     }
 
-    public boolean validate(String value){
+    public boolean validate(){
         return validator.contains(value);
     }
 

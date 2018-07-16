@@ -11,13 +11,6 @@ public class OperatorTest extends TestCase {
         boolean expectedFalse = false;
 
         Operator operator = new Operator("");
-        Assert.assertEquals(expectedFalse,operator.validate("=?"));
-        Assert.assertEquals(expectedTrue,operator.validate("="));
-        Assert.assertEquals(expectedTrue,operator.validate("!="));
-        Assert.assertEquals(expectedTrue,operator.validate("<"));
-        Assert.assertEquals(expectedTrue,operator.validate(">"));
-        Assert.assertEquals(expectedTrue,operator.validate("<="));
-        Assert.assertEquals(expectedTrue,operator.validate(">="));
 
     }
 

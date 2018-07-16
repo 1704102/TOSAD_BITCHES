@@ -50,4 +50,11 @@ public class AttributeRange implements BusinessRuleComposite {
     public String getName() {
         return table + "_CNS_ARR_";
     }
+
+    public boolean validate() {
+        if (valueLow > valueHigh) return false;
+        if (valueHigh < valueLow) return false;
+        if (valueLow == valueHigh) return false;
+        return true;
+    }
 }
