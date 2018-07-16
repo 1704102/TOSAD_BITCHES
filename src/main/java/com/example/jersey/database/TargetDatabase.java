@@ -1,9 +1,8 @@
 package com.example.jersey.database;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 
-public class TargetDatabase extends DatabaseHelper {
+public class TargetDatabase extends DatabaseHelper_Target {
 
     public void saveRule(String sql){
         connect();

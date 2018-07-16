@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DatabaseHelper {
+public class DatabaseHelper_Target {
 
     private String url = "ondora02.hu.nl";
     private String port = "8521";
@@ -32,6 +32,7 @@ public class DatabaseHelper {
     public void disconnect() {
         try {
             connection.close();
+            System.out.println("connection closed");
         } catch (SQLException e) {
             e.printStackTrace();
         }
