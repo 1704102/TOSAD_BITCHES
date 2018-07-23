@@ -8,5 +8,6 @@ public interface BusinessRuleComposite {
     ArrayList<String> getRuleDefine();
     ArrayList<String> getRuleAlter();
     String getName();
+    boolean validate();
 
 }

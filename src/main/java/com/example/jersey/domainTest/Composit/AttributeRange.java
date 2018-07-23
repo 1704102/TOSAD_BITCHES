@@ -51,6 +51,7 @@ public class AttributeRange implements BusinessRuleComposite {
         return table + "_CNS_ARR_";
     }
 
+    @Override
     public boolean validate() {
         if (valueLow > valueHigh) return false;
         if (valueHigh < valueLow) return false;

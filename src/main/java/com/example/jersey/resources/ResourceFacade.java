@@ -16,7 +16,17 @@ public class ResourceFacade {
     public Response defineAttributeRangeRule(JSONObject object){
         try{
             ArrayList<String> query = domainFacade.defineAttributeRangeRule(object);
-            databaseFacade.defineAttributeRangeRule(query);
+            databaseFacade.defineBusinessRuleRule(query);
+        }catch (Exception e){
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response defineAttributeCompareRule(JSONObject object){
+        try{
+            ArrayList<String> query = domainFacade.defineAttributeCompareRule(object);
+            databaseFacade.defineBusinessRuleRule(query);
         }catch (Exception e){
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }

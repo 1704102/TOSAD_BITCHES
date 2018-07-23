@@ -6,19 +6,14 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class DatabaseFacade extends DatabaseHelper_Repo{
-    public void defineAttributeRangeRule(ArrayList<String> query) {
+public class DatabaseFacade{
 
-        connect();
-        query.forEach(subQuery->{
-            PreparedStatement statement = getPreparedStatement(subQuery);
-            try {
-                statement.execute();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
+    DatabaseHelper_Repo database;
 
-        disconnect();
+    public DatabaseFacade(){
+        database = new DatabaseHelper_Repo();
+    }
+    public void defineBusinessRuleRule(ArrayList<String> query) {
+        database.execute(query);
     }
 }

@@ -24,6 +24,7 @@ public class AttributeCompare implements BusinessRuleComposite{
         return "alter table " + table +  " add constraint " + name + " check(" + column + " " + operator.getValue() + " " + value + ") ENABLE NOVALIDATE";
     }
 
+    //TODO define rule code update
     @Override
     public ArrayList<String> getRuleDefine() {
         return new ArrayList<String>(Arrays.asList(
@@ -38,5 +39,10 @@ public class AttributeCompare implements BusinessRuleComposite{
     @Override
     public String getName() {
         return table + "_CNS_ACR_";
+    }
+
+    @Override
+    public boolean validate() {
+        return true;
     }
 }

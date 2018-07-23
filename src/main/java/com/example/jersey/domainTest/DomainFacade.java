@@ -1,6 +1,9 @@
 package com.example.jersey.domainTest;
 
+import com.example.jersey.Exeptions.AttributeCompareValidateExeption;
 import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
+import com.example.jersey.Exeptions.OperatorValidateExeption;
+import com.example.jersey.domainTest.Composit.AttributeCompare;
 import com.example.jersey.domainTest.Composit.AttributeRange;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import org.json.JSONObject;
@@ -20,13 +23,21 @@ public class DomainFacade {
         rule.addComposite(composite);
         return rule.DefineRule();
     }
-//
-//    public Response defineAttributeCompareRule(JSONObject object){
-//        Operator operator = new Operator(object.getString("operator"));
-//        if (!operator.validate()){
-//            return Response.status(Response.Status.CONFLICT).entity( object.getString("operator") + " is not a valid operator").build();
-//        }
-//    }
+
+    public ArrayList<String> defineAttributeCompareRule(JSONObject object) throws Exception {
+        BusinessRule rule = new BusinessRule();
+        Operator operator = new Operator(object.getString("operator"));
+        AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
+        if (!composite.validate()){
+            throw new AttributeCompareValidateExeption();
+        }
+        if (!operator.validate()){
+            throw new OperatorValidateExeption();
+        }
+        rule.addComposite(composite);
+        return rule.DefineRule();
+    }
+
 
 
 
