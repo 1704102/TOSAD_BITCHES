@@ -1,31 +1,22 @@
 package com.example.jersey.servlet;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
+/*
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.Path;
+
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import com.example.jersey.Visitor.DefineBusinessRuleService;
-import com.example.jersey.Visitor.ServiceProvider;
-import com.example.jersey.domain.AttributeRule;
-import com.example.jersey.domain.BusinessRuleComponent;
-import com.example.jersey.domain.BusinessRuleComposite;
-import com.example.jersey.domain.CompareRule;
-import com.example.jersey.domain.Operator;
-
+*/
+import javax.ws.rs.Path;
 @Path("composites")
 public class BusinessRuleResource {
+	/*
 	private static final DefineBusinessRuleService definerservice = ServiceProvider.getDefineBusinessRuleService();
 	
 	@GET
@@ -70,7 +61,7 @@ public class BusinessRuleResource {
 		
 		List<BusinessRuleComponent> components = new ArrayList<BusinessRuleComponent>();
 			components.add(new AttributeRule(job.getString("attributeValue")));
-			components.add(new CompareRule(job.getString("comparison")));
+			components.add(new CompareRule(job.getInt("comparison"))); // its a string
 			components.add(new Operator(job.getString("operator")));
 		
 			System.out.println(components.get(0).toString());
@@ -118,4 +109,6 @@ public class BusinessRuleResource {
 //		JSONObject job = new JSONObject();
 //		job.accumulate("attributevalue", )
 //	}
+ * 
+ */
 }
