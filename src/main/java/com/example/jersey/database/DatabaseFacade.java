@@ -1,19 +1,15 @@
 package com.example.jersey.database;
 
+import com.example.jersey.database.repository.DAO.AttributeRangeDao;
+import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import org.json.JSONObject;
 
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DatabaseFacade{
 
-    DatabaseHelper_Repo database;
-
-    public DatabaseFacade(){
-        database = new DatabaseHelper_Repo();
-    }
-    public void defineBusinessRuleRule(ArrayList<String> query) {
-        database.execute(query);
+    public void defineAttributeRangeRule(JSONObject object){
+        AttributeRangeDao dao = new AttributeRangeDao();
+        dao.define(object);
     }
 }

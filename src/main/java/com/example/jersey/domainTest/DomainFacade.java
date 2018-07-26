@@ -14,29 +14,29 @@ import java.util.ArrayList;
 
 public class DomainFacade {
 
-    public ArrayList<String> defineAttributeRangeRule(JSONObject object) throws Exception{
+    public JSONObject defineAttributeRangeRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule();
         AttributeRange composite = new AttributeRange(object.getString("table"), object.getString("column"), object.getInt("value1"), object.getInt("value2"));
         if (!composite.validate()){
             throw new AttributeRangeValidateExeption();
         }
         rule.addComposite(composite);
-        return rule.DefineRule();
+        return rule.getRule();
     }
 
-    public ArrayList<String> defineAttributeCompareRule(JSONObject object) throws Exception {
-        BusinessRule rule = new BusinessRule();
-        Operator operator = new Operator(object.getString("operator"));
-        AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
-        if (!composite.validate()){
-            throw new AttributeCompareValidateExeption();
-        }
-        if (!operator.validate()){
-            throw new OperatorValidateExeption();
-        }
-        rule.addComposite(composite);
-        return rule.DefineRule();
-    }
+//    public ArrayList<String> defineAttributeCompareRule(JSONObject object) throws Exception {
+//        BusinessRule rule = new BusinessRule();
+//        Operator operator = new Operator(object.getString("operator"));
+//        AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
+//        if (!composite.validate()){
+//            throw new AttributeCompareValidateExeption();
+//        }
+//        if (!operator.validate()){
+//            throw new OperatorValidateExeption();
+//        }
+//        rule.addComposite(composite);
+//        return rule.DefineRule();
+//    }
 
 
 

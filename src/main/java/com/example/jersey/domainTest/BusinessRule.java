@@ -1,6 +1,7 @@
 package com.example.jersey.domainTest;
 
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.zip.ZipEntry;
@@ -14,29 +15,16 @@ public class BusinessRule {
     BusinessRuleComposite composite;
 
     public BusinessRule(){
-
+        this.status = "new";
     }
 
     public BusinessRule(int id){
         this.id = id;
+        this.status = "new";
     }
 
     public String getCode(){
         return composite.getRuleCode(getName());
-    }
-
-    public ArrayList<String> DefineRule(){
-        status = "new";
-        ArrayList<String> queries = composite.getRuleDefine();
-        queries.add(0, String.format("insert into BUSINESSRULE (ID, NAME, STATUS) values (%d, '%s', '%s')", 1, getName(), status));
-        return queries;
-    }
-
-    public ArrayList<String> alterRule(){
-        ArrayList<String> queries = composite.getRuleAlter();
-        generateName();
-        queries.add(0, String.format("update BUSINESSRULE set NAME = '%s', STATUS = '%s' where id = %d", getName(), status, id));
-        return queries;
     }
 
     public String getName(){
@@ -51,6 +39,14 @@ public class BusinessRule {
 
     public void addComposite(BusinessRuleComposite composite){
         this.composite = composite;
+    }
+
+    public JSONObject getRule(){
+        JSONObject object = composite.getComposite();
+        object.put("base_id", id);
+        object.put("name", getName());
+        object.put("status", status);
+        return object;
     }
 
 
