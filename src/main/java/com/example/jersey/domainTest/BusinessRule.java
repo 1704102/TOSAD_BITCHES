@@ -23,6 +23,8 @@ public class BusinessRule {
         this.status = "new";
     }
 
+
+    // TODO move to target database
     public String getCode(){
         return composite.getRuleCode(getName());
     }

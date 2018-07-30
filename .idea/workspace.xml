@@ -7,14 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db180cb5-c012-4f6f-98a4-337f97700298" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeCompareDao.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceInterface.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/DatabaseFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/DatabaseFacade.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeCompareResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeCompareResource.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" />
     </list>
     <ignored path="C:\Users\marti\IdeaProjects\TOSAD\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,16 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="DomainFacade.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="26" column="22" lean-forward="false" selection-start-line="26" selection-start-column="22" selection-end-line="26" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="DatabaseFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/DatabaseFacade.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -48,11 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourceFacade.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResourceFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
-              <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+            <state relative-caret-position="1197">
+              <caret line="78" column="1" lean-forward="true" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,12 +47,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttributeCompareResource.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AttributeCompareResource.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeCompareResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="426">
+              <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+              <folding>
+                <element signature="e#337#338#0" expanded="true" />
+                <element signature="e#364#365#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
+                <element signature="e#445#446#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResourceInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceInterface.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -73,9 +77,15 @@
       <file leaf-file-name="AttributeRangeResource.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="33" column="5" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="33" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="573">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#303#304#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#384#385#0" expanded="true" />
+                <element signature="e#411#412#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,7 +93,7 @@
       <file leaf-file-name="AttributeCompareDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeCompareDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="630">
               <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -113,10 +123,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="BusinessRule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AttributeRangeDao.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeRangeDao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
+            <state relative-caret-position="735">
               <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -137,22 +157,9 @@
       <file leaf-file-name="AttributeCompare.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="210">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Operator.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/Elements/Operator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="17" column="19" lean-forward="false" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-              <folding>
-                <element signature="e#398#399#0" expanded="true" />
-                <element signature="e#446#447#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -162,8 +169,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -209,14 +216,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/BusinessRuleComposite.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeRange.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/OtherRule.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeRangeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeCompareDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/DatabaseFacade.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeCompareResource.java" />
       </list>
     </option>
@@ -374,26 +382,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jersey" type="462c0819:PsiDirectoryNode" />
-              <item name="domainTest" type="462c0819:PsiDirectoryNode" />
-              <item name="Composit" type="462c0819:PsiDirectoryNode" />
-              <item name="Elements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TOSAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TOSAD" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jersey" type="462c0819:PsiDirectoryNode" />
-              <item name="Exeptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TOSAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TOSAD" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="jersey" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -423,10 +411,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="jersey" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TOSAD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -795,7 +779,7 @@
       <workItem from="1532340285554" duration="3420000" />
       <workItem from="1532463371893" duration="2728000" />
       <workItem from="1532601698333" duration="924000" />
-      <workItem from="1532942187044" duration="1778000" />
+      <workItem from="1532942187044" duration="3083000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'development' of https://github.com/1704102/TOSAD_BITCHES into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;out/artifacts/GO_PLAN_IT_war_exploded/WEB-INF/classes/com/example/jersey/Generator/BusinessRuleGenearator.class&#10;#&#9;out/artifacts/GO_PLAN_IT_war_exploded/WEB-INF/classes/com/example/jersey/rest/Test.class&#10;#&#9;src/main/java/com/example/jersey/database/DatabaseHelper.java&#10;#&#9;src/main/java/com/example/jersey/rest/Test.java">
       <created>1531220179622</created>
@@ -867,7 +851,14 @@
       <option name="project" value="LOCAL" />
       <updated>1532601834659</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary=" - added AttributeCompareRule">
+      <created>1532943996398</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1532943996398</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -903,7 +894,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40507000" />
+    <option name="totallyTimeSpent" value="41812000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -911,7 +902,7 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.49583334" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35641316" sideWeight="0.3625" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39954597" sideWeight="0.26302084" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22814983" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -921,7 +912,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39954597" sideWeight="0.74010414" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39954597" sideWeight="0.7369792" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291714" sideWeight="0.39270833" order="14" side_tool="false" content_ui="tabs" />
@@ -929,7 +920,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35641316" sideWeight="0.6375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35641316" sideWeight="0.6375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -963,7 +954,8 @@
     <MESSAGE value=" - added first connection between domain database and endpoint" />
     <MESSAGE value=" - added facades&#10; - added functions to implement AttributeRules" />
     <MESSAGE value=" - added dao interface for compatibility&#10; - added dao for arr" />
-    <option name="LAST_COMMIT_MESSAGE" value=" - added dao interface for compatibility&#10; - added dao for arr" />
+    <MESSAGE value=" - added AttributeCompareRule" />
+    <option name="LAST_COMMIT_MESSAGE" value=" - added AttributeCompareRule" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -979,13 +971,18 @@
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java</url>
+          <line>36</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="29" />
+      <option name="time" value="31" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="db://bf4443c2-4f32-4016-af7f-0d1cdfd46119/consoles/Connection" />
     <entry file="db://b8aae4ac-0aea-48f2-94a9-770bb32940ab/consoles/target 1" />
     <entry file="file://$PROJECT_DIR$/webArtifact.iml">
       <provider selected="true" editor-type-id="text-editor">
@@ -1238,6 +1235,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
           <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="6" selection-end-column="5" />
+          <folding>
+            <element signature="e#147#148#0" expanded="false" />
+            <element signature="e#204#205#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1245,6 +1246,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="43" lean-forward="false" selection-start-line="3" selection-start-column="43" selection-end-line="3" selection-end-column="43" />
+          <folding>
+            <element signature="e#149#150#0" expanded="false" />
+            <element signature="e#208#209#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1428,6 +1433,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="22" column="45" lean-forward="false" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1435,6 +1441,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1442,6 +1451,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1458,22 +1468,11 @@
         <state relative-caret-position="336">
           <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#397#398#0" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="28" lean-forward="false" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
-          <folding>
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#374#375#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#369#370#0" expanded="false" />
+            <element signature="e#397#398#0" expanded="false" />
+            <element signature="e#451#452#0" expanded="false" />
+            <element signature="e#478#479#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1483,43 +1482,7 @@
         <state relative-caret-position="168">
           <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
           <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeCompareDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <marker date="1532943896603" expanded="true" signature="677:768" ph="insert into ATTRIBUTECOMPARE... " />
-            <marker date="1532943896603" expanded="true" signature="1142:1202" ph="insert into BUSINESSRULE... " />
-            <marker date="1532943896603" expanded="true" signature="1423:1509" ph="insert into BUSINESSRULE_COMPONENT... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeRangeDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#482#483#0" expanded="true" />
-            <element signature="e#509#510#0" expanded="true" />
-            <element signature="e#571#572#0" expanded="true" />
-            <element signature="e#598#599#0" expanded="true" />
-            <marker date="1532465726423" expanded="true" signature="767:854" ph="insert into ATTRIBUTERANGE... " />
-            <marker date="1532465726423" expanded="true" signature="1226:1286" ph="insert into BUSINESSRULE... " />
-            <marker date="1532465726423" expanded="true" signature="1507:1591" ph="insert into BUSINESSRULE_COMPONENT... " />
-            <marker date="1532465726423" expanded="true" signature="1975:2061" ph="update ATTRIBUTERANGE... " />
-            <marker date="1532465726423" expanded="true" signature="2454:2511" ph="update BUSINESSRULE... " />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1532,14 +1495,6 @@
             <element signature="e#398#399#0" expanded="true" />
             <element signature="e#446#447#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="43" column="23" lean-forward="false" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1563,14 +1518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="33" column="5" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/DatabaseFacade.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1579,20 +1526,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeCompareResource.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="1197">
+          <caret line="78" column="1" lean-forward="true" selection-start-line="78" selection-start-column="1" selection-end-line="78" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeRangeDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="47" column="9" lean-forward="true" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#509#510#0" expanded="true" />
+            <element signature="e#571#572#0" expanded="true" />
+            <element signature="e#598#599#0" expanded="true" />
+            <marker date="1532465726423" expanded="true" signature="767:854" ph="insert into ATTRIBUTERANGE... " />
+            <marker date="1532465726423" expanded="true" signature="1226:1286" ph="insert into BUSINESSRULE... " />
+            <marker date="1532465726423" expanded="true" signature="1507:1591" ph="insert into BUSINESSRULE_COMPONENT... " />
+            <marker date="1532465726423" expanded="true" signature="1975:2061" ph="update ATTRIBUTERANGE... " />
+            <marker date="1532465726423" expanded="true" signature="2454:2511" ph="update BUSINESSRULE... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="972">
-          <caret line="49" column="46" lean-forward="true" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+        <state relative-caret-position="210">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeCompareDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#508#509#0" expanded="true" />
+            <marker date="1532943896603" expanded="true" signature="677:768" ph="insert into ATTRIBUTECOMPARE... " />
+            <marker date="1532943896603" expanded="true" signature="1142:1202" ph="insert into BUSINESSRULE... " />
+            <marker date="1532943896603" expanded="true" signature="1423:1509" ph="insert into BUSINESSRULE_COMPONENT... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeRangeResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#303#304#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#384#385#0" expanded="true" />
+            <element signature="e#411#412#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/AttributeCompareResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="37" column="5" lean-forward="false" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+          <folding>
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#364#365#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+            <element signature="e#445#446#0" expanded="true" />
           </folding>
         </state>
       </provider>
