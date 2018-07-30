@@ -9,10 +9,8 @@
 <html>
   <head>
     <title>$Title$</title>
-    <script src="script/jquery-3.2.1.min.js"></script>
-    <script src="script/rest.js"></script>
   </head>
   <body>
-
+    test;
   </body>
 </html>
