@@ -1,5 +1,7 @@
 package com.example.jersey.domainTest.Composit;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -33,20 +35,6 @@ public class AttributeRange implements BusinessRuleComposite {
     }
 
     @Override
-    public ArrayList<String> getRuleDefine() {
-        return new ArrayList<String>(Arrays.asList(
-                String.format("insert into ATTRIBUTERANGE (ID, TABLE1, COLUMN1, VALUE1, VALUE2) values (%d, '%s', '%s', %d, %d)", 1, table, column, valueLow, valueHigh),
-                String.format("insert into BUSINESSRULE_COMPONENT (BUSINESSRULE_ID, ATTRIBUTERANGE_ID) values (%d, %d)", 1, 1)));
-
-    }
-
-    @Override
-    public ArrayList<String> getRuleAlter() {
-        return new ArrayList<String>(Arrays.asList(
-                String.format("update ATTRIBUTERANGE set TABLE1 = '%s', COLUMN1 = '%s', VALUE1 = %d, VALUE2 = %d where ID = %d", table, column, valueLow, valueHigh ,id)));
-    }
-
-    @Override
     public String getName() {
         return table + "_CNS_ARR_";
     }
@@ -58,4 +46,16 @@ public class AttributeRange implements BusinessRuleComposite {
         if (valueLow == valueHigh) return false;
         return true;
     }
+
+    @Override
+    public JSONObject getComposite() {
+        JSONObject object = new JSONObject();
+        object.put("id", id);
+        object.put("table", table);
+        object.put("column", column);
+        object.put("valueLow", valueLow);
+        object.put("valueHigh", valueHigh);
+        return object;
+    }
+
 }

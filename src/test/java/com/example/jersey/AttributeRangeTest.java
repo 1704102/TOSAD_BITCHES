@@ -1,6 +1,6 @@
 package com.example.jersey;
 
-import com.example.jersey.database.DatabaseHelper_Repo;
+import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.domainTest.BusinessRule;
 import com.example.jersey.domainTest.Composit.AttributeRange;
 
@@ -35,16 +35,16 @@ public class AttributeRangeTest extends TestCase {
         rule.addComposite(composite);
         DatabaseHelper_Repo database = new DatabaseHelper_Repo();
         database.connect();
-        rule.DefineRule().forEach(e->{
-            try {
-                System.out.println(e);
-                PreparedStatement statement = database.getPreparedStatement(e);
-                statement.execute();
-            }catch (Exception err){
-                err.printStackTrace();
-            }
-
-        });
+//        rule.DefineRule().forEach(e->{
+//            try {
+//                System.out.println(e);
+//                PreparedStatement statement = database.getPreparedStatement(e);
+//                statement.execute();
+//            }catch (Exception err){
+//                err.printStackTrace();
+//            }
+//
+//        });
         database.disconnect();
     }
 
@@ -54,16 +54,16 @@ public class AttributeRangeTest extends TestCase {
         rule.addComposite(composite);
         DatabaseHelper_Repo database = new DatabaseHelper_Repo();
         database.connect();
-        rule.alterRule().forEach(e->{
-            try {
-                System.out.println(e);
-                PreparedStatement statement = database.getPreparedStatement(e);
-                statement.execute();
-            }catch (Exception err){
-                err.printStackTrace();
-            }
-
-        });
+//        rule.alterRule().forEach(e->{
+//            try {
+//                System.out.println(e);
+//                PreparedStatement statement = database.getPreparedStatement(e);
+//                statement.execute();
+//            }catch (Exception err){
+//                err.printStackTrace();
+//            }
+//
+//        });
         database.disconnect();
     }
 }

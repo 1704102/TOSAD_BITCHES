@@ -1,4 +1,4 @@
-package com.example.jersey.database;
+package com.example.jersey.database.repository;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,7 +14,7 @@ public class DatabaseHelper_Repo {
     private String password = "tosad_2017_her_team1";
     private String service = "cursus02.hu.nl";
 
-    Connection connection;
+    public Connection connection;
 
     public void connect() {
         try {
@@ -38,26 +38,4 @@ public class DatabaseHelper_Repo {
         }
     }
 
-    public PreparedStatement getPreparedStatement(String sql){
-        try {
-            return connection.prepareStatement(sql);
-        }catch (Exception e){
-            return null;
-        }
-
-    }
-
-    public void execute(ArrayList<String> query){
-        connect();
-        query.forEach(subQuery->{
-            PreparedStatement statement = getPreparedStatement(subQuery);
-            try {
-                statement.execute();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        });
-
-        disconnect();
-    }
 }
