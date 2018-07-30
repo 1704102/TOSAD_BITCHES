@@ -16,21 +16,16 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-import com.example.jersey.dao.BusinessRuleComponentDao;
 import com.example.jersey.dao.BusinessRuleCompositeDao;
-import com.example.jersey.dao.impl.BusinessRuleComponentImplements;
 import com.example.jersey.dao.impl.BusinessRuleCompositeImplements;
 import com.example.jersey.domain.AttributeRule;
 import com.example.jersey.domain.BusinessRuleComponent;
 import com.example.jersey.domain.BusinessRuleComposite;
-import com.example.jersey.domain.CompareRule;
-import com.example.jersey.domain.Operator;
 
 @Path("compositestest")
 public class BusinessRuleRestService {
 	
-	private static final BusinessRuleComponentDao brcomponentDao = new BusinessRuleComponentImplements();
-	private static final BusinessRuleCompositeDao brcompositeDao = new BusinessRuleCompositeImplements();
+	private static final BusinessRuleCompositeDao proxy = new BusinessRuleCompositeImplements();
 	
 	//
 	// missing functional requirements:
@@ -58,9 +53,6 @@ public class BusinessRuleRestService {
 				
 				switch(operType) {
 					case "validate" : // for GET requests
-						if(brcomponentDao.exist(brc)) {
-							return jobj.accumulate("warning", "component already exist");
-						};
 						return jobj.accumulate("name", brc.getComponentName());
 					case "create" : // for POST and PUT requests
 						return jobj.accumulate("name", brc.getComponentName());
@@ -95,7 +87,6 @@ public class BusinessRuleRestService {
 		return jobj.toString();
 	}
 	
-
 	@POST
 	@Path("attribute/compare")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
@@ -123,28 +114,13 @@ public class BusinessRuleRestService {
 		// 1.1 check if similar entities already exist
 		//		
 		
-		List<BusinessRuleComponent> components = new ArrayList<BusinessRuleComponent>();
-		components.add(new AttributeRule(attributeValue));
-		components.add(new CompareRule(comparison));
-		components.add(new Operator(operator));
-		
-		for (BusinessRuleComponent component: components) {
-			if( brcomponentDao.exist(component) ) {
-				
-				//
-				// missing functionality: reuse the matching component in the database
-				//
-				
-				return false;
-			}
-		}
-		String brCode = "ACMP"; // Dat mag lekker iemand anders gaan doen
-		
-		BusinessRuleComposite brc = new BusinessRuleComposite(brCode);
-		if( brcompositeDao.saveComposite(brc)) {
+		BusinessRuleComposite brc = new BusinessRuleComposite("ACMP");
+		if( proxy.saveComposite(brc)) {
 			return true;
+			
 		} else {
 			return false;
+			
 		}
 	}
 	
