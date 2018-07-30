@@ -19,4 +19,17 @@ public class AttributeRangeResource {
         return facade.defineAttributeRangeRule(new JSONObject(x));
     }
 
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response alter(String x){
+        ResourceFacade facade = new ResourceFacade();
+        return facade.alterAttributeRangeRule(new JSONObject(x));
+    }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response delete(String x){
+        ResourceFacade facade = new ResourceFacade();
+        return facade.deleteAttributeRangeRule(new JSONObject(x));
+    }
 }

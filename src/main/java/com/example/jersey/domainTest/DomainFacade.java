@@ -24,19 +24,22 @@ public class DomainFacade {
         return rule.getRule();
     }
 
-//    public ArrayList<String> defineAttributeCompareRule(JSONObject object) throws Exception {
-//        BusinessRule rule = new BusinessRule();
-//        Operator operator = new Operator(object.getString("operator"));
-//        AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
-//        if (!composite.validate()){
-//            throw new AttributeCompareValidateExeption();
-//        }
-//        if (!operator.validate()){
-//            throw new OperatorValidateExeption();
-//        }
-//        rule.addComposite(composite);
-//        return rule.DefineRule();
-//    }
+    public JSONObject defineAttributeCompareRule(JSONObject object) throws Exception{
+        BusinessRule rule = new BusinessRule();
+        Operator operator = new Operator(object.getString("operator"));
+        AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
+        if (!operator.validate()){
+            throw new OperatorValidateExeption();
+        }
+        if (!composite.validate()){
+            throw new AttributeRangeValidateExeption();
+        }
+
+        rule.addComposite(composite);
+        return rule.getRule();
+    }
+
+
 
 
 

@@ -8,10 +8,20 @@ import java.util.Arrays;
 
 public class AttributeCompare implements BusinessRuleComposite{
 
+    private int id;
+
     String table;
     private String column;
     private int value;
     private Operator operator;
+
+    public AttributeCompare(int id, String table, String column, int value, Operator operator) {
+        this.id = id;
+        this.table = table;
+        this.column = column;
+        this.value = value;
+        this.operator = operator;
+    }
 
     public AttributeCompare(String table, String column, int value, Operator operator) {
         this.table = table;
@@ -25,27 +35,26 @@ public class AttributeCompare implements BusinessRuleComposite{
         return "alter table " + table +  " add constraint " + name + " check(" + column + " " + operator.getValue() + " " + value + ") ENABLE NOVALIDATE";
     }
 
-//    //TODO define rule code update
-//    @Override
-//    public ArrayList<String> getRuleDefine() {
-//        return new ArrayList<String>(Arrays.asList(
-//                String.format("insert into ATTRIBUTERANGE (ID, TABLE1, COLUMN1, VALUE1, VALUE2) values (%d, \"%s\", \"%s\", %d, %d)", 1, table, column, 1, 1)));
-//    }
-
-
     @Override
     public String getName() {
         return table + "_CNS_ACR_";
     }
 
     @Override
-    public boolean validate() {
+    public boolean validate(){
+        if (!operator.validate()) return false;
         return true;
     }
 
     @Override
     public JSONObject getComposite() {
-        return null;
+        JSONObject object = new JSONObject();
+        object.put("id", id);
+        object.put("table", table);
+        object.put("column", column);
+        object.put("value", value);
+        object.put("operator", operator.getValue());
+        return object;
     }
 
 }
