@@ -1,4 +1,4 @@
-package com.example.jersey.database;
+package com.example.jersey.database.Target;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -36,14 +36,5 @@ public class DatabaseHelper_Target {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public PreparedStatement getPreparedStatement(String sql){
-        try {
-            return connection.prepareStatement(sql);
-        }catch (Exception e){
-            return null;
-        }
-
     }
 }

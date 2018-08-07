@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class DomainFacade {
 
+    //<editor-fold desc="AttributeRangeRule">
     public JSONObject defineAttributeRangeRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule();
         AttributeRange composite = new AttributeRange(object.getString("table"), object.getString("column"), object.getInt("value1"), object.getInt("value2"));
@@ -23,7 +24,8 @@ public class DomainFacade {
         rule.addComposite(composite);
         return rule.getRule();
     }
-
+    //</editor-fold>
+    //<editor-fold desc="AttributeCompareRule">
     public JSONObject defineAttributeCompareRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule();
         Operator operator = new Operator(object.getString("operator"));
@@ -38,7 +40,7 @@ public class DomainFacade {
         rule.addComposite(composite);
         return rule.getRule();
     }
-
+    //</editor-fold>
 
 
 

@@ -1,8 +1,6 @@
 package com.example.jersey.database.repository.DAO;
 
-import com.example.jersey.database.DatabaseFacade;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
-import oracle.jdbc.proxy.annotation.Pre;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
