@@ -11,7 +11,8 @@ import javax.ws.rs.core.Response;
 public class AttributeCompareResource implements ResourceInterface{
     @Override
     public Response get(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getAttributeCompareRule(new JSONObject(x));
     }
 
     @Override

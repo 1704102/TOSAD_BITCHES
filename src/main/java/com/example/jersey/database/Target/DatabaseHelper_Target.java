@@ -1,20 +1,19 @@
-package com.example.jersey.database.repository;
+package com.example.jersey.database.Target;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
-public class DatabaseHelper_Repo {
+public class DatabaseHelper_Target {
 
     private String url = "ondora02.hu.nl";
     private String port = "8521";
-    private String username = "tosad_2017_her_team1";
-    private String password = "tosad_2017_her_team1";
+    private String username = "tosad_2017_her_team1_target";
+    private String password = "tosad_2017_her_team1_target";
     private String service = "cursus02.hu.nl";
 
-    public Connection connection;
+    Connection connection;
 
     public void connect() {
         try {
@@ -33,9 +32,9 @@ public class DatabaseHelper_Repo {
     public void disconnect() {
         try {
             connection.close();
+            System.out.println("connection closed");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 }

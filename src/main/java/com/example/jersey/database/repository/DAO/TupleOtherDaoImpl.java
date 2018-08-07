@@ -1,6 +1,7 @@
 package com.example.jersey.database.repository.DAO;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -34,15 +35,17 @@ public class TupleOtherDaoImpl extends DatabaseHelper_Repo implements BusinessRu
             statement.setString(2, object.getString("table"));
             statement.setString(3, object.getString("columnOne"));
             statement.setString(4, object.getString("columnTwo"));
-            statement.setString(5, object.getString("constraint");
+            statement.setString(5, object.getString("constraint"));
             //
             // NOTE: why isn't define a boolean? then you can just check if the transaction succeeded
             //
             System.out.println(
             "TupleCompareDaoImpl between line 51 and 53 \n" + 
             "this is a good way to check if define is: "
-            + statement.execute());
-		
+            + statement.execute() );
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
