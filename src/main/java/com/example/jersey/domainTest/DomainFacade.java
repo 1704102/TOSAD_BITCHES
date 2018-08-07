@@ -4,6 +4,7 @@ import com.example.jersey.Exeptions.AttributeCompareValidateExeption;
 import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
 import com.example.jersey.Exeptions.OperatorValidateExeption;
 import com.example.jersey.domainTest.Composit.AttributeCompare;
+import com.example.jersey.domainTest.Composit.AttributeList;
 import com.example.jersey.domainTest.Composit.AttributeRange;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import org.json.JSONObject;
@@ -41,7 +42,22 @@ public class DomainFacade {
         return rule.getRule();
     }
     //</editor-fold>
+    //<editor-fold desc="AttributeListRule">
+    public JSONObject defineAttributeListRule(JSONObject object) throws Exception {
+        BusinessRule rule = new BusinessRule();
+        ArrayList<String> list = new ArrayList<>();
+        for (Object string : object.getJSONArray("list").toList()){
+            list.add(string.toString());
+        }
+        AttributeList composite = new AttributeList(object.getString("table"), object.getString("column"), list);
+        if (!composite.validate()){
+            throw new AttributeRangeValidateExeption();
+        }
 
+        rule.addComposite(composite);
+        return rule.getRule();
+    }
+    //</editor-fold>
 
 
 
