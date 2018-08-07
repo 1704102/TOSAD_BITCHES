@@ -76,4 +76,13 @@ public class ResourceFacade {
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
+    
+    public Response defineTupleCompareRule(JSONObject object){
+        try{
+            databaseFacade.defineAttributeCompareRule(domainFacade.defineAttributeCompareRule(object));
+        }catch (Exception e){
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+    }
 }

@@ -1,8 +1,16 @@
 package com.example.jersey.database;
 
+//
+// Attribute Rules
+//
 import com.example.jersey.database.repository.DAO.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.AttributeRangeDao;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
+//
+// Tuple Rules
+//
+import com.example.jersey.database.repository.DAO.TupleCompareDaoImpl;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -29,8 +37,6 @@ public class DatabaseFacade{
         dao.delete(object);
     }
 
-
-
     public void defineAttributeCompareRule(JSONObject object){
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.define(object);
@@ -45,6 +51,14 @@ public class DatabaseFacade{
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.delete(object);
     }
+    
+    public void defineTupleCompareRule(JSONObject object) {
+    	TupleCompareDaoImpl dao = new TupleCompareDaoImpl();
+    	dao.define(object);
+    }
 
-
+    public void defineTupleOtherRule(JSONObject object) {
+    	TupleOtherDaoImpl dao = new TupleOtherDaoImpl();
+    	dao.define(object);
+    }
 }
