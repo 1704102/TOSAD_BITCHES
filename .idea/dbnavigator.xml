@@ -23,20 +23,14 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="b8aae4ac-0aea-48f2-94a9-770bb32940ab">
-        <schema name="PUBLIC" object-types="materialized view, synonym, table, view" />
-        <schema name="TOSAD_2017_HER_TEAM1_TARGET" object-types="materialized view, synonym, table, view" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bf4443c2-4f32-4016-af7f-0d1cdfd46119">
-      <console name="Connection" type="STANDARD"><![CDATA[create table]]></console>
+      <console name="repo" type="STANDARD" />
     </connection>
     <connection id="b8aae4ac-0aea-48f2-94a9-770bb32940ab">
-      <console name="target" type="STANDARD"><![CDATA[select * from CAR;]]></console>
-      <console name="target 1" type="STANDARD"><![CDATA[create table car ( id number(5));]]></console>
+      <console name="target" type="STANDARD" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
