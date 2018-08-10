@@ -20,7 +20,7 @@ public class ResourceFacade {
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
     }
 
     public Response getAttributeRangeRule(JSONObject object) {
@@ -30,7 +30,7 @@ public class ResourceFacade {
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok(object1, MediaType.APPLICATION_JSON).build();
+        return Response.ok(object1.toString(), MediaType.APPLICATION_JSON).build();
     }
 
     public Response alterAttributeRangeRule(JSONObject object) {
@@ -39,7 +39,7 @@ public class ResourceFacade {
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
     }
 
     public Response deleteAttributeRangeRule(JSONObject object) {
@@ -48,7 +48,7 @@ public class ResourceFacade {
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
     }
 
     // </editor-fold>

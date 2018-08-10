@@ -1,10 +1,13 @@
 package com.example.jersey.database.repository.DAO;
 
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
+import com.mysql.cj.protocol.Resultset;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
 public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRuleDao{
@@ -15,7 +18,24 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
 
     @Override
     public JSONObject get(JSONObject object) {
-        return null;
+        connect();
+        JSONObject output = new JSONObject();
+        try {
+            PreparedStatement statement = connection.prepareStatement("select * from businessrule a left join businessrule_component b on a.id = b.businessrule_id left join attributerange c on b.attributerange_id = c.id where b.attributerange_id is not null and a.id = ?");
+            statement.setInt(1, object.getInt("id"));
+            ResultSet s = statement.executeQuery();
+            ResultSetMetaData rsmd = s.getMetaData();
+            while (s.next()){
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    output.put(rsmd.getColumnName(i), s.getString(i-1));
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        disconnect();
+        return output;
     }
 
     @Override
@@ -34,6 +54,7 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
             statement.setInt(1, 1);
             statement.setString(2, object.getString("name"));
             statement.setString(3, object.getString("status"));
+            statement.execute();
 
 
             statement = connection.prepareStatement("insert into BUSINESSRULE_COMPONENT (BUSINESSRULE_ID, ATTRIBUTERANGE_ID) values (?,?)");
