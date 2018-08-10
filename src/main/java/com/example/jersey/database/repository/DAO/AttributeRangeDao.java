@@ -1,18 +1,6 @@
 package com.example.jersey.database.repository.DAO;
 
-
-//
-//-- NOTE from JanHub: com.example.jersey.database.DatabaseFacade is not used locally
-//
-
-// import com.example.jersey.database.DatabaseFacade;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
-//
-// -- NOTE from JanHub: oracle.jdbc.proxy.annotation.Pre Doesn't exist
-//
-
-//import oracle.jdbc.proxy.annotation.Pre;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 

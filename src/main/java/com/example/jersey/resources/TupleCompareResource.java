@@ -5,7 +5,7 @@ import javax.ws.rs.core.Response;
 
 import org.json.JSONObject;
 
-@Path("tcr")
+@Path("businessRule/tcr")
 public class TupleCompareResource implements ResourceInterface {
 
 	@Override
@@ -23,7 +23,7 @@ public class TupleCompareResource implements ResourceInterface {
 	@Override
 	public Response define(String x) {
 		ResourceFacade facade = new ResourceFacade();
-        return facade.defineTupleCompareRule(new JSONObject(x));
+        return null;
 	}
 
 	@Override

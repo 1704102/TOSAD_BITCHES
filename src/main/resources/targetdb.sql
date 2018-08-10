@@ -1,0 +1,111 @@
+--------------------------------------------------------
+--  File created - dinsdag-augustus-07-2018   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table ORDERS
+--------------------------------------------------------
+
+  CREATE TABLE "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" 
+   (	"ORDERID" NUMBER(*,0), 
+	"ORDERNUMBER" NUMBER(*,0), 
+	"PERSONID" NUMBER(*,0)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS1718" ;
+--------------------------------------------------------
+--  DDL for Table PERSONS
+--------------------------------------------------------
+
+  CREATE TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" 
+   (	"PERSONID" NUMBER(*,0), 
+	"NAME" VARCHAR2(255 BYTE), 
+	"ADRESS" VARCHAR2(255 BYTE)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS1718" ;
+--------------------------------------------------------
+--  DDL for Table PRODUCTS
+--------------------------------------------------------
+
+  CREATE TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" 
+   (	"PRODUCTID" NUMBER(*,0), 
+	"PRODUCTNAME" VARCHAR2(120 BYTE), 
+	"PRODUCTTYPE" VARCHAR2(20 BYTE), 
+	"PRICE" NUMBER, 
+	"ORDERID" NUMBER(*,0)
+   ) SEGMENT CREATION DEFERRED 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  TABLESPACE "USERS1718" ;
+REM INSERTING into TOSAD_2017_HER_TEAM1_TARGET.ORDERS
+SET DEFINE OFF;
+REM INSERTING into TOSAD_2017_HER_TEAM1_TARGET.PERSONS
+SET DEFINE OFF;
+REM INSERTING into TOSAD_2017_HER_TEAM1_TARGET.PRODUCTS
+SET DEFINE OFF;
+--------------------------------------------------------
+--  DDL for Index PRODUCTS_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS_PK" ON "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" ("PRODUCTID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS1718" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C00275349
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TOSAD_2017_HER_TEAM1_TARGET"."SYS_C00275349" ON "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" ("PERSONID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS1718" ;
+--------------------------------------------------------
+--  DDL for Index SYS_C00275352
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TOSAD_2017_HER_TEAM1_TARGET"."SYS_C00275352" ON "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" ("ORDERID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS1718" ;
+--------------------------------------------------------
+--  Constraints for Table ORDERS
+--------------------------------------------------------
+
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" MODIFY ("ORDERID" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" MODIFY ("ORDERNUMBER" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" ADD PRIMARY KEY ("ORDERID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS1718"  ENABLE;
+--------------------------------------------------------
+--  Constraints for Table PERSONS
+--------------------------------------------------------
+
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" MODIFY ("PERSONID" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" MODIFY ("NAME" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" MODIFY ("ADRESS" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" ADD PRIMARY KEY ("PERSONID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS1718"  ENABLE;
+  
+--------------------------------------------------------
+--  Constraints for Table PRODUCTS
+--------------------------------------------------------
+
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" ADD CONSTRAINT "PRODUCTS_PK" PRIMARY KEY ("PRODUCTID")
+  USING INDEX PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  TABLESPACE "USERS1718"  ENABLE;
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" MODIFY ("PRODUCTID" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" MODIFY ("PRODUCTNAME" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" MODIFY ("PRICE" NOT NULL ENABLE);
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" MODIFY ("ORDERID" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table ORDERS
+--------------------------------------------------------
+
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" ADD FOREIGN KEY ("PERSONID")
+	  REFERENCES "TOSAD_2017_HER_TEAM1_TARGET"."PERSONS" ("PERSONID") ENABLE;
+--------------------------------------------------------
+--  Ref Constraints for Table PRODUCTS
+--------------------------------------------------------
+
+  ALTER TABLE "TOSAD_2017_HER_TEAM1_TARGET"."PRODUCTS" ADD FOREIGN KEY ("ORDERID")
+	  REFERENCES "TOSAD_2017_HER_TEAM1_TARGET"."ORDERS" ("ORDERID") ENABLE;

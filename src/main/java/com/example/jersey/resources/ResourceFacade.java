@@ -119,28 +119,16 @@ public class ResourceFacade {
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
 
-    
-    public Response defineTupleCompareRule(JSONObject object){
-        try{
-            repoDatabaseFacade.defineAttributeCompareRule(domainFacade.defineAttributeCompareRule(object));
-
-        }catch (Exception e){
-            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
-        }
-        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
-    }
     //</editor-fold>
     //<editor-fold desc="Target">
     public Response getTargetTables(JSONObject object){
         try{
             repoDatabaseFacade.defineAttributeCompareRule(domainFacade.defineAttributeCompareRule(object));
-
         }catch (Exception e){
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
-
     public Response GetTargetColumns(JSONObject object){
         try{
             repoDatabaseFacade.defineAttributeCompareRule(domainFacade.defineAttributeCompareRule(object));
@@ -158,4 +146,5 @@ public class ResourceFacade {
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
 
+    //</editor-fold>
 }

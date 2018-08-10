@@ -11,69 +11,59 @@
 
   <name>TOSAD-BITCHES</name>
   <url>http://maven.apache.org</url>
-  
-  <properties>
+    <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<maven.compiler.source>1.8</maven.compiler.source>
 	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+    <repositories>
+        <repository>
+            <id>Datanucleus</id>
+            <url>http://www.datanucleus.org/downloads/maven2/</url>
+        </repository>
+    </repositories>
+    <dependencies>
     
-  <repositories>
-      <repository>
-          <id>Datanucleus</id>
-          <url>http://www.datanucleus.org/downloads/maven2/</url>
-      </repository>
-  </repositories>
-  
-  <dependencies>
-  
-  
-	<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-servlet -->
-	  <dependency>
-	      <groupId>com.sun.jersey</groupId>
-	      <artifactId>jersey-servlet</artifactId>
-	      <version>1.19.4</version>
-	  </dependency>
+    
+		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-servlet -->
+		<dependency>
+		    <groupId>com.sun.jersey</groupId>
+		    <artifactId>jersey-servlet</artifactId>
+		    <version>1.19.4</version>
+		</dependency>
+		
+		
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId>
+            <version>LATEST</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180130</version>
+        </dependency>
 
-      <dependency>
-          <groupId>com.sun.jersey</groupId>
-          <artifactId>jersey-bundle</artifactId>
-          <version>LATEST</version>
-      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.json/json -->
-      <dependency>
-          <groupId>org.json</groupId>
-          <artifactId>json</artifactId>
-          <version>20180130</version>
-      </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.11</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 
-      <dependency>
-          <groupId>mysql</groupId>
-          <artifactId>mysql-connector-java</artifactId>
-          <version>8.0.11</version>
-      </dependency>
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.12</version>
-          <scope>test</scope>
-      </dependency>
+        <dependency>
+            <groupId>oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0.3</version>
+        </dependency>
 
-<!--       <dependency>
-          <groupId>oracle</groupId>
-          <artifactId>ojdbc6</artifactId>
-          <version>11.2.0.3</version>
-      </dependency> -->
-      <!-- backward compatibility -->
-	<dependency>
-		<groupId>oracle</groupId>
-		<artifactId>ojdbc6</artifactId>
-		<version>11.1.0.7.0</version>
-		<scope>system</scope>
-		<systemPath>${project.basedir}/src/main/resources/ojdbc6.jar</systemPath>
-	</dependency>
-
-  </dependencies>
+    </dependencies>
 
     <build>
         <plugins>
@@ -89,11 +79,10 @@
                     </execution>
                 </executions>
             </plugin>
-<!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html -->
             <plugin>
-            	<artifactId>maven-compiler-plugin</artifactId>
-            	<version>3.7.0</version>
-            	<configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>

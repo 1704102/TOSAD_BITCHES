@@ -1,24 +1,13 @@
 package com.example.jersey.database;
 
-//
-// Attribute Rules
-//
 import com.example.jersey.database.repository.DAO.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.AttributeRangeDao;
-import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.database.repository.UserDatabase;
-//
-// Tuple Rules
-//
-import com.example.jersey.database.repository.DAO.TupleCompareDaoImpl;
-import com.example.jersey.database.repository.DAO.TupleOtherDaoImpl;
-
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+public class RepoDatabaseFacade {
 
-public class RepoDatabaseFacade{
-
+    //<editor-fold desc="AttributeRangeRule">
     public void defineAttributeRangeRule(JSONObject object){
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.define(object);
@@ -39,6 +28,8 @@ public class RepoDatabaseFacade{
         dao.delete(object);
     }
 
+    //</editor-fold>
+    //<editor-fold desc="AttributeCompareRule">
     public void defineAttributeCompareRule(JSONObject object){
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.define(object);
@@ -53,18 +44,10 @@ public class RepoDatabaseFacade{
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.delete(object);
     }
-    
-    public void defineTupleCompareRule(JSONObject object) {
-    	TupleCompareDaoImpl dao = new TupleCompareDaoImpl();
-    	dao.define(object);
-    }
 
-    public void defineTupleOtherRule(JSONObject object) {
-    	TupleOtherDaoImpl dao = new TupleOtherDaoImpl();
-    	dao.define(object);
-    }
-    
-        public boolean login(JSONObject object){
+    //</editor-fold>
+    //<editor-fold desc="User">
+    public boolean login(JSONObject object){
         UserDatabase database = new UserDatabase();
         return database.login(object);
     }
@@ -79,4 +62,5 @@ public class RepoDatabaseFacade{
         UserDatabase database = new UserDatabase();
         database.addDatabase(object);
     }
+    //</editor-fold>
 }
