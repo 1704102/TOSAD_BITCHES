@@ -8,7 +8,8 @@ import javax.ws.rs.core.Response;
 
 public interface ResourceInterface {
 
-    @GET
+    @Path("/get")
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(String x);
 

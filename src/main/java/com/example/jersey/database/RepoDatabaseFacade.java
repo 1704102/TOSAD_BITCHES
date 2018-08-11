@@ -1,8 +1,10 @@
 package com.example.jersey.database;
 
 import com.example.jersey.database.repository.DAO.AttributeCompareDao;
+import com.example.jersey.database.repository.DAO.AttributeListDao;
 import com.example.jersey.database.repository.DAO.AttributeRangeDao;
 import com.example.jersey.database.repository.UserDatabase;
+import com.example.jersey.domainTest.Composit.AttributeList;
 import org.json.JSONObject;
 
 public class RepoDatabaseFacade {
@@ -46,6 +48,24 @@ public class RepoDatabaseFacade {
     }
 
     //</editor-fold>
+    //<editor-fold desc="AttributeListRule">
+    public void defineAttributeListRule(JSONObject object) {
+        AttributeListDao dao = new AttributeListDao();
+        dao.define(object);
+    }
+    public JSONObject getAttributeListRule(JSONObject object) {
+        AttributeListDao dao = new AttributeListDao();
+        return dao.get(object);
+    }
+    public void alterAttributeListRule(JSONObject object) {
+        AttributeListDao dao = new AttributeListDao();
+        dao.update(object);
+    }
+    public void deleteAttributeListRule(JSONObject object) {
+        AttributeListDao dao = new AttributeListDao();
+        dao.delete(object);
+    }
+    //</editor-fold>
     //<editor-fold desc="User">
     public boolean login(JSONObject object){
         UserDatabase database = new UserDatabase();
@@ -63,4 +83,5 @@ public class RepoDatabaseFacade {
         database.addDatabase(object);
     }
     //</editor-fold>
+
 }
