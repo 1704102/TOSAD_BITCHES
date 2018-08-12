@@ -17,7 +17,7 @@ public class DomainFacade {
 
     //<editor-fold desc="AttributeRangeRule">
     public JSONObject defineAttributeRangeRule(JSONObject object) throws Exception{
-        BusinessRule rule = new BusinessRule();
+        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
         AttributeRange composite = new AttributeRange(object.getString("table"), object.getString("column"), object.getInt("value1"), object.getInt("value2"));
         if (!composite.validate()){
             throw new AttributeRangeValidateExeption();
@@ -28,7 +28,7 @@ public class DomainFacade {
     //</editor-fold>
     //<editor-fold desc="AttributeCompareRule">
     public JSONObject defineAttributeCompareRule(JSONObject object) throws Exception{
-        BusinessRule rule = new BusinessRule();
+        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
         Operator operator = new Operator(object.getString("operator"));
         AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
         if (!operator.validate()){
@@ -44,7 +44,7 @@ public class DomainFacade {
     //</editor-fold>
     //<editor-fold desc="AttributeListRule">
     public JSONObject defineAttributeListRule(JSONObject object) throws Exception {
-        BusinessRule rule = new BusinessRule();
+        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
         ArrayList<String> list = new ArrayList<>();
         for (Object string : object.getJSONArray("list").toList()){
             list.add(string.toString());

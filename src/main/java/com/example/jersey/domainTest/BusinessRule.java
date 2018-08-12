@@ -11,16 +11,19 @@ public class BusinessRule {
     int id;
     String name;
     String status;
+    int database_id;
 
     BusinessRuleComposite composite;
 
-    public BusinessRule(){
+    public BusinessRule(int database_id){
         this.status = "new";
+        this.database_id = database_id;
     }
 
-    public BusinessRule(int id){
+    public BusinessRule(int id, int database_id){
         this.id = id;
         this.status = "new";
+        this.database_id = database_id;
     }
 
 
@@ -48,6 +51,7 @@ public class BusinessRule {
         object.put("base_id", id);
         object.put("name", getName());
         object.put("status", status);
+        object.put("database_id", database_id);
         return object;
     }
 

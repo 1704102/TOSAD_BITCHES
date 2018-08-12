@@ -1,6 +1,7 @@
 package com.example.jersey.database.repository.DAO;
 
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
+import com.example.jersey.util.Util;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -10,8 +11,13 @@ import java.sql.SQLException;
 
 public class AttributeCompareDao extends DatabaseHelper_Repo implements BusinessRuleDao{
     @Override
-    public JSONObject getAll() {
-        return null;
+    public JSONObject getAll(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.operator from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributecompare c on b.acr_id = c.id where b.acr_id is not null");
+        ResultSet s = statement.executeQuery();
+        JSONObject output = Util.ResultSetToJSONArray(s);
+        disconnect();
+        return output;
     }
 
     @Override

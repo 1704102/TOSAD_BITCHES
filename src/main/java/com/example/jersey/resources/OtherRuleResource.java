@@ -9,7 +9,7 @@ public class OtherRuleResource implements ResourceInterface{
     }
 
     @Override
-    public Response getAll() {
+    public Response getAll(String x) {
         return null;
     }
 

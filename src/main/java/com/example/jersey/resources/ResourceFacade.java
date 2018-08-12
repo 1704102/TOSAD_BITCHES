@@ -13,9 +13,9 @@ public class ResourceFacade {
     RepoDatabaseFacade repoDatabaseFacade = new RepoDatabaseFacade();
 
     //<editor-fold desc="AttributeRangeRule">
-    public Response getAllAttributeRangeRules() {
+    public Response getAllAttributeRangeRules(JSONObject object) {
         try {
-            return Response.ok(repoDatabaseFacade.getAllAttributeRangeRules().toString(), MediaType.APPLICATION_JSON).build();
+            return Response.ok(repoDatabaseFacade.getAllAttributeRangeRules(object).toString(), MediaType.APPLICATION_JSON).build();
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
@@ -25,6 +25,7 @@ public class ResourceFacade {
         try {
             repoDatabaseFacade.defineAttributeRangeRule(domainFacade.defineAttributeRangeRule(object));
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
@@ -68,6 +69,14 @@ public class ResourceFacade {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response getAllAttributeCompareRules(JSONObject object) {
+        try {
+            return Response.ok(repoDatabaseFacade.getAllAttributeCompareRules(object).toString(), MediaType.APPLICATION_JSON).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
     }
 
     public Response getAttributeCompareRule(JSONObject object) {
@@ -192,6 +201,7 @@ public class ResourceFacade {
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
+
 
 
 

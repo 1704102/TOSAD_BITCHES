@@ -5,8 +5,10 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRuleDao {
+
+
     @Override
-    public JSONObject getAll() {
+    public JSONObject getAll(JSONObject object) throws Exception {
         return null;
     }
 

@@ -10,7 +10,7 @@ public class AttributeListResource implements ResourceInterface{
     }
 
     @Override
-    public Response getAll() {
+    public Response getAll(String x) {
         return null;
     }
 

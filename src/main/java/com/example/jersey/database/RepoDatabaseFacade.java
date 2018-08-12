@@ -10,25 +10,25 @@ import org.json.JSONObject;
 public class RepoDatabaseFacade {
 
     //<editor-fold desc="AttributeRangeRule">
-    public void defineAttributeRangeRule(JSONObject object){
+    public void defineAttributeRangeRule(JSONObject object) throws Exception{
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.define(object);
     }
-    public Object getAllAttributeRangeRules() {
+    public JSONObject getAllAttributeRangeRules(JSONObject object) throws Exception {
         AttributeRangeDao dao = new AttributeRangeDao();
-        return dao.getAll();
+        return dao.getAll(object);
     }
-    public JSONObject getAttributeRangeRule(JSONObject object){
+    public JSONObject getAttributeRangeRule(JSONObject object) throws Exception{
         AttributeRangeDao dao = new AttributeRangeDao();
         return dao.get(object);
     }
 
-    public void alterAttributeRangeRule(JSONObject object) {
+    public void alterAttributeRangeRule(JSONObject object) throws Exception {
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.update(object);
     }
 
-    public void deleteAttributeRangeRule(JSONObject object){
+    public void deleteAttributeRangeRule(JSONObject object) throws Exception{
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.delete(object);
     }
@@ -38,6 +38,11 @@ public class RepoDatabaseFacade {
     public void defineAttributeCompareRule(JSONObject object){
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.define(object);
+    }
+
+    public JSONObject getAllAttributeCompareRules(JSONObject object) throws Exception {
+        AttributeCompareDao dao = new AttributeCompareDao();
+        return dao.getAll(object);
     }
 
     public void alterAttributeCompareRule(JSONObject object) {
@@ -85,6 +90,8 @@ public class RepoDatabaseFacade {
         UserDatabase database = new UserDatabase();
         database.addDatabase(object);
     }
+
+
 
 
     //</editor-fold>
