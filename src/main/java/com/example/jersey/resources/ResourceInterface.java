@@ -13,10 +13,9 @@ public interface ResourceInterface {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(String x);
 
-    @Path("/all")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAll(String x);
+    public Response getAll();
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)

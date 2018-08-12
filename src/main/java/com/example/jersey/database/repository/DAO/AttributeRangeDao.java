@@ -12,8 +12,28 @@ import java.sql.SQLException;
 
 public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRuleDao{
     @Override
-    public JSONArray getAll(JSONObject object) {
-        return null;
+    public JSONObject getAll() {
+        connect();
+        JSONObject output = new JSONObject();
+        JSONArray array = new JSONArray();
+        try {
+            PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.value2 from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributerange c on b.arr_id = c.id where b.arr_id is not null");
+            ResultSet s = statement.executeQuery();
+            ResultSetMetaData rsmd = s.getMetaData();
+            while (s.next()){
+                JSONObject rule = new JSONObject();
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    rule.put(rsmd.getColumnName(i), s.getString(i));
+                }
+                array.put(rule);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        disconnect();
+        output.put("rules", array);
+        return output;
     }
 
     @Override
@@ -21,13 +41,13 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         connect();
         JSONObject output = new JSONObject();
         try {
-            PreparedStatement statement = connection.prepareStatement("select * from businessrule a left join businessrule_component b on a.id = b.businessrule_id left join attributerange c on b.attributerange_id = c.id where b.attributerange_id is not null and a.id = ?");
+            PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.value2 from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributerange c on b.arr_id = c.id where b.arr_id is not null and a.id = ?");
             statement.setInt(1, object.getInt("id"));
             ResultSet s = statement.executeQuery();
             ResultSetMetaData rsmd = s.getMetaData();
             while (s.next()){
                 for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    output.put(rsmd.getColumnName(i), s.getString(i-1));
+                    output.put(rsmd.getColumnName(i), s.getString(i));
                 }
             }
         }catch (Exception e){
@@ -40,10 +60,14 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
 
     @Override
     public void define(JSONObject object) {
+
+        int rule_id = getRuleInitId();
+        int composite_id = getInitId();
+
         try {
             connect();
             PreparedStatement statement = connection.prepareStatement("insert into ATTRIBUTERANGE (ID, TABLE1, COLUMN1, VALUE1, VALUE2) values (?, ?, ?, ?, ?)");
-            statement.setInt(1,1);
+            statement.setInt(1, composite_id);
             statement.setString(2, object.getString("table"));
             statement.setString(3, object.getString("column"));
             statement.setInt(4,object.getInt("valueLow"));
@@ -51,15 +75,15 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
             statement.execute();
 
             statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS) values (?, ?, ?)");
-            statement.setInt(1, 1);
+            statement.setInt(1, rule_id);
             statement.setString(2, object.getString("name"));
             statement.setString(3, object.getString("status"));
             statement.execute();
 
 
-            statement = connection.prepareStatement("insert into BUSINESSRULE_COMPONENT (BUSINESSRULE_ID, ATTRIBUTERANGE_ID) values (?,?)");
-            statement.setInt(1,1);
-            statement.setInt(2,1);
+            statement = connection.prepareStatement("insert into BUSINESSRULE_COMPOSITE (RULE_ID, ARR_ID) values (?,?)");
+            statement.setInt(1,rule_id);
+            statement.setInt(2,composite_id);
             statement.execute();
             disconnect();
         } catch (SQLException e) {
@@ -74,24 +98,62 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
             PreparedStatement statement = connection.prepareStatement("update ATTRIBUTERANGE set TABLE1 = ?, COLUMN1 = ?, VALUE1 = ?, VALUE2 = ? where ID = ?");
             statement.setString(1, object.getString("table"));
             statement.setString(2, object.getString("column"));
-            statement.setInt(3, object.getInt("valueLow"));
-            statement.setInt(4, object.getInt("valueHigh"));
-            statement.setInt(5, object.getInt("id"));
+            statement.setInt(3, object.getInt("value1"));
+            statement.setInt(4, object.getInt("value2"));
+            statement.setInt(5, object.getInt("composite_id"));
             statement.execute();
 
             statement = connection.prepareStatement("update BUSINESSRULE set NAME = ?, STATUS = ? where id = ?");
             statement.setString(1, object.getString("name"));
             statement.setString(2, object.getString("status"));
-            statement.setInt(3, object.getInt("base_id"));
+            statement.setInt(3, object.getInt("rule_id"));
+            statement.execute();
 
             disconnect();
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
     @Override
     public void delete(JSONObject object) {
+        connect();
+        try {
+            PreparedStatement statement = connection.prepareStatement("delete from businessrule where id = ?");
+            statement.setInt(1, object.getInt("rule_id"));
+            statement.execute();
 
+            statement = connection.prepareStatement("delete from businessrule_composite where rule_id = ?");
+            statement.setInt(1, object.getInt("rule_id"));
+            statement.execute();
+
+            statement = connection.prepareStatement("delete from attributerange where id = ?");
+            statement.setInt(1, object.getInt("composite_id"));
+            statement.execute();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        disconnect();
+    }
+
+    @Override
+    public int getInitId() {
+        connect();
+        int id = 0;
+        try {
+            PreparedStatement statement = connection.prepareStatement("select max(id) as max from attributerange");
+            ResultSet s = statement.executeQuery();
+            while (s.next()){
+                id = s.getInt("max");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        disconnect();
+        if (id == 0){
+            return 1;
+        }
+        return id + 1;
     }
 }

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRuleDao {
     @Override
-    public JSONArray getAll(JSONObject object) {
+    public JSONObject getAll() {
         return null;
     }
 
@@ -28,5 +28,10 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
     @Override
     public void delete(JSONObject object) {
 
+    }
+
+    @Override
+    public int getInitId() {
+        return 0;
     }
 }

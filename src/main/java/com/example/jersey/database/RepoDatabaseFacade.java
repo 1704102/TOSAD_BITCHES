@@ -14,7 +14,10 @@ public class RepoDatabaseFacade {
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.define(object);
     }
-
+    public Object getAllAttributeRangeRules() {
+        AttributeRangeDao dao = new AttributeRangeDao();
+        return dao.getAll();
+    }
     public JSONObject getAttributeRangeRule(JSONObject object){
         AttributeRangeDao dao = new AttributeRangeDao();
         return dao.get(object);
@@ -82,6 +85,8 @@ public class RepoDatabaseFacade {
         UserDatabase database = new UserDatabase();
         database.addDatabase(object);
     }
+
+
     //</editor-fold>
 
 }

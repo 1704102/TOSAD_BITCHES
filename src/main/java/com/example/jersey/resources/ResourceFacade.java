@@ -13,6 +13,13 @@ public class ResourceFacade {
     RepoDatabaseFacade repoDatabaseFacade = new RepoDatabaseFacade();
 
     //<editor-fold desc="AttributeRangeRule">
+    public Response getAllAttributeRangeRules() {
+        try {
+            return Response.ok(repoDatabaseFacade.getAllAttributeRangeRules().toString(), MediaType.APPLICATION_JSON).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+    }
 
     public Response defineAttributeRangeRule(JSONObject object) {
         try {
@@ -185,6 +192,8 @@ public class ResourceFacade {
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
+
+
 
     //</editor-fold>
 }

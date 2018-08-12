@@ -8,9 +8,10 @@ import java.util.HashMap;
 
 public interface BusinessRuleDao{
 
-    JSONArray getAll(JSONObject object);
+    JSONObject getAll();
     JSONObject get(JSONObject object);
     void define(JSONObject object);
     void update(JSONObject object);
     void delete(JSONObject object);
+    int getInitId();
 }

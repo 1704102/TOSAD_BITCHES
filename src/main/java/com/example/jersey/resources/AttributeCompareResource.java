@@ -16,7 +16,7 @@ public class AttributeCompareResource implements ResourceInterface{
     }
 
     @Override
-    public Response getAll(String x) {
+    public Response getAll() {
         return null;
     }
 
