@@ -1,31 +1,38 @@
 package com.example.jersey.resources;
 
+import org.json.JSONObject;
+
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 @Path("/businessRule/alr")
 public class AttributeListResource implements ResourceInterface{
     @Override
     public Response get(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getAttributeListRule(new JSONObject(x));
     }
 
     @Override
     public Response getAll(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getAllAttributeListRules(new JSONObject(x));
     }
 
     @Override
     public Response define(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.defineAttributeListRule(new JSONObject(x));
     }
 
     @Override
     public Response alter(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.alterAttributeListRule(new JSONObject(x));
     }
 
     @Override
     public Response delete(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.deleteAttributeListRule(new JSONObject(x));
     }
 }

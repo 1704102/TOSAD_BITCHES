@@ -45,11 +45,7 @@ public class DomainFacade {
     //<editor-fold desc="AttributeListRule">
     public JSONObject defineAttributeListRule(JSONObject object) throws Exception {
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        ArrayList<String> list = new ArrayList<>();
-        for (Object string : object.getJSONArray("list").toList()){
-            list.add(string.toString());
-        }
-        AttributeList composite = new AttributeList(object.getString("table"), object.getString("column"), list);
+        AttributeList composite = new AttributeList(object.getString("table"), object.getString("column"), object.getJSONArray("value1"));
         if (!composite.validate()){
             throw new AttributeRangeValidateExeption();
         }

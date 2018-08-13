@@ -4,6 +4,7 @@ import com.example.jersey.database.repository.DAO.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.AttributeListDao;
 import com.example.jersey.database.repository.DAO.AttributeRangeDao;
 import com.example.jersey.database.repository.UserDatabase;
+import com.example.jersey.domainTest.Composit.AttributeCompare;
 import com.example.jersey.domainTest.Composit.AttributeList;
 import org.json.JSONObject;
 
@@ -39,37 +40,45 @@ public class RepoDatabaseFacade {
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.define(object);
     }
+    public Object getAttributeCompareRule(JSONObject object) throws Exception {
+        AttributeCompareDao dao = new AttributeCompareDao();
+        return dao.get(object);
+    }
 
     public JSONObject getAllAttributeCompareRules(JSONObject object) throws Exception {
         AttributeCompareDao dao = new AttributeCompareDao();
         return dao.getAll(object);
     }
 
-    public void alterAttributeCompareRule(JSONObject object) {
+    public void alterAttributeCompareRule(JSONObject object) throws Exception {
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.update(object);
     }
 
-    public void deleteAttributeCompareRule(JSONObject object){
+    public void deleteAttributeCompareRule(JSONObject object) throws Exception{
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.delete(object);
     }
 
     //</editor-fold>
     //<editor-fold desc="AttributeListRule">
-    public void defineAttributeListRule(JSONObject object) {
+    public void defineAttributeListRule(JSONObject object) throws Exception{
         AttributeListDao dao = new AttributeListDao();
         dao.define(object);
     }
-    public JSONObject getAttributeListRule(JSONObject object) {
+    public JSONObject getAllAttributeListRules(JSONObject object) throws Exception {
+        AttributeListDao dao = new AttributeListDao();
+        return dao.getAll(object);
+    }
+    public JSONObject getAttributeListRule(JSONObject object) throws Exception {
         AttributeListDao dao = new AttributeListDao();
         return dao.get(object);
     }
-    public void alterAttributeListRule(JSONObject object) {
+    public void alterAttributeListRule(JSONObject object) throws Exception {
         AttributeListDao dao = new AttributeListDao();
         dao.update(object);
     }
-    public void deleteAttributeListRule(JSONObject object) {
+    public void deleteAttributeListRule(JSONObject object) throws Exception {
         AttributeListDao dao = new AttributeListDao();
         dao.delete(object);
     }

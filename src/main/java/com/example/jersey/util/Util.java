@@ -14,7 +14,12 @@ public class Util {
         while (s.next()){
             JSONObject object = new JSONObject();
             for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                object.put(rsmd.getColumnName(i), s.getString(i));
+                if (rsmd.getColumnName(i).equals("LIST")){
+                    JSONArray array1 = new JSONArray(s.getString(i).split(";"));
+                    object.put("value1", array1);
+                }else {
+                    object.put(rsmd.getColumnName(i), s.getString(i));
+                }
             }
             array.put(object);
         }
@@ -26,7 +31,12 @@ public class Util {
         ResultSetMetaData rsmd = s.getMetaData();
         while (s.next()){
             for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                object.put(rsmd.getColumnName(i), s.getString(i));
+                if (rsmd.getColumnName(i).equals("LIST")){
+                    JSONArray array1 = new JSONArray(s.getString(i).split(";"));
+                    object.put("value1", array1);
+                }else {
+                    object.put(rsmd.getColumnName(i), s.getString(i));
+                }
             }
         }
         return object;

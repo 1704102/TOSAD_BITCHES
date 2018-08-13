@@ -13,7 +13,8 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
     @Override
     public JSONObject getAll(JSONObject object) throws Exception{
         connect();
-        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.operator from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributecompare c on b.acr_id = c.id where b.acr_id is not null");
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.operator from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributecompare c on b.acr_id = c.id where b.acr_id is not null and a.database_id = ?");
+        statement.setInt(1, object.getInt("database_id"));
         ResultSet s = statement.executeQuery();
         JSONObject output = Util.ResultSetToJSONArray(s);
         disconnect();
@@ -21,8 +22,14 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
     }
 
     @Override
-    public JSONObject get(JSONObject object) {
-        return null;
+    public JSONObject get(JSONObject object) throws Exception {
+        connect();
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.operator from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributecompare c on b.acr_id = c.id where b.acr_id is not null and a.id = ?");
+        statement.setInt(1, object.getInt("id"));
+        ResultSet s = statement.executeQuery();
+        JSONObject output = Util.ResultSetToJSONObject(s);
+        disconnect();
+        return output;
     }
 
     @Override
@@ -41,10 +48,11 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
             statement.setString(5,object.getString("operator"));
             statement.execute();
 
-            statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS) values (?, ?, ?)");
+            statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS, database_id) values (?, ?, ?, ?)");
             statement.setInt(1, rule_id);
             statement.setString(2, object.getString("name"));
             statement.setString(3, object.getString("status"));
+            statement.setInt(4, object.getInt("database_id"));
             statement.execute();
 
 
@@ -59,13 +67,43 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
     }
 
     @Override
-    public void update(JSONObject object) {
+    public void update(JSONObject object) throws Exception {
+        connect();
 
+        PreparedStatement statement = connection.prepareStatement("update ATTRIBUTECOMPARE set TABLE1 = ?, COLUMN1 = ?, VALUE1 = ?, OPERATOR = ? where ID = ?");
+        statement.setString(1, object.getString("table"));
+        statement.setString(2, object.getString("column"));
+        statement.setInt(3, object.getInt("value1"));
+        statement.setString(4, object.getString("operator"));
+        statement.setInt(5, object.getInt("composite_id"));
+        statement.execute();
+
+        statement = connection.prepareStatement("update BUSINESSRULE set NAME = ?, STATUS = ? where id = ?");
+        statement.setString(1, object.getString("name"));
+        statement.setString(2, object.getString("status"));
+        statement.setInt(3, object.getInt("rule_id"));
+        statement.execute();
+
+        disconnect();
     }
 
     @Override
-    public void delete(JSONObject object) {
+    public void delete(JSONObject object) throws Exception{
+        connect();
 
+        PreparedStatement statement = connection.prepareStatement("delete from businessrule where id = ?");
+        statement.setInt(1, object.getInt("rule_id"));
+        statement.execute();
+
+        statement = connection.prepareStatement("delete from businessrule_composite where rule_id = ?");
+        statement.setInt(1, object.getInt("rule_id"));
+        statement.execute();
+
+        statement = connection.prepareStatement("delete from attributecompare where id = ?");
+        statement.setInt(1, object.getInt("composite_id"));
+        statement.execute();
+
+        disconnect();
     }
 
     @Override

@@ -75,23 +75,25 @@ public class ResourceFacade {
         try {
             return Response.ok(repoDatabaseFacade.getAllAttributeCompareRules(object).toString(), MediaType.APPLICATION_JSON).build();
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
     }
 
     public Response getAttributeCompareRule(JSONObject object) {
         try {
-            //repoDatabaseFacade.get(domainFacade.defineAttributeCompareRule(object));
+            return Response.ok(repoDatabaseFacade.getAttributeCompareRule(object).toString(), MediaType.APPLICATION_JSON).build();
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+
     }
 
     public Response alterAttributeCompareRule(JSONObject object) {
         try {
             repoDatabaseFacade.alterAttributeCompareRule(object);
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
@@ -110,11 +112,21 @@ public class ResourceFacade {
     //<editor-fold desc="AttributeListRule">
     public Response defineAttributeListRule(JSONObject object) {
         try {
-            repoDatabaseFacade.defineAttributeListRule(domainFacade.defineAttributeListRule(object));
+           repoDatabaseFacade.defineAttributeListRule(domainFacade.defineAttributeListRule(object));
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response getAllAttributeListRules(JSONObject object) {
+        try {
+            return Response.ok(repoDatabaseFacade.getAllAttributeListRules(object).toString(), MediaType.APPLICATION_JSON).build();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
     }
 
     public Response getAttributeListRule(JSONObject object) {
@@ -124,13 +136,14 @@ public class ResourceFacade {
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok(object1, MediaType.APPLICATION_JSON).build();
+        return Response.ok(object1.toString(), MediaType.APPLICATION_JSON).build();
     }
 
     public Response alterAttributeListRule(JSONObject object) {
         try {
             repoDatabaseFacade.alterAttributeListRule(object);
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
