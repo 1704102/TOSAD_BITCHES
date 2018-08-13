@@ -47,8 +47,8 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
         connect();
         PreparedStatement statement = connection.prepareStatement("insert into ATTRIBUTELIST (ID, TABLE1, COLUMN1, LIST) values (?, ?, ?, ?)");
         statement.setInt(1, composite_id);
-        statement.setString(2, object.getString("table"));
-        statement.setString(3, object.getString("column"));
+        statement.setString(2, object.getString("table1"));
+        statement.setString(3, object.getString("column1"));
         statement.setString(4,list.toString());
         statement.execute();
 
@@ -79,8 +79,8 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
         list.deleteCharAt(list.length() - 1);
 
         PreparedStatement statement = connection.prepareStatement("update ATTRIBUTELIST set TABLE1 = ?, COLUMN1 = ?, LIST = ? where ID = ?");
-        statement.setString(1, object.getString("table"));
-        statement.setString(2, object.getString("column"));
+        statement.setString(1, object.getString("table1"));
+        statement.setString(2, object.getString("column1"));
         statement.setString(3, list.toString());
         statement.setInt(4, object.getInt("composite_id"));
         statement.execute();

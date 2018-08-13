@@ -42,9 +42,9 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
             connect();
             PreparedStatement statement = connection.prepareStatement("insert into ATTRIBUTECOMPARE (ID, TABLE1, COLUMN1, VALUE1, OPERATOR) values (?, ?, ?, ?, ?)");
             statement.setInt(1, composite_id);
-            statement.setString(2, object.getString("table"));
-            statement.setString(3, object.getString("column"));
-            statement.setInt(4,object.getInt("value"));
+            statement.setString(2, object.getString("table1"));
+            statement.setString(3, object.getString("column1"));
+            statement.setInt(4,object.getInt("value1"));
             statement.setString(5,object.getString("operator"));
             statement.execute();
 
@@ -71,8 +71,8 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
         connect();
 
         PreparedStatement statement = connection.prepareStatement("update ATTRIBUTECOMPARE set TABLE1 = ?, COLUMN1 = ?, VALUE1 = ?, OPERATOR = ? where ID = ?");
-        statement.setString(1, object.getString("table"));
-        statement.setString(2, object.getString("column"));
+        statement.setString(1, object.getString("table1"));
+        statement.setString(2, object.getString("column1"));
         statement.setInt(3, object.getInt("value1"));
         statement.setString(4, object.getString("operator"));
         statement.setInt(5, object.getInt("composite_id"));

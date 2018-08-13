@@ -43,10 +43,10 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         connect();
         PreparedStatement statement = connection.prepareStatement("insert into ATTRIBUTERANGE (ID, TABLE1, COLUMN1, VALUE1, VALUE2) values (?, ?, ?, ?, ?)");
         statement.setInt(1, composite_id);
-        statement.setString(2, object.getString("table"));
-        statement.setString(3, object.getString("column"));
-        statement.setInt(4,object.getInt("valueLow"));
-        statement.setInt(5,object.getInt("valueHigh"));
+        statement.setString(2, object.getString("table1"));
+        statement.setString(3, object.getString("column1"));
+        statement.setInt(4,object.getInt("value1"));
+        statement.setInt(5,object.getInt("value2"));
         statement.execute();
 
         statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS, DATABASE_ID) values (?, ?, ?, ?)");
@@ -70,8 +70,8 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         connect();
 
         PreparedStatement statement = connection.prepareStatement("update ATTRIBUTERANGE set TABLE1 = ?, COLUMN1 = ?, VALUE1 = ?, VALUE2 = ? where ID = ?");
-        statement.setString(1, object.getString("table"));
-        statement.setString(2, object.getString("column"));
+        statement.setString(1, object.getString("table1"));
+        statement.setString(2, object.getString("column1"));
         statement.setInt(3, object.getInt("value1"));
         statement.setInt(4, object.getInt("value2"));
         statement.setInt(5, object.getInt("composite_id"));

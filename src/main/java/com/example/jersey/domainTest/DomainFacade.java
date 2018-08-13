@@ -7,6 +7,7 @@ import com.example.jersey.domainTest.Composit.AttributeCompare;
 import com.example.jersey.domainTest.Composit.AttributeList;
 import com.example.jersey.domainTest.Composit.AttributeRange;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
+import com.example.jersey.domainTest.Composit.TupleCompare;
 import org.json.JSONObject;
 
 import javax.ws.rs.core.MediaType;
@@ -15,22 +16,19 @@ import java.util.ArrayList;
 
 public class DomainFacade {
 
-    //<editor-fold desc="AttributeRangeRule">
     public JSONObject defineAttributeRangeRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        AttributeRange composite = new AttributeRange(object.getString("table"), object.getString("column"), object.getInt("value1"), object.getInt("value2"));
+        AttributeRange composite = new AttributeRange(object.getString("table1"), object.getString("column1"), object.getInt("value1"), object.getInt("value2"));
         if (!composite.validate()){
             throw new AttributeRangeValidateExeption();
         }
         rule.addComposite(composite);
         return rule.getRule();
     }
-    //</editor-fold>
-    //<editor-fold desc="AttributeCompareRule">
     public JSONObject defineAttributeCompareRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
         Operator operator = new Operator(object.getString("operator"));
-        AttributeCompare composite = new AttributeCompare(object.getString("table"), object.getString("column"), object.getInt("value1"), operator);
+        AttributeCompare composite = new AttributeCompare(object.getString("table1"), object.getString("column1"), object.getInt("value1"), operator);
         if (!operator.validate()){
             throw new OperatorValidateExeption();
         }
@@ -41,11 +39,9 @@ public class DomainFacade {
         rule.addComposite(composite);
         return rule.getRule();
     }
-    //</editor-fold>
-    //<editor-fold desc="AttributeListRule">
     public JSONObject defineAttributeListRule(JSONObject object) throws Exception {
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        AttributeList composite = new AttributeList(object.getString("table"), object.getString("column"), object.getJSONArray("value1"));
+        AttributeList composite = new AttributeList(object.getString("table1"), object.getString("column1"), object.getJSONArray("value1"));
         if (!composite.validate()){
             throw new AttributeRangeValidateExeption();
         }
@@ -53,7 +49,19 @@ public class DomainFacade {
         rule.addComposite(composite);
         return rule.getRule();
     }
-    //</editor-fold>
+    public JSONObject defineTupleCompareRule(JSONObject object) throws Exception{
+        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
+        Operator operator = new Operator(object.getString("operator"));
+        TupleCompare composite = new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator);
+        if (!operator.validate()){
+            throw new OperatorValidateExeption();
+        }
+        if (!composite.validate()){
+            throw new AttributeRangeValidateExeption();
+        }
+        rule.addComposite(composite);
+        return rule.getRule();
+    }
 
 
 

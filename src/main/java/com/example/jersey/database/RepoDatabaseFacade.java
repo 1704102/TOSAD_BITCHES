@@ -3,6 +3,7 @@ package com.example.jersey.database;
 import com.example.jersey.database.repository.DAO.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.AttributeListDao;
 import com.example.jersey.database.repository.DAO.AttributeRangeDao;
+import com.example.jersey.database.repository.DAO.TupleCompareDao;
 import com.example.jersey.database.repository.UserDatabase;
 import com.example.jersey.domainTest.Composit.AttributeCompare;
 import com.example.jersey.domainTest.Composit.AttributeList;
@@ -23,17 +24,14 @@ public class RepoDatabaseFacade {
         AttributeRangeDao dao = new AttributeRangeDao();
         return dao.get(object);
     }
-
     public void alterAttributeRangeRule(JSONObject object) throws Exception {
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.update(object);
     }
-
     public void deleteAttributeRangeRule(JSONObject object) throws Exception{
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.delete(object);
     }
-
     //</editor-fold>
     //<editor-fold desc="AttributeCompareRule">
     public void defineAttributeCompareRule(JSONObject object){
@@ -44,22 +42,18 @@ public class RepoDatabaseFacade {
         AttributeCompareDao dao = new AttributeCompareDao();
         return dao.get(object);
     }
-
     public JSONObject getAllAttributeCompareRules(JSONObject object) throws Exception {
         AttributeCompareDao dao = new AttributeCompareDao();
         return dao.getAll(object);
     }
-
     public void alterAttributeCompareRule(JSONObject object) throws Exception {
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.update(object);
     }
-
     public void deleteAttributeCompareRule(JSONObject object) throws Exception{
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.delete(object);
     }
-
     //</editor-fold>
     //<editor-fold desc="AttributeListRule">
     public void defineAttributeListRule(JSONObject object) throws Exception{
@@ -83,26 +77,25 @@ public class RepoDatabaseFacade {
         dao.delete(object);
     }
     //</editor-fold>
+    //<editor-fold desc="TupleCompare">
+    public void defineTupleCompareRule(JSONObject object) throws Exception {
+        TupleCompareDao dao = new TupleCompareDao();
+        dao.define(object);
+    }
+    //</editor-fold>
     //<editor-fold desc="User">
     public boolean login(JSONObject object){
         UserDatabase database = new UserDatabase();
         return database.login(object);
     }
-
-
     public void register(JSONObject object) {
         UserDatabase database = new UserDatabase();
         database.register(object);
     }
-
     public void addDatabase(JSONObject object){
         UserDatabase database = new UserDatabase();
         database.addDatabase(object);
     }
-
-
-
-
     //</editor-fold>
 
 }

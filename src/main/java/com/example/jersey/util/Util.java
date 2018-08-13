@@ -18,7 +18,10 @@ public class Util {
                     JSONArray array1 = new JSONArray(s.getString(i).split(";"));
                     object.put("value1", array1);
                 }else {
-                    object.put(rsmd.getColumnName(i), s.getString(i));
+                    switch (rsmd.getColumnType(i)){
+                        case 2: object.put(rsmd.getColumnName(i), s.getInt(i)); break;
+                        case 12: object.put(rsmd.getColumnName(i), s.getString(i)); break;
+                    }
                 }
             }
             array.put(object);
@@ -35,7 +38,10 @@ public class Util {
                     JSONArray array1 = new JSONArray(s.getString(i).split(";"));
                     object.put("value1", array1);
                 }else {
-                    object.put(rsmd.getColumnName(i), s.getString(i));
+                    switch (rsmd.getColumnType(i)){
+                        case 2: object.put(rsmd.getColumnName(i), s.getInt(i)); break;
+                        case 12: object.put(rsmd.getColumnName(i), s.getString(i)); break;
+                    }
                 }
             }
         }

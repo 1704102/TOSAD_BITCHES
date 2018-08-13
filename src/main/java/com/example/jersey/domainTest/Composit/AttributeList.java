@@ -48,8 +48,8 @@ public class AttributeList implements BusinessRuleComposite{
 
         JSONObject object = new JSONObject();
         object.put("id", id);
-        object.put("table", table);
-        object.put("column", column);
+        object.put("table1", table);
+        object.put("column1", column);
         object.put("list", list);
         return object;
     }

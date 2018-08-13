@@ -66,6 +66,7 @@ public class ResourceFacade {
         try {
             repoDatabaseFacade.defineAttributeCompareRule(domainFacade.defineAttributeCompareRule(object));
         } catch (Exception e) {
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
@@ -156,6 +157,53 @@ public class ResourceFacade {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
+    }
+    //</editor-fold>
+    //<editor-fold desc="TupleCompareRule">
+    public Response getAllTupleCompareRules(JSONObject object) {
+        try {
+            return Response.ok(repoDatabaseFacade.getAllAttributeRangeRules(object).toString(), MediaType.APPLICATION_JSON).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+    }
+
+    public Response defineTupleCompareRule(JSONObject object) {
+        try {
+            repoDatabaseFacade.defineTupleCompareRule(domainFacade.defineTupleCompareRule(object));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response getTupleCompareRule(JSONObject object) {
+        JSONObject object1 = null;
+        try {
+            object1 = repoDatabaseFacade.getAttributeRangeRule(object);
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok(object1.toString(), MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response alterTupleCompareRule(JSONObject object) {
+        try {
+            repoDatabaseFacade.alterAttributeRangeRule(object);
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response deleteTupleCompareRule(JSONObject object) {
+        try {
+            repoDatabaseFacade.deleteAttributeRangeRule(object);
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
     }
     //</editor-fold>
     //<editor-fold desc="User">
