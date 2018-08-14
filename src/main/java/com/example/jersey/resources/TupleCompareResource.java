@@ -9,12 +9,14 @@ import javax.ws.rs.core.Response;
 public class TupleCompareResource implements ResourceInterface{
     @Override
     public Response get(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getTupleCompareRule(new JSONObject(x));
     }
 
     @Override
     public Response getAll(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getAllTupleCompareRules(new JSONObject(x));
     }
 
     @Override
@@ -25,11 +27,13 @@ public class TupleCompareResource implements ResourceInterface{
 
     @Override
     public Response alter(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.alterTupleCompareRule(new JSONObject(x));
     }
 
     @Override
     public Response delete(String x) {
-        return null;
+        ResourceFacade facade = new ResourceFacade();
+        return facade.deleteTupleCompareRule(new JSONObject(x));
     }
 }

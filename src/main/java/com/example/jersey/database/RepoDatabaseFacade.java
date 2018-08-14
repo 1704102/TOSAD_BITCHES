@@ -82,6 +82,23 @@ public class RepoDatabaseFacade {
         TupleCompareDao dao = new TupleCompareDao();
         dao.define(object);
     }
+    public void alterTupleCompareRule(JSONObject object) throws Exception {
+        TupleCompareDao dao = new TupleCompareDao();
+        dao.update(object);
+    }
+    public JSONObject getAllTupleCompareRules(JSONObject object) throws Exception{
+        TupleCompareDao dao = new TupleCompareDao();
+        return dao.getAll(object);
+    }
+
+    public JSONObject getTupleCompareRule(JSONObject object) throws Exception{
+        TupleCompareDao dao = new TupleCompareDao();
+        return dao.get(object);
+    }
+    public void deleteTupleCompareRule(JSONObject object) throws Exception {
+        TupleCompareDao dao = new TupleCompareDao();
+        dao.delete(object);
+    }
     //</editor-fold>
     //<editor-fold desc="User">
     public boolean login(JSONObject object){
@@ -96,6 +113,10 @@ public class RepoDatabaseFacade {
         UserDatabase database = new UserDatabase();
         database.addDatabase(object);
     }
+
+
+
+
     //</editor-fold>
 
 }

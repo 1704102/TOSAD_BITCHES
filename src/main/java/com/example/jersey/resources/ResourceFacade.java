@@ -162,7 +162,7 @@ public class ResourceFacade {
     //<editor-fold desc="TupleCompareRule">
     public Response getAllTupleCompareRules(JSONObject object) {
         try {
-            return Response.ok(repoDatabaseFacade.getAllAttributeRangeRules(object).toString(), MediaType.APPLICATION_JSON).build();
+            return Response.ok(repoDatabaseFacade.getAllTupleCompareRules(object).toString(), MediaType.APPLICATION_JSON).build();
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
@@ -181,7 +181,7 @@ public class ResourceFacade {
     public Response getTupleCompareRule(JSONObject object) {
         JSONObject object1 = null;
         try {
-            object1 = repoDatabaseFacade.getAttributeRangeRule(object);
+            object1 = repoDatabaseFacade.getTupleCompareRule(object);
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
@@ -190,7 +190,7 @@ public class ResourceFacade {
 
     public Response alterTupleCompareRule(JSONObject object) {
         try {
-            repoDatabaseFacade.alterAttributeRangeRule(object);
+            repoDatabaseFacade.alterTupleCompareRule(object);
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
@@ -199,7 +199,7 @@ public class ResourceFacade {
 
     public Response deleteTupleCompareRule(JSONObject object) {
         try {
-            repoDatabaseFacade.deleteAttributeRangeRule(object);
+            repoDatabaseFacade.deleteTupleCompareRule(object);
         } catch (Exception e) {
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
