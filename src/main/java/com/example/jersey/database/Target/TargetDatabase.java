@@ -1,6 +1,11 @@
 package com.example.jersey.database.Target;
 
 import java.sql.PreparedStatement;
+<<<<<<< HEAD
+=======
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+>>>>>>> origin/martijndev
 
 public class TargetDatabase extends DatabaseHelper_Target {
 
@@ -13,6 +18,23 @@ public class TargetDatabase extends DatabaseHelper_Target {
    }
 
    public void getForeignKeys(){
+<<<<<<< HEAD
 
+=======
+      connect();
+      try {
+         PreparedStatement statement = connection.prepareStatement("select * from all_constraints where Constraint_type=? and owner = ?");
+         statement.setString(1, "R");
+         statement.setString(2, "TOSAD_2017_HER_TEAM1_TARGET");
+         ResultSet s = statement.executeQuery();
+         while (s.next()){
+            System.out.println(s.getString("TABLE_NAME"));
+         }
+
+      }catch (Exception e){
+
+      }
+      disconnect();
+>>>>>>> origin/martijndev
    }
 }

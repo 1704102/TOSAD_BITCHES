@@ -11,6 +11,7 @@ public class BusinessRule {
     int id;
     String name;
     String status;
+<<<<<<< HEAD
 
     BusinessRuleComposite composite;
 
@@ -21,6 +22,21 @@ public class BusinessRule {
     public BusinessRule(int id){
         this.id = id;
         this.status = "new";
+=======
+    int database_id;
+
+    BusinessRuleComposite composite;
+
+    public BusinessRule(int database_id){
+        this.status = "new";
+        this.database_id = database_id;
+    }
+
+    public BusinessRule(int id, int database_id){
+        this.id = id;
+        this.status = "new";
+        this.database_id = database_id;
+>>>>>>> origin/martijndev
     }
 
 
@@ -48,6 +64,10 @@ public class BusinessRule {
         object.put("base_id", id);
         object.put("name", getName());
         object.put("status", status);
+<<<<<<< HEAD
+=======
+        object.put("database_id", database_id);
+>>>>>>> origin/martijndev
         return object;
     }
 

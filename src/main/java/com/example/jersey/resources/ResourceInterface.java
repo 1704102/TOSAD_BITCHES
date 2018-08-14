@@ -8,12 +8,21 @@ import javax.ws.rs.core.Response;
 
 public interface ResourceInterface {
 
+<<<<<<< HEAD
     @GET
+=======
+    @Path("/get")
+    @POST
+>>>>>>> origin/martijndev
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(String x);
 
     @Path("/all")
+<<<<<<< HEAD
     @GET
+=======
+    @POST
+>>>>>>> origin/martijndev
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll(String x);
 

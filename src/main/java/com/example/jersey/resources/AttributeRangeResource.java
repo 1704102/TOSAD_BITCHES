@@ -18,7 +18,12 @@ public class AttributeRangeResource implements ResourceInterface{
 
     @Override
     public Response getAll(String x) {
+<<<<<<< HEAD
         return null;
+=======
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getAllAttributeRangeRules(new JSONObject(x));
+>>>>>>> origin/martijndev
     }
 
     @Override

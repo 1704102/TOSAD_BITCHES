@@ -1,9 +1,14 @@
 package com.example.jersey.database.repository;
 
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+=======
+
+import java.sql.*;
+>>>>>>> origin/martijndev
 import java.util.ArrayList;
 
 public class DatabaseHelper_Repo {
@@ -38,4 +43,27 @@ public class DatabaseHelper_Repo {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public int getRuleInitId(){
+        connect();
+        int id = 0;
+        try {
+            PreparedStatement statement = connection.prepareStatement("select max(id) as max from businessrule");
+            ResultSet s = statement.executeQuery();
+            while (s.next()){
+                id = s.getInt("max");
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        disconnect();
+        if (id == 0){
+            return 1;
+        }
+        return id + 1;
+    }
+
+>>>>>>> origin/martijndev
 }

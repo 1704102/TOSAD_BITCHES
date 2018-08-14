@@ -51,10 +51,17 @@ public class AttributeRange implements BusinessRuleComposite {
     public JSONObject getComposite() {
         JSONObject object = new JSONObject();
         object.put("id", id);
+<<<<<<< HEAD
         object.put("table", table);
         object.put("column", column);
         object.put("valueLow", valueLow);
         object.put("valueHigh", valueHigh);
+=======
+        object.put("table1", table);
+        object.put("column1", column);
+        object.put("value1", valueLow);
+        object.put("value2", valueHigh);
+>>>>>>> origin/martijndev
         return object;
     }
 
