@@ -1,9 +1,7 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AttributeRange implements BusinessRuleComposite {
 

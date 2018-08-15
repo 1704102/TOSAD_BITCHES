@@ -1,5 +1,6 @@
-package com.example.jersey.database.repository.DAO;
+package com.example.jersey.database.repository.DAO.attribute;
 
+import com.example.jersey.database.repository.DAO.BusinessRuleDao;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.util.Util;
 import org.json.JSONArray;

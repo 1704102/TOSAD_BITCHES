@@ -1,12 +1,11 @@
 package com.example.jersey.database;
 
-import com.example.jersey.database.repository.DAO.AttributeCompareDao;
-import com.example.jersey.database.repository.DAO.AttributeListDao;
-import com.example.jersey.database.repository.DAO.AttributeRangeDao;
-import com.example.jersey.database.repository.DAO.TupleCompareDao;
+import com.example.jersey.database.repository.DAO.attribute.AttributeCompareDao;
+import com.example.jersey.database.repository.DAO.attribute.AttributeListDao;
+import com.example.jersey.database.repository.DAO.attribute.AttributeRangeDao;
+import com.example.jersey.database.repository.DAO.tuple.TupleCompareDao;
+import com.example.jersey.database.repository.DAO.tuple.TupleOtherDao;
 import com.example.jersey.database.repository.UserDatabase;
-import com.example.jersey.domainTest.Composit.AttributeCompare;
-import com.example.jersey.domainTest.Composit.AttributeList;
 import org.json.JSONObject;
 
 public class RepoDatabaseFacade {
@@ -100,6 +99,29 @@ public class RepoDatabaseFacade {
         dao.delete(object);
     }
     //</editor-fold>
+    //<editor-fold desc="TupleOther">
+    public void defineTupleOtherRule(JSONObject object) throws Exception {
+        TupleOtherDao dao = new TupleOtherDao();
+        dao.define(object);
+    }
+    public void alterTupleOtherRule(JSONObject object) throws Exception {
+        TupleOtherDao dao = new TupleOtherDao();
+        dao.update(object);
+    }
+    public JSONObject getAllTupleOtherRules(JSONObject object) throws Exception{
+        TupleOtherDao dao = new TupleOtherDao();
+        return dao.getAll(object);
+    }
+
+    public JSONObject getTupleOtherRule(JSONObject object) throws Exception{
+        TupleOtherDao dao = new TupleOtherDao();
+        return dao.get(object);
+    }
+    public void deleteTupleOtherRule(JSONObject object) throws Exception {
+        TupleOtherDao dao = new TupleOtherDao();
+        dao.delete(object);
+    }
+    //</editor-fold>
     //<editor-fold desc="User">
     public boolean login(JSONObject object){
         UserDatabase database = new UserDatabase();
@@ -113,10 +135,6 @@ public class RepoDatabaseFacade {
         UserDatabase database = new UserDatabase();
         database.addDatabase(object);
     }
-
-
-
-
     //</editor-fold>
 
 }

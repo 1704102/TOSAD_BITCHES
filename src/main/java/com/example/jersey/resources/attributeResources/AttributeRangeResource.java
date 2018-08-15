@@ -1,42 +1,44 @@
-package com.example.jersey.resources;
+package com.example.jersey.resources.attributeResources;
 
+import com.example.jersey.resources.ResourceFacade;
+import com.example.jersey.resources.ResourceInterface;
 import org.json.JSONObject;
 
-import javax.annotation.Resource;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-@Path("/businessRule/acr")
-public class AttributeCompareResource implements ResourceInterface{
+
+@Path("/businessRule/arr")
+public class AttributeRangeResource implements ResourceInterface {
+
     @Override
     public Response get(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAttributeCompareRule(new JSONObject(x));
+        return facade.getAttributeRangeRule(new JSONObject(x));
     }
 
     @Override
     public Response getAll(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAllAttributeCompareRules(new JSONObject(x));
+        return facade.getAllAttributeRangeRules(new JSONObject(x));
     }
 
     @Override
     public Response define(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.defineAttributeCompareRule(new JSONObject(x));
+        return facade.defineAttributeRangeRule(new JSONObject(x));
     }
 
     @Override
     public Response alter(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.alterAttributeCompareRule(new JSONObject(x));
+        return facade.alterAttributeRangeRule(new JSONObject(x));
     }
 
     @Override
     public Response delete(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.deleteAttributeCompareRule(new JSONObject(x));
+        return facade.deleteAttributeRangeRule(new JSONObject(x));
     }
-
 }

@@ -1,12 +1,10 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class AttributeList implements BusinessRuleComposite{
+public class AttributeList implements BusinessRuleComposite {
 
     private int id;
     private String table;

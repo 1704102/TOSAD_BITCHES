@@ -1,12 +1,10 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class AttributeCompare implements BusinessRuleComposite{
+public class AttributeCompare implements BusinessRuleComposite {
 
     private int id;
 

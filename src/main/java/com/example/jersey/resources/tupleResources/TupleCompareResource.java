@@ -1,38 +1,41 @@
-package com.example.jersey.resources;
+package com.example.jersey.resources.tupleResources;
 
+import com.example.jersey.resources.ResourceFacade;
+import com.example.jersey.resources.ResourceInterface;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.json.JSONObject;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
-@Path("/businessRule/alr")
-public class AttributeListResource implements ResourceInterface{
+@Path("/businessRule/tcr")
+public class TupleCompareResource implements ResourceInterface {
     @Override
     public Response get(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAttributeListRule(new JSONObject(x));
+        return facade.getTupleCompareRule(new JSONObject(x));
     }
 
     @Override
     public Response getAll(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAllAttributeListRules(new JSONObject(x));
+        return facade.getAllTupleCompareRules(new JSONObject(x));
     }
 
     @Override
     public Response define(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.defineAttributeListRule(new JSONObject(x));
+        return facade.defineTupleCompareRule(new JSONObject(x));
     }
 
     @Override
     public Response alter(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.alterAttributeListRule(new JSONObject(x));
+        return facade.alterTupleCompareRule(new JSONObject(x));
     }
 
     @Override
     public Response delete(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.deleteAttributeListRule(new JSONObject(x));
+        return facade.deleteTupleCompareRule(new JSONObject(x));
     }
 }

@@ -3,9 +3,6 @@ package com.example.jersey.domainTest;
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-
 public class BusinessRule {
 
     int id;

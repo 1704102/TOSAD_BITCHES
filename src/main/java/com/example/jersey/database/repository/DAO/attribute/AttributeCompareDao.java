@@ -1,5 +1,6 @@
-package com.example.jersey.database.repository.DAO;
+package com.example.jersey.database.repository.DAO.attribute;
 
+import com.example.jersey.database.repository.DAO.BusinessRuleDao;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.util.Util;
 import org.json.JSONArray;
@@ -9,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AttributeCompareDao extends DatabaseHelper_Repo implements BusinessRuleDao{
+public class AttributeCompareDao extends DatabaseHelper_Repo implements BusinessRuleDao {
     @Override
     public JSONObject getAll(JSONObject object) throws Exception{
         connect();

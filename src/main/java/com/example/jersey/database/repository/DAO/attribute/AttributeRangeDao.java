@@ -1,5 +1,6 @@
-package com.example.jersey.database.repository.DAO;
+package com.example.jersey.database.repository.DAO.attribute;
 
+import com.example.jersey.database.repository.DAO.BusinessRuleDao;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.util.Util;
 import com.mysql.cj.protocol.Resultset;
@@ -11,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRuleDao{
+public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRuleDao {
     @Override
     public JSONObject getAll(JSONObject object) throws Exception {
         connect();
