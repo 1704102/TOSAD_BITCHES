@@ -1,5 +1,6 @@
-package com.example.jersey.database.repository.DAO;
+package com.example.jersey.database.repository.DAO.tuple;
 
+import com.example.jersey.database.repository.DAO.BusinessRuleDao;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.util.Util;
 import org.json.JSONObject;
@@ -7,11 +8,12 @@ import org.json.JSONObject;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRuleDao{
+public class TupleOtherDao extends DatabaseHelper_Repo implements BusinessRuleDao {
+
     @Override
     public JSONObject getAll(JSONObject object) throws Exception {
         connect();
-        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.column2, c.operator from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLECOMPARE c on b.tcr_id = c.id where b.tcr_id is not null and a.database_id = ?");
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.column2, c.constraint from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLEOTHER c on b.tor_id = c.id where b.tor_id is not null and a.database_id = ?");
         statement.setInt(1, object.getInt("database_id"));
         ResultSet s = statement.executeQuery();
         JSONObject output = Util.ResultSetToJSONArray(s);
@@ -22,7 +24,7 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
     @Override
     public JSONObject get(JSONObject object) throws Exception {
         connect();
-        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.column2, c.operator from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLECOMPARE c on b.tcr_id = c.id where b.tcr_id is not null and a.id = ?");
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.column2, c.constraint from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLEOTHER c on b.tor_id = c.id where b.tor_id is not null and a.id = ?");
         statement.setInt(1, object.getInt("id"));
         ResultSet s = statement.executeQuery();
         JSONObject output = Util.ResultSetToJSONObject(s);
@@ -36,12 +38,12 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
         int composite_id = getInitId();
 
         connect();
-        PreparedStatement statement = connection.prepareStatement("insert into TUPLECOMPARE (ID, TABLE1, COLUMN1, COLUMN2, OPERATOR) values (?, ?, ?, ?, ?)");
+        PreparedStatement statement = connection.prepareStatement("insert into TUPLEOTHER (ID, TABLE1, COLUMN1, COLUMN2, CONSTRAINT) values (?, ?, ?, ?, ?)");
         statement.setInt(1, composite_id);
         statement.setString(2, object.getString("table1"));
         statement.setString(3, object.getString("column1"));
         statement.setString(4,object.getString("column2"));
-        statement.setString(5,object.getString("operator"));
+        statement.setString(5,object.getString("constraint"));
         statement.execute();
 
         statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS, DATABASE_ID) values (?, ?, ?, ?)");
@@ -52,7 +54,7 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
         statement.execute();
 
 
-        statement = connection.prepareStatement("insert into BUSINESSRULE_COMPOSITE (RULE_ID, TCR_ID) values (?,?)");
+        statement = connection.prepareStatement("insert into BUSINESSRULE_COMPOSITE (RULE_ID, TOR_ID) values (?,?)");
         statement.setInt(1,rule_id);
         statement.setInt(2,composite_id);
         statement.execute();
@@ -64,11 +66,11 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
     public void update(JSONObject object) throws Exception {
         connect();
 
-        PreparedStatement statement = connection.prepareStatement("update TUPLECOMPARE set TABLE1 = ?, COLUMN1 = ?, COLUMN2 = ?, OPERATOR = ? where ID = ?");
+        PreparedStatement statement = connection.prepareStatement("update TUPLEOTHER set TABLE1 = ?, COLUMN1 = ?, COLUMN2 = ?, CONSTRAINT = ? where ID = ?");
         statement.setString(1, object.getString("table1"));
         statement.setString(2, object.getString("column1"));
         statement.setString(3, object.getString("column2"));
-        statement.setString(4, object.getString("operator"));
+        statement.setString(4, object.getString("constraint"));
         statement.setInt(5, object.getInt("composite_id"));
         statement.execute();
 
@@ -93,7 +95,7 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
         statement.setInt(1, object.getInt("rule_id"));
         statement.execute();
 
-        statement = connection.prepareStatement("delete from TUPLECOMPARE where id = ?");
+        statement = connection.prepareStatement("delete from TUPLEOTHER where id = ?");
         statement.setInt(1, object.getInt("composite_id"));
         statement.execute();
 
@@ -106,7 +108,7 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
 
         int id = 0;
 
-        PreparedStatement statement = connection.prepareStatement("select max(id) as max from TUPLECOMPARE");
+        PreparedStatement statement = connection.prepareStatement("select max(id) as max from TUPLEOTHER");
         ResultSet s = statement.executeQuery();
         while (s.next()){
             id = s.getInt("max");
@@ -119,4 +121,5 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
         }
         return id + 1;
     }
+
 }
