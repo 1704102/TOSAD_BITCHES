@@ -29,11 +29,6 @@ public class TupleCompare implements BusinessRuleComposite {
     }
 
     @Override
-    public String getRuleCode(String name) {
-        return "alter table " + table +  " add constraint " + name + " check(" + columnOne + " " + operator.getValue() + " " + columnTwo + ") ENABLE NOVALIDATE";
-    }
-
-    @Override
     public String getName() {
         return table + "_CNS_TCR";
     }

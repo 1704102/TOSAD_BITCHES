@@ -2,11 +2,10 @@ package com.example.jersey.domainTest;
 
 import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
 import com.example.jersey.Exeptions.OperatorValidateExeption;
-import com.example.jersey.domainTest.Composit.Elements.Constraint;
+import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.attribute.AttributeCompare;
 import com.example.jersey.domainTest.Composit.attribute.AttributeList;
 import com.example.jersey.domainTest.Composit.attribute.AttributeRange;
-import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.tuple.TupleCompare;
 import com.example.jersey.domainTest.Composit.tuple.TupleOther;
 import org.json.JSONObject;

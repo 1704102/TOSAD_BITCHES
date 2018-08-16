@@ -21,11 +21,6 @@ public class TupleOther implements BusinessRuleComposite {
 
     }
 
-    @Override
-    public String getRuleCode(String name) {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
     @Override
     public String getName() {

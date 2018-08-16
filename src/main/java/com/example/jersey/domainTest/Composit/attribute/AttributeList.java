@@ -27,11 +27,6 @@ public class AttributeList implements BusinessRuleComposite {
     }
 
     @Override
-    public String getRuleCode(String name) {
-        return null;
-    }
-
-    @Override
     public String getName() {
         return table + "_CNS_ALR_";
     }

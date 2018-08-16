@@ -15,6 +15,6 @@ public class TargetResource {
     @Produces(MediaType.APPLICATION_JSON)
     public void get(){
         TargetDatabase database = new TargetDatabase();
-        database.getForeignKeys();
+        //database.getForeignKeys();
     }
 }

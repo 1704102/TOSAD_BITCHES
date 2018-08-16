@@ -28,11 +28,6 @@ public class AttributeRange implements BusinessRuleComposite {
     }
 
     @Override
-    public String getRuleCode(String name) {
-        return "alter table " + table + " add constraint " + name + " check(" + column + " between " + valueLow + " and " + valueHigh + ") ENABLE NOVALIDATE";
-    }
-
-    @Override
     public String getName() {
         return table + "_CNS_ARR_";
     }

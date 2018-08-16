@@ -1,6 +1,7 @@
 package com.example.jersey.resources;
 
 import com.example.jersey.database.RepoDatabaseFacade;
+import com.example.jersey.database.Target.TargetDatabase;
 import com.example.jersey.domainTest.DomainFacade;
 import org.json.JSONObject;
 
@@ -113,7 +114,7 @@ public class ResourceFacade {
     //<editor-fold desc="AttributeListRule">
     public Response defineAttributeListRule(JSONObject object) {
         try {
-           repoDatabaseFacade.defineAttributeListRule(domainFacade.defineAttributeListRule(object));
+            repoDatabaseFacade.defineAttributeListRule(domainFacade.defineAttributeListRule(object));
         } catch (Exception e) {
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
@@ -206,6 +207,54 @@ public class ResourceFacade {
         return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
     }
     //</editor-fold>
+    //<editor-fold desc="TupleOtherRule">
+
+    public Response getAllTupleOtherRules(JSONObject object) {
+        try {
+            return Response.ok(repoDatabaseFacade.getAllTupleOtherRules(object).toString(), MediaType.APPLICATION_JSON).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+    }
+
+    public Response defineTupleOtherRule(JSONObject object) {
+        try {
+            repoDatabaseFacade.defineTupleOtherRule(domainFacade.defineTupleOtherRule(object));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response getTupleOtherRule(JSONObject object) {
+        JSONObject object1 = null;
+        try {
+            object1 = repoDatabaseFacade.getTupleOtherRule(object);
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok(object1.toString(), MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response alterTupleOtherRule(JSONObject object) {
+        try {
+            repoDatabaseFacade.alterTupleOtherRule(object);
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response deleteTupleOtherRule(JSONObject object) {
+        try {
+            repoDatabaseFacade.deleteTupleOtherRule(object);
+        } catch (Exception e) {
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+        return Response.ok("{\"response\":\"complete\"}", MediaType.APPLICATION_JSON).build();
+    }
+    //</editor-fold>
     //<editor-fold desc="User">
     public Response login(JSONObject object) {
         try {
@@ -263,7 +312,24 @@ public class ResourceFacade {
         return Response.ok("{'do':5}", MediaType.APPLICATION_JSON).build();
     }
 
+    public void generate(JSONObject object) {
+        TargetDatabase database = new TargetDatabase();
+        try {
+            database.generateBusinessRule(object);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
+    }
+
+    public void delete(JSONObject object) {
+        TargetDatabase database = new TargetDatabase();
+        try {
+            database.deleteConstraint(object);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 
     //</editor-fold>
