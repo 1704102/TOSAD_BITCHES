@@ -1,11 +1,20 @@
 package com.example.jersey.database;
 
 import com.example.jersey.database.repository.DAO.AttributeCompareDao;
-import com.example.jersey.database.repository.DAO.AttributeRangeDao;
+import com.example.jersey.database.repository.DAO.*;
 import com.example.jersey.database.repository.UserDatabase;
 import org.json.JSONObject;
-
+import com.example.jersey.database.Target.*;
+import com.example.jersey.domainTest.Composit.util.*;
 public class RepoDatabaseFacade {
+
+    //<editor-fold desc="interentityrule">
+    public void defineInterEntityRule(){
+
+
+    }
+
+    //</editor-fold>
 
     //<editor-fold desc="AttributeRangeRule">
     public void defineAttributeRangeRule(JSONObject object){

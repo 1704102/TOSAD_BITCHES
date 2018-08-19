@@ -3,9 +3,11 @@ package com.example.jersey.domainTest;
 import com.example.jersey.Exeptions.AttributeCompareValidateExeption;
 import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
 import com.example.jersey.Exeptions.OperatorValidateExeption;
+import com.example.jersey.database.Target.TargetDatabase;
 import com.example.jersey.domainTest.Composit.AttributeCompare;
 import com.example.jersey.domainTest.Composit.AttributeRange;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
+import com.example.jersey.database.TargetDatabaseFacade;
 import org.json.JSONObject;
 
 import javax.ws.rs.core.MediaType;
@@ -13,6 +15,14 @@ import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 
 public class DomainFacade {
+
+    //<editor-fold desc="interEntityRule">
+    public void interEntityRule(){
+        TargetDatabaseFacade f = new TargetDatabaseFacade();
+        ArrayList<String> array=f.getForeignkeys();
+
+    }
+    //</editor-fold>
 
     //<editor-fold desc="AttributeRangeRule">
     public JSONObject defineAttributeRangeRule(JSONObject object) throws Exception{
