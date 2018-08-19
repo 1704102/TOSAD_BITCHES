@@ -17,11 +17,17 @@ import java.util.ArrayList;
 public class DomainFacade {
 
     //<editor-fold desc="interEntityRule">
-    public void interEntityRulefk(String table1,String table2){
+    public void interEntityRulefk(String table1,String table2, String column1, String column2){
+        interEntityRulefk(table1, table2);
+
+
+    }
+    public String interEntityRulefk(String table1,String table2){
         TargetDatabaseFacade f = new TargetDatabaseFacade();
         ArrayList<ArrayList<String>> array=f.getForeignkeys();
         Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
         String s = fks.getKeyChainSQL();
+        return s;
 
     }
     //</editor-fold>

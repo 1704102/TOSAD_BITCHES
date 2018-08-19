@@ -11,4 +11,8 @@ public class TargetDatabaseFacade {
         ArrayList<ArrayList<String>> e= f.getforeignkeys();
         return e;
     }
+    public void createInterEntityRule(){
+
+
+    }
 }
