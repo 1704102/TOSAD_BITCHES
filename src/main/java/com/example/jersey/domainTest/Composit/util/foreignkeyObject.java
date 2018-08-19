@@ -4,6 +4,17 @@ public class foreignkeyObject {
     private String table1;
     private String table2;
     private String column1;
+
+    @Override
+    public String toString() {
+        return "foreignkeyObject{" +
+                "table1='" + table1 + '\'' +
+                ", table2='" + table2 + '\'' +
+                ", column1='" + column1 + '\'' +
+                ", column2='" + column2 + '\'' +
+                '}';
+    }
+
     private String column2;
 
     public foreignkeyObject(String table1,  String column1,String table2, String column2) {

@@ -6,9 +6,9 @@ import com.example.jersey.domainTest.Composit.util.*;
 import java.util.ArrayList;
 
 public class TargetDatabaseFacade {
-    public ArrayList<String> getForeignkeys(){
+    public ArrayList<ArrayList<String>> getForeignkeys(){
         ForeignkeyDao f = new ForeignkeyDao();
-        ArrayList<String> e= f.getforeignkeys();
+        ArrayList<ArrayList<String>> e= f.getforeignkeys();
         return e;
     }
 }

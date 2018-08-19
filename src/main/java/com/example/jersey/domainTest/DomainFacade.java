@@ -9,7 +9,7 @@ import com.example.jersey.domainTest.Composit.AttributeRange;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.database.TargetDatabaseFacade;
 import org.json.JSONObject;
-
+import com.example.jersey.domainTest.Composit.util.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -17,9 +17,11 @@ import java.util.ArrayList;
 public class DomainFacade {
 
     //<editor-fold desc="interEntityRule">
-    public void interEntityRule(){
+    public void interEntityRulefk(String table1,String table2){
         TargetDatabaseFacade f = new TargetDatabaseFacade();
-        ArrayList<String> array=f.getForeignkeys();
+        ArrayList<ArrayList<String>> array=f.getForeignkeys();
+        Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
+        String s = fks.getKeyChainSQL();
 
     }
     //</editor-fold>

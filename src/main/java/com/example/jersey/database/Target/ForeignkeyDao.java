@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class ForeignkeyDao extends DatabaseHelper_Target {
 
-    public ArrayList getforeignkeys(){
-        System.out.println("test1");
+    public ArrayList<ArrayList<String>> getforeignkeys(){
+
         ArrayList<String> array= new ArrayList<>();
         ArrayList<ArrayList<String>> array2= new ArrayList<>();
 
@@ -23,16 +23,13 @@ public class ForeignkeyDao extends DatabaseHelper_Target {
                 s = rs.getString("R_CONSTRAINT_NAME");
                 array.add(s);
             }
-            System.out.println(array);
 
             for(String f: array){
-                System.out.println(f);
                 ArrayList<String> objectcollect= new ArrayList<>();
 
 
 
                 Statement stmt3 = null;
-                System.out.println("now starting sql 3");
                 String sql3= "SELECT a.table_name table_name, a.column_name column_name,c_pk.table_name table_name2 " +
                         "FROM all_cons_columns a \n" +
                         "JOIN all_constraints c ON a.owner = c.owner\n" +
@@ -52,26 +49,26 @@ public class ForeignkeyDao extends DatabaseHelper_Target {
                     objectcollect.add(table2);
                     objectcollect.add(column2);
                     objectcollect.add(table1);
-                    System.out.println(table2 + "  "  + column2 +"  " + table1);
+
 
                 }
                 Statement stmt2 = null;
 
-                String sql2= "SELECT UCC.TABLE_NAME, UCC.COLUMN_NAME FROM USER_CONSTRAINTS  UC, USER_CONS_COLUMNS UCC WHERE UC.R_CONSTRAINT_NAME = UCC.CONSTRAINT_NAME AND UC.CONSTRAINT_TYPE = 'R' And UC.R_CONSTRAINT_NAME='SYS_C00275352'";
-                System.out.println(sql2);
+                String sql2= "SELECT UCC.TABLE_NAME, UCC.COLUMN_NAME FROM USER_CONSTRAINTS  UC, USER_CONS_COLUMNS UCC WHERE UC.R_CONSTRAINT_NAME = UCC.CONSTRAINT_NAME AND UC.CONSTRAINT_TYPE = 'R' And UC.R_CONSTRAINT_NAME='"+f+"'";
                 stmt2= connection.createStatement();
                 ResultSet rs2 = stmt.executeQuery(sql2);
 
                 while (rs2.next()) {
                     String column1 = rs2.getString("COLUMN_NAME");
                     objectcollect.add(column1);
-                    System.out.println(column1);
+
                 }
 
 
+
                 array2.add(objectcollect);
-                System.out.println(objectcollect);
             }
+
             disconnect();
         }
         catch (SQLException e) {
