@@ -11,8 +11,12 @@ public class TargetDatabaseFacade {
         ArrayList<ArrayList<String>> e= f.getforeignkeys();
         return e;
     }
-    public void createInterEntityRule(){
+    public void createInterEntityRule(String foreignkeys,String table1, String table2, String column1, String column2, String operator, String brname){
+        InterentityruleDAO d =new InterentityruleDAO();
+        d.makeRule(table1,table2,column1,column2,operator,brname,foreignkeys);
+
+
+        }
 
 
     }
-}
