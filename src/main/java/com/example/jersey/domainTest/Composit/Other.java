@@ -1,22 +1,18 @@
-package com.example.jersey.domainTest.Composit.tuple;
+package com.example.jersey.domainTest.Composit;
 
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import org.json.JSONObject;
 
-public class TupleOther implements BusinessRuleComposite {
+public class Other implements BusinessRuleComposite {
 
     private int id;
 
     private String table;
-    private String columnOne;
-    private String columnTwo;
-    private String constraint;
+    private Constraint constraint;
 
-    public TupleOther(String table, String columnOne, String columnTwo, String constraint) {
+    public Other(String table, Constraint constraint) {
         this.table = table;
-        this.columnOne = columnOne;
-        this.columnTwo = columnTwo;
         this.constraint = constraint;
 
     }
@@ -35,12 +31,9 @@ public class TupleOther implements BusinessRuleComposite {
 
     @Override
     public JSONObject getComposite() {
-        JSONObject object = new JSONObject();
+        JSONObject object = constraint.getConstraint();
         object.put("id", id);
         object.put("table1", table);
-        object.put("column1", columnOne);
-        object.put("column2", columnTwo);
-        object.put("constraint", constraint);
         return object;
     }
 

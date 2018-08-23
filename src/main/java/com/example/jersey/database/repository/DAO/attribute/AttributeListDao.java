@@ -36,8 +36,8 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
 
     @Override
     public void define(JSONObject object) throws Exception {
-        int rule_id = getRuleInitId();
-        int composite_id = getInitId();
+        int rule_id = getId("businessRule");
+        int composite_id = getId("attributeList");
 
         StringBuilder list = new StringBuilder();
         for (int i = 0; i < object.getJSONArray("list").length(); i++){
@@ -86,51 +86,9 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
         statement.setInt(4, object.getInt("composite_id"));
         statement.execute();
 
-        statement = connection.prepareStatement("update BUSINESSRULE set NAME = ?, STATUS = ? where id = ?");
-        statement.setString(1, object.getString("name"));
-        statement.setString(2, object.getString("status"));
-        statement.setInt(3, object.getInt("rule_id"));
-        statement.execute();
+        saveRule(object);
 
         disconnect();
     }
 
-    @Override
-    public void delete(JSONObject object) throws Exception {
-        connect();
-
-        PreparedStatement statement = connection.prepareStatement("delete from businessrule where id = ?");
-        statement.setInt(1, object.getInt("rule_id"));
-        statement.execute();
-
-        statement = connection.prepareStatement("delete from businessrule_composite where rule_id = ?");
-        statement.setInt(1, object.getInt("rule_id"));
-        statement.execute();
-
-        statement = connection.prepareStatement("delete from ATTRIBUTELIST where id = ?");
-        statement.setInt(1, object.getInt("composite_id"));
-        statement.execute();
-
-        disconnect();
-    }
-
-    @Override
-    public int getInitId() throws Exception {
-        connect();
-
-        int id = 0;
-
-        PreparedStatement statement = connection.prepareStatement("select max(id) as max from attributelist");
-        ResultSet s = statement.executeQuery();
-        while (s.next()){
-            id = s.getInt("max");
-        }
-
-        disconnect();
-
-        if (id == 0){
-            return 1;
-        }
-        return id + 1;
-    }
 }

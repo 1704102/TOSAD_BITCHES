@@ -2,11 +2,15 @@ package com.example.jersey.database;
 
 import com.example.jersey.database.repository.DAO.attribute.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeListDao;
+import com.example.jersey.database.repository.DAO.attribute.AttributeOtherDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeRangeDao;
 import com.example.jersey.database.repository.DAO.tuple.TupleCompareDao;
 import com.example.jersey.database.repository.DAO.tuple.TupleOtherDao;
+import com.example.jersey.database.repository.DatabaseHelper_Repo;
 import com.example.jersey.database.repository.UserDatabase;
 import org.json.JSONObject;
+
+import javax.xml.crypto.Data;
 
 public class RepoDatabaseFacade {
 
@@ -27,13 +31,9 @@ public class RepoDatabaseFacade {
         AttributeRangeDao dao = new AttributeRangeDao();
         dao.update(object);
     }
-    public void deleteAttributeRangeRule(JSONObject object) throws Exception{
-        AttributeRangeDao dao = new AttributeRangeDao();
-        dao.delete(object);
-    }
     //</editor-fold>
     //<editor-fold desc="AttributeCompareRule">
-    public void defineAttributeCompareRule(JSONObject object){
+    public void defineAttributeCompareRule(JSONObject object) throws Exception{
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.define(object);
     }
@@ -48,10 +48,6 @@ public class RepoDatabaseFacade {
     public void alterAttributeCompareRule(JSONObject object) throws Exception {
         AttributeCompareDao dao = new AttributeCompareDao();
         dao.update(object);
-    }
-    public void deleteAttributeCompareRule(JSONObject object) throws Exception{
-        AttributeCompareDao dao = new AttributeCompareDao();
-        dao.delete(object);
     }
     //</editor-fold>
     //<editor-fold desc="AttributeListRule">
@@ -71,11 +67,26 @@ public class RepoDatabaseFacade {
         AttributeListDao dao = new AttributeListDao();
         dao.update(object);
     }
-    public void deleteAttributeListRule(JSONObject object) throws Exception {
-        AttributeListDao dao = new AttributeListDao();
-        dao.delete(object);
-    }
     //</editor-fold>
+    //<editor-fold desc="AttributeOtherRule">
+    public void defineAttributeOtherRule(JSONObject object) throws Exception {
+        AttributeOtherDao dao = new AttributeOtherDao();
+        dao.define(object);
+    }
+    public void alterAttributeOtherRule(JSONObject object) throws Exception {
+        TupleOtherDao dao = new TupleOtherDao();
+        dao.update(object);
+    }
+    public JSONObject getAllAttributeOtherRules(JSONObject object) throws Exception{
+        TupleOtherDao dao = new TupleOtherDao();
+        return dao.getAll(object);
+    }
+
+    public JSONObject getAttributeOtherRule(JSONObject object) throws Exception{
+        TupleOtherDao dao = new TupleOtherDao();
+        return dao.get(object);
+    }
+    //<editor-fold>
     //<editor-fold desc="TupleCompare">
     public void defineTupleCompareRule(JSONObject object) throws Exception {
         TupleCompareDao dao = new TupleCompareDao();
@@ -93,10 +104,6 @@ public class RepoDatabaseFacade {
     public JSONObject getTupleCompareRule(JSONObject object) throws Exception{
         TupleCompareDao dao = new TupleCompareDao();
         return dao.get(object);
-    }
-    public void deleteTupleCompareRule(JSONObject object) throws Exception {
-        TupleCompareDao dao = new TupleCompareDao();
-        dao.delete(object);
     }
     //</editor-fold>
     //<editor-fold desc="TupleOther">
@@ -117,10 +124,6 @@ public class RepoDatabaseFacade {
         TupleOtherDao dao = new TupleOtherDao();
         return dao.get(object);
     }
-    public void deleteTupleOtherRule(JSONObject object) throws Exception {
-        TupleOtherDao dao = new TupleOtherDao();
-        dao.delete(object);
-    }
     //</editor-fold>
     //<editor-fold desc="User">
     public boolean login(JSONObject object){
@@ -137,4 +140,8 @@ public class RepoDatabaseFacade {
     }
     //</editor-fold>
 
+    public void deleteRule(JSONObject object) throws Exception{
+        DatabaseHelper_Repo repo = new DatabaseHelper_Repo();
+        repo.deleteRule(object);
+    }
 }

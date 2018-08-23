@@ -23,12 +23,6 @@ public class BusinessRule {
         this.database_id = database_id;
     }
 
-
-    // TODO move to target database
-    public String getCode(){
-        return composite.getRuleCode(getName());
-    }
-
     public String getName(){
         if (name == null) generateName();
         return name;

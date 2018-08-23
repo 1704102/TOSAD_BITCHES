@@ -38,7 +38,7 @@ public class AttributeCompareResource implements ResourceInterface {
     @Override
     public Response delete(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.deleteAttributeCompareRule(new JSONObject(x));
+        return facade.deleteBusinessRule(new JSONObject(x));
     }
 
 }

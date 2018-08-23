@@ -39,6 +39,6 @@ public class AttributeRangeResource implements ResourceInterface {
     @Override
     public Response delete(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.deleteAttributeRangeRule(new JSONObject(x));
+        return facade.deleteBusinessRule(new JSONObject(x));
     }
 }

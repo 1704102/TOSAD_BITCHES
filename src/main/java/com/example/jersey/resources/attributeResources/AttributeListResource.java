@@ -35,6 +35,6 @@ public class AttributeListResource implements ResourceInterface {
     @Override
     public Response delete(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.deleteAttributeListRule(new JSONObject(x));
+        return facade.deleteBusinessRule(new JSONObject(x));
     }
 }

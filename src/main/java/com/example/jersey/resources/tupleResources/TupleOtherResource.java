@@ -36,6 +36,6 @@ public class TupleOtherResource implements ResourceInterface {
     @Override
     public Response delete(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.deleteTupleOtherRule(new JSONObject(x));
+        return facade.deleteBusinessRule(new JSONObject(x));
     }
 }

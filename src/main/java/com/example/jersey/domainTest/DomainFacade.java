@@ -2,12 +2,13 @@ package com.example.jersey.domainTest;
 
 import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
 import com.example.jersey.Exeptions.OperatorValidateExeption;
+import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.attribute.AttributeCompare;
 import com.example.jersey.domainTest.Composit.attribute.AttributeList;
 import com.example.jersey.domainTest.Composit.attribute.AttributeRange;
+import com.example.jersey.domainTest.Composit.Other;
 import com.example.jersey.domainTest.Composit.tuple.TupleCompare;
-import com.example.jersey.domainTest.Composit.tuple.TupleOther;
 import org.json.JSONObject;
 
 public class DomainFacade {
@@ -45,6 +46,8 @@ public class DomainFacade {
         rule.addComposite(composite);
         return rule.getRule();
     }
+
+
     public JSONObject defineTupleCompareRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
         Operator operator = new Operator(object.getString("operator"));
@@ -60,9 +63,10 @@ public class DomainFacade {
     }
 
 
-    public JSONObject defineTupleOtherRule(JSONObject object) throws Exception{
+    public JSONObject defineOtherRule(JSONObject object) throws Exception{
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        TupleOther composite = new TupleOther(object.getString("table1"), object.getString("column1"), object.getString("column2"), object.getString("constraint"));
+        Constraint constraint = new Constraint(object.getString("plSQL"));
+        Other composite = new Other(object.getString("table1"), constraint);
         if (!composite.validate()){
             throw new AttributeRangeValidateExeption();
         }
