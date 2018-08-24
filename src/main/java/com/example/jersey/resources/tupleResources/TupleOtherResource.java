@@ -9,28 +9,31 @@ import javax.ws.rs.core.Response;
 
 @Path("/businessRule/tor")
 public class TupleOtherResource implements ResourceInterface {
+
+    private final String TYPE = "tor";
+
     @Override
     public Response get(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getTupleOtherRule(new JSONObject(x));
+        return facade.getRule(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response getAll(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAllTupleOtherRules(new JSONObject(x));
+        return facade.getRules(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response define(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.defineTupleOtherRule(new JSONObject(x));
+        return facade.defineRule(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response alter(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.alterTupleOtherRule(new JSONObject(x));
+        return facade.updateRule(new JSONObject(x), TYPE);
     }
 
     @Override

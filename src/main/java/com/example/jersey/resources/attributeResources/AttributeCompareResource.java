@@ -11,28 +11,31 @@ import javax.ws.rs.core.Response;
 
 @Path("/businessRule/acr")
 public class AttributeCompareResource implements ResourceInterface {
+
+    private final String TYPE = "acr";
+
     @Override
     public Response get(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAttributeCompareRule(new JSONObject(x));
+        return facade.getRule(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response getAll(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAllAttributeCompareRules(new JSONObject(x));
+        return facade.getRules(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response define(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.defineAttributeCompareRule(new JSONObject(x));
+        return facade.defineRule(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response alter(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.alterAttributeCompareRule(new JSONObject(x));
+        return facade.updateRule(new JSONObject(x), TYPE);
     }
 
     @Override

@@ -9,28 +9,31 @@ import javax.ws.rs.core.Response;
 
 @Path("/businessRule/aor")
 public class AttributeOtherResource implements ResourceInterface {
+
+    private final String TYPE = "aor";
+
     @Override
     public Response get(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAttributeOtherRule(new JSONObject(x));
+        return facade.getRule(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response getAll(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.getAllAttributeOtherRules(new JSONObject(x));
+        return facade.getRules(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response define(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.defineAttributeOtherRule(new JSONObject(x));
+        return facade.defineRule(new JSONObject(x), TYPE);
     }
 
     @Override
     public Response alter(String x) {
         ResourceFacade facade = new ResourceFacade();
-        return facade.alterAttributeOtherRule(new JSONObject(x));
+        return facade.updateRule(new JSONObject(x), TYPE);
     }
 
     @Override

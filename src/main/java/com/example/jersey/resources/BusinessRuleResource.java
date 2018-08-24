@@ -25,7 +25,7 @@ public class BusinessRuleResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response delete(String x){
         ResourceFacade facade = new ResourceFacade();
-        facade.delete(new JSONObject(x));
+        facade.deleteRule(new JSONObject(x));
         return null;
     }
 }

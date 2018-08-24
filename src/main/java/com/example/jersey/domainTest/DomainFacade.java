@@ -1,7 +1,6 @@
 package com.example.jersey.domainTest;
 
-import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
-import com.example.jersey.Exeptions.OperatorValidateExeption;
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.attribute.AttributeCompare;
@@ -13,64 +12,34 @@ import org.json.JSONObject;
 
 public class DomainFacade {
 
-    public JSONObject defineAttributeRangeRule(JSONObject object) throws Exception{
+    public JSONObject defineRule(JSONObject object, String type) throws Exception{
         BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        AttributeRange composite = new AttributeRange(object.getString("table1"), object.getString("column1"), object.getInt("value1"), object.getInt("value2"));
-        if (!composite.validate()){
-            throw new AttributeRangeValidateExeption();
-        }
-        rule.addComposite(composite);
-        return rule.getRule();
-    }
-    public JSONObject defineAttributeCompareRule(JSONObject object) throws Exception{
-        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        Operator operator = new Operator(object.getString("operator"));
-        AttributeCompare composite = new AttributeCompare(object.getString("table1"), object.getString("column1"), object.getInt("value1"), operator);
-        if (!operator.validate()){
-            throw new OperatorValidateExeption();
-        }
-        if (!composite.validate()){
-            throw new AttributeRangeValidateExeption();
-        }
-
-        rule.addComposite(composite);
-        return rule.getRule();
-    }
-    public JSONObject defineAttributeListRule(JSONObject object) throws Exception {
-        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        AttributeList composite = new AttributeList(object.getString("table1"), object.getString("column1"), object.getJSONArray("value1"));
-        if (!composite.validate()){
-            throw new AttributeRangeValidateExeption();
-        }
-
-        rule.addComposite(composite);
+        rule.addComposite(getComposite(object, type));
+        rule.validate();
         return rule.getRule();
     }
 
 
-    public JSONObject defineTupleCompareRule(JSONObject object) throws Exception{
-        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        Operator operator = new Operator(object.getString("operator"));
-        TupleCompare composite = new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator);
-        if (!operator.validate()){
-            throw new OperatorValidateExeption();
+    private BusinessRuleComposite getComposite(JSONObject object, String type) throws Exception{
+        switch (type){
+            case "arr" :
+                return new AttributeRange(object.getString("table1"), object.getString("column1"), object.getInt("value1"), object.getInt("value2"));
+            case "acr" :
+                Operator operator = new Operator(object.getString("operator"));
+                new AttributeCompare(object.getString("table1"), object.getString("column1"), object.getInt("value1"), operator);
+            case "alr" :
+                new AttributeList(object.getString("table1"), object.getString("column1"), object.getJSONArray("value1"));
+            case "aor" :
+                Constraint constraint = new Constraint(object.getString("plSQL"));
+                new Other(object.getString("table1"), constraint);
+            case "tcr" :
+                Operator operator1 = new Operator(object.getString("operator"));
+                new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
+            case "tor" :
+                Constraint constraint1 = new Constraint(object.getString("plSQL"));
+                new Other(object.getString("table1"), constraint1);
+            default: return null;
         }
-        if (!composite.validate()){
-            throw new AttributeRangeValidateExeption();
-        }
-        rule.addComposite(composite);
-        return rule.getRule();
     }
 
-
-    public JSONObject defineOtherRule(JSONObject object) throws Exception{
-        BusinessRule rule = new BusinessRule(object.getInt("database_id"));
-        Constraint constraint = new Constraint(object.getString("plSQL"));
-        Other composite = new Other(object.getString("table1"), constraint);
-        if (!composite.validate()){
-            throw new AttributeRangeValidateExeption();
-        }
-        rule.addComposite(composite);
-        return rule.getRule();
-    }
 }

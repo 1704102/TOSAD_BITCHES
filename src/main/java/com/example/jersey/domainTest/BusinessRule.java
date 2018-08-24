@@ -47,4 +47,7 @@ public class BusinessRule {
     }
 
 
+    public void validate() {
+        composite.validate();
+    }
 }

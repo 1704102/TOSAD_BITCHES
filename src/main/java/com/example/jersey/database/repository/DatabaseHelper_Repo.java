@@ -4,6 +4,7 @@ package com.example.jersey.database.repository;
 import com.example.jersey.resources.ResourceFacade;
 import org.json.JSONObject;
 
+import java.lang.ref.PhantomReference;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -64,6 +65,15 @@ public class DatabaseHelper_Repo {
         statement.setString(1, object.getString("name"));
         statement.setString(2, object.getString("status"));
         statement.setInt(3, object.getInt("rule_id"));
+        statement.execute();
+    }
+
+    public void insertRule(JSONObject object, int id) throws Exception{
+        PreparedStatement statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS, database_id) values (?, ?, ?, ?)");
+        statement.setInt(1, id);
+        statement.setString(2, object.getString("name"));
+        statement.setString(3, object.getString("status"));
+        statement.setInt(4, object.getInt("database_id"));
         statement.execute();
     }
 
