@@ -26,18 +26,18 @@ public class DomainFacade {
                 return new AttributeRange(object.getString("table1"), object.getString("column1"), object.getInt("value1"), object.getInt("value2"));
             case "acr" :
                 Operator operator = new Operator(object.getString("operator"));
-                new AttributeCompare(object.getString("table1"), object.getString("column1"), object.getInt("value1"), operator);
+                 return new AttributeCompare(object.getString("table1"), object.getString("column1"), object.getInt("value1"), operator);
             case "alr" :
-                new AttributeList(object.getString("table1"), object.getString("column1"), object.getJSONArray("value1"));
+                return new AttributeList(object.getString("table1"), object.getString("column1"), object.getJSONArray("value1"));
             case "aor" :
                 Constraint constraint = new Constraint(object.getString("plSQL"));
-                new Other(object.getString("table1"), constraint);
+                return new Other(object.getString("table1"), constraint);
             case "tcr" :
                 Operator operator1 = new Operator(object.getString("operator"));
-                new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
+                return new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
             case "tor" :
                 Constraint constraint1 = new Constraint(object.getString("plSQL"));
-                new Other(object.getString("table1"), constraint1);
+                return new Other(object.getString("table1"), constraint1);
             default: return null;
         }
     }

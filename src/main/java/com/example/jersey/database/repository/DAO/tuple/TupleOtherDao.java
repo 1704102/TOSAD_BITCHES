@@ -35,7 +35,7 @@ public class TupleOtherDao extends DatabaseHelper_Repo implements BusinessRuleDa
     @Override
     public void define(JSONObject object) throws Exception {
         int rule_id = getId("businessRule");
-        int composite_id = getId("tupleCompare");
+        int composite_id = getId("tupleOther");
 
         connect();
         PreparedStatement statement = connection.prepareStatement("insert into TUPLEOTHER (ID, TABLE1, TYPE, CODE) values (?, ?, ?, ?)");

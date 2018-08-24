@@ -32,8 +32,9 @@ public class ResourceFacade {
     public Response defineRule(JSONObject object, String type){
         try {
             repoDatabaseFacade.defineRule(domainFacade.defineRule(object , type), type);
-            return Response.ok("\"response\":\" rule added to database \"", MediaType.APPLICATION_JSON).build();
+            return Response.ok("{\"response\":\" rule added to database \"}", MediaType.APPLICATION_JSON).build();
         }catch (Exception e){
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
     }
@@ -41,7 +42,7 @@ public class ResourceFacade {
     public Response updateRule(JSONObject object, String type){
         try {
             repoDatabaseFacade.updateRule(object, type);
-            return Response.ok("\"response\":\" rule updated in database \"", MediaType.APPLICATION_JSON).build();
+            return Response.ok("{\"response\":\" rule updated in database \"}", MediaType.APPLICATION_JSON).build();
         }catch (Exception e){
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
@@ -60,7 +61,7 @@ public class ResourceFacade {
         TargetDatabase database = new TargetDatabase();
         RepoDatabaseFacade facade = new RepoDatabaseFacade();
         try {
-            database.deleteConstraint(object);
+            //database.deleteConstraint(object);
             facade.deleteRule(object);
         }catch (Exception e){
             e.printStackTrace();
