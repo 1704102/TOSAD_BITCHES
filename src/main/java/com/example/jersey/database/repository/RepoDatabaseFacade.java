@@ -1,10 +1,11 @@
-package com.example.jersey.database;
+package com.example.jersey.database.repository;
 
 import com.example.jersey.database.repository.DAO.BusinessRuleDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeListDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeOtherDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeRangeDao;
+import com.example.jersey.database.repository.DAO.entity.EntityOtherDao;
 import com.example.jersey.database.repository.DAO.tuple.TupleCompareDao;
 import com.example.jersey.database.repository.DAO.tuple.TupleOtherDao;
 import com.example.jersey.database.repository.DatabaseHelper_Repo;
@@ -42,6 +43,7 @@ public class RepoDatabaseFacade {
             case "aor" : return new AttributeOtherDao();
             case "tcr" : return new TupleCompareDao();
             case "tor" : return new TupleOtherDao();
+            case "eor" : return new EntityOtherDao();
             default : return null;
         }
     }

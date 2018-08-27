@@ -38,6 +38,9 @@ public class DomainFacade {
             case "tor" :
                 Constraint constraint1 = new Constraint(object.getString("plSQL"));
                 return new Other(object.getString("table1"), constraint1);
+            case "eor" :
+                Constraint constraint2 = new Constraint(object.getString("plSQL"));
+                return new Other(object.getString("table1"), constraint2);
             default: return null;
         }
     }

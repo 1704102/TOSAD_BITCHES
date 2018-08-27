@@ -1,6 +1,6 @@
 package com.example.jersey.resources;
 
-import com.example.jersey.database.RepoDatabaseFacade;
+import com.example.jersey.database.repository.RepoDatabaseFacade;
 import com.example.jersey.database.Target.TargetDatabase;
 import com.example.jersey.domainTest.DomainFacade;
 import org.json.JSONObject;
@@ -44,6 +44,7 @@ public class ResourceFacade {
             repoDatabaseFacade.updateRule(object, type);
             return Response.ok("{\"response\":\" rule updated in database \"}", MediaType.APPLICATION_JSON).build();
         }catch (Exception e){
+            e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
     }
@@ -67,6 +68,6 @@ public class ResourceFacade {
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
-        return Response.ok("{'message':'rule deleted'}", MediaType.APPLICATION_JSON).build();
+        return Response.ok("{\"message\":\"rule deleted\"}", MediaType.APPLICATION_JSON).build();
     }
 }

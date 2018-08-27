@@ -13,7 +13,7 @@ public class TupleOtherDao extends DatabaseHelper_Repo implements BusinessRuleDa
     @Override
     public JSONObject getAll(JSONObject object) throws Exception {
         connect();
-        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.column2, c.constraint from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLEOTHER c on b.tor_id = c.id where b.tor_id is not null and a.database_id = ?");
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.type, c.PLSQL from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLEOTHER c on b.tor_id = c.id where b.tor_id is not null and a.database_id = ?");
         statement.setInt(1, object.getInt("database_id"));
         ResultSet s = statement.executeQuery();
         JSONObject output = Util.ResultSetToJSONArray(s);
@@ -24,7 +24,7 @@ public class TupleOtherDao extends DatabaseHelper_Repo implements BusinessRuleDa
     @Override
     public JSONObject get(JSONObject object) throws Exception {
         connect();
-        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.column2, c.constraint from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLEOTHER c on b.tor_id = c.id where b.tor_id is not null and a.id = ?");
+        PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.type, c.PLSQL from businessrule a left join businessrule_composite b on a.id = b.rule_id left join TUPLEOTHER c on b.tor_id = c.id where b.tor_id is not null and a.id = ?");
         statement.setInt(1, object.getInt("id"));
         ResultSet s = statement.executeQuery();
         JSONObject output = Util.ResultSetToJSONObject(s);
@@ -38,7 +38,7 @@ public class TupleOtherDao extends DatabaseHelper_Repo implements BusinessRuleDa
         int composite_id = getId("tupleOther");
 
         connect();
-        PreparedStatement statement = connection.prepareStatement("insert into TUPLEOTHER (ID, TABLE1, TYPE, CODE) values (?, ?, ?, ?)");
+        PreparedStatement statement = connection.prepareStatement("insert into TUPLEOTHER (ID, TABLE1, TYPE, PLSQL) values (?, ?, ?, ?)");
         statement.setInt(1, composite_id);
         statement.setString(2, object.getString("table1"));
         statement.setString(3, object.getString("type"));
@@ -59,12 +59,11 @@ public class TupleOtherDao extends DatabaseHelper_Repo implements BusinessRuleDa
     public void update(JSONObject object) throws Exception {
         connect();
 
-        PreparedStatement statement = connection.prepareStatement("update TUPLEOTHER set TABLE1 = ?, COLUMN1 = ?, COLUMN2 = ?, CONSTRAINT = ? where ID = ?");
+        PreparedStatement statement = connection.prepareStatement("update TUPLEOTHER set TABLE1 = ?, TYPE = ?, PLSQL = ? where ID = ?");
         statement.setString(1, object.getString("table1"));
-        statement.setString(2, object.getString("column1"));
-        statement.setString(3, object.getString("column2"));
-        statement.setString(4, object.getString("constraint"));
-        statement.setInt(5, object.getInt("composite_id"));
+        statement.setString(2, object.getString("type"));
+        statement.setString(3, object.getString("plSQL"));
+        statement.setInt(4, object.getInt("composite_id"));
         statement.execute();
 
         saveRule(object);
