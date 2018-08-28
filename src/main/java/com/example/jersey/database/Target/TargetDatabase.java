@@ -12,9 +12,8 @@ public class TargetDatabase extends DatabaseHelper_Target {
    public void activateConstraint(JSONObject object) throws Exception{
       connect();
 
-      PreparedStatement statement = connection.prepareStatement("alter table ? DISABLE constraint ?");
-      statement.setString(1, object.getString("table1"));
-      statement.setString(2, object.getString("name"));
+      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " ENABLE constraint " + object.getString("name"));
+      statement.execute();
 
       disconnect();
    }
@@ -22,9 +21,8 @@ public class TargetDatabase extends DatabaseHelper_Target {
    public void deactivateConstraint(JSONObject object) throws Exception{
       connect();
 
-      PreparedStatement statement = connection.prepareStatement("alter table ? ENABLE constraint ?");
-      statement.setString(1, object.getString("table1"));
-      statement.setString(2, object.getString("name"));
+      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " DISABLE constraint " + object.getString("name"));
+      statement.execute();
 
       disconnect();
    }
@@ -35,6 +33,7 @@ public class TargetDatabase extends DatabaseHelper_Target {
          case "ARR" : generateAttributeRangeRule(object); break;
          case "ACR" : generateAttributeCompareRule(object); break;
          case "ALR" : generateAttributeListRule(object); break;
+         case "AOR" : generateAttributeOtherRule(object); break;
          case "TCR" : generateTupleCompareRule(object); break;
       }
    }
@@ -69,6 +68,15 @@ public class TargetDatabase extends DatabaseHelper_Target {
       list.deleteCharAt(list.length() - 1);
 
       PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint " + object.getString("name") + " check(" + object.getString("column1") + " in (" + list.toString() + ")) ENABLE NOVALIDATE");
+      statement.execute();
+
+      disconnect();
+   }
+
+   public void generateAttributeOtherRule(JSONObject object) throws  Exception{
+      connect();
+
+      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint " + object.getString("name") + " " + object.getString("plSQL") + " ENABLE NOVALIDATE");
       statement.execute();
 
       disconnect();

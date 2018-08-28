@@ -52,4 +52,12 @@ public class RepoDatabaseFacade {
         DatabaseHelper_Repo repo = new DatabaseHelper_Repo();
         repo.deleteRule(object);
     }
+
+    public void activate(JSONObject object) throws Exception{
+        new DatabaseHelper_Repo().activate(object);
+    }
+
+    public void deactivate(JSONObject object) throws Exception{
+        new DatabaseHelper_Repo().deactivate(object);
+    }
 }

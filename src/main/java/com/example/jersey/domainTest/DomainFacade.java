@@ -1,12 +1,12 @@
 package com.example.jersey.domainTest;
 
+import com.example.jersey.domainTest.Composit.AttributeOther;
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.attribute.AttributeCompare;
 import com.example.jersey.domainTest.Composit.attribute.AttributeList;
 import com.example.jersey.domainTest.Composit.attribute.AttributeRange;
-import com.example.jersey.domainTest.Composit.Other;
 import com.example.jersey.domainTest.Composit.tuple.TupleCompare;
 import org.json.JSONObject;
 
@@ -31,16 +31,16 @@ public class DomainFacade {
                 return new AttributeList(object.getString("table1"), object.getString("column1"), object.getJSONArray("value1"));
             case "aor" :
                 Constraint constraint = new Constraint(object.getString("plSQL"));
-                return new Other(object.getString("table1"), constraint);
+                return new AttributeOther(object.getString("table1"), constraint);
             case "tcr" :
                 Operator operator1 = new Operator(object.getString("operator"));
                 return new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
-            case "tor" :
-                Constraint constraint1 = new Constraint(object.getString("plSQL"));
-                return new Other(object.getString("table1"), constraint1);
-            case "eor" :
-                Constraint constraint2 = new Constraint(object.getString("plSQL"));
-                return new Other(object.getString("table1"), constraint2);
+//            case "tor" :
+//                Constraint constraint1 = new Constraint(object.getString("plSQL"));
+//                return new Other(object.getString("table1"), constraint1);
+//            case "eor" :
+//                Constraint constraint2 = new Constraint(object.getString("plSQL"));
+//                return new Other(object.getString("table1"), constraint2);
             default: return null;
         }
     }

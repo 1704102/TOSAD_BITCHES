@@ -77,4 +77,22 @@ public class DatabaseHelper_Repo {
         statement.execute();
     }
 
+    public void activate(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement("update businessrule set status = ? where id = ?");
+        statement.setString(1, "activated");
+        statement.setInt(2, object.getInt("id"));
+        statement.execute();
+        disconnect();
+    }
+
+    public void deactivate(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement("update businessrule set status = ? where id = ?");
+        statement.setString(1, "deactivated");
+        statement.setInt(2, object.getInt("id"));
+        statement.execute();
+        disconnect();
+    }
+
 }

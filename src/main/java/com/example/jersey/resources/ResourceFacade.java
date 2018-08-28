@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.concurrent.ExecutionException;
 
 public class ResourceFacade {
 
@@ -59,15 +60,33 @@ public class ResourceFacade {
     }
 
     public Response deleteBusinessRule(JSONObject object){
-        TargetDatabase database = new TargetDatabase();
-        RepoDatabaseFacade facade = new RepoDatabaseFacade();
         try {
             //database.deleteConstraint(object);
-            facade.deleteRule(object);
+            repoDatabaseFacade.deleteRule(object);
         }catch (Exception e){
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
         return Response.ok("{\"message\":\"rule deleted\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response activateRule(JSONObject object){
+        try {
+            new TargetDatabase().activateConstraint(object);
+            repoDatabaseFacade.activate(object);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Response.ok("{\"message\":\"rule activated\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response deactivateRule(JSONObject object){
+        try {
+            new TargetDatabase().deactivateConstraint(object);
+            repoDatabaseFacade.deactivate(object);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return Response.ok("{\"message\":\"rule deactivated\"}", MediaType.APPLICATION_JSON).build();
     }
 }

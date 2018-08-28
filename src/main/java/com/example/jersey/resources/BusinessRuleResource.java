@@ -21,6 +21,24 @@ public class BusinessRuleResource {
         return null;
     }
 
+    @Path("/activate")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response activate(String x){
+        ResourceFacade facade = new ResourceFacade();
+        facade.activateRule(new JSONObject(x));
+        return null;
+    }
+
+    @Path("/deactivate")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deactivate(String x){
+        ResourceFacade facade = new ResourceFacade();
+        facade.deactivateRule(new JSONObject(x));
+        return null;
+    }
+
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public Response delete(String x){

@@ -4,14 +4,14 @@ import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import org.json.JSONObject;
 
-public class Other implements BusinessRuleComposite {
+public class AttributeOther implements BusinessRuleComposite {
 
     private int id;
 
     private String table;
     private Constraint constraint;
 
-    public Other(String table, Constraint constraint) {
+    public AttributeOther(String table, Constraint constraint) {
         this.table = table;
         this.constraint = constraint;
 
@@ -20,7 +20,7 @@ public class Other implements BusinessRuleComposite {
 
     @Override
     public String getName() {
-        return table + "_CNS_TOR";
+        return table + "_CNS_AOR_";
     }
 
     @Override
