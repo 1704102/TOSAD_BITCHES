@@ -7,27 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db180cb5-c012-4f6f-98a4-337f97700298" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/BusinessRuleDatabase.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/GenerateDatabase.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabaseFacade.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/entity/EntityOther.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/tuple/TupleOther.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/script/jquery.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/script/rest.js" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabase.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeCompareDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeCompareDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeListDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeListDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeOtherDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeOtherDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeRangeDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeRangeDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/entity/EntityOtherDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/entity/EntityOtherDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/tuple/TupleCompareDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/tuple/TupleCompareDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/tuple/TupleOtherDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/tuple/TupleOtherDao.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DatabaseHelper_Repo.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DatabaseHelper_Repo.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeOther.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeOther.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/BusinessRuleResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/BusinessRuleResource.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
     </list>
     <ignored path="C:\Users\marti\IdeaProjects\TOSAD\.idea\shelf/" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -41,10 +24,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="ResourceFacade.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ResourceFacade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="693">
               <caret line="127" column="32" lean-forward="false" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
               <folding>
                 <element signature="e#4629#4637#0" expanded="true" />
@@ -78,16 +61,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="294">
               <caret line="17" column="7" lean-forward="true" selection-start-line="9" selection-start-column="38" selection-end-line="17" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TargetDatabaseFacade.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabaseFacade.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="26" column="67" lean-forward="false" selection-start-line="26" selection-start-column="67" selection-end-line="26" selection-end-column="67" />
               <folding />
             </state>
           </provider>
@@ -136,7 +109,7 @@
       <file leaf-file-name="TargetResource.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
+            <state relative-caret-position="546">
               <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -149,11 +122,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttributeCompareResource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/attributeResources/AttributeCompareResource.java">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="470">
+              <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rest.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/script/rest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -165,6 +148,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -186,8 +170,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/AttributeRange.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/TupleCompare.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeCompareDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeRangeDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/AttributeListDao.java" />
@@ -237,6 +219,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/BusinessRuleResource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/script/rest.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       </list>
     </option>
   </component>
@@ -261,8 +245,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="133" />
-    <option name="y" value="-34" />
+    <option name="x" value="189" />
+    <option name="y" value="214" />
     <option name="width" value="1630" />
     <option name="height" value="780" />
   </component>
@@ -448,6 +432,21 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="attributeResources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="TOSAD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TOSAD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TOSAD" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TOSAD" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="script" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -468,6 +467,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marti\IdeaProjects\TOSAD\src\main\webapp\script" />
       <recent name="C:\Users\marti\IdeaProjects\TOSAD\src\main\resources" />
     </key>
   </component>
@@ -697,7 +697,7 @@
       <workItem from="1535446064152" duration="549000" />
       <workItem from="1535447243442" duration="3856000" />
       <workItem from="1535460715230" duration="1140000" />
-      <workItem from="1535462387240" duration="1824000" />
+      <workItem from="1535462387240" duration="3567000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'development' of https://github.com/1704102/TOSAD_BITCHES into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;out/artifacts/GO_PLAN_IT_war_exploded/WEB-INF/classes/com/example/jersey/Generator/BusinessRuleGenearator.class&#10;#&#9;out/artifacts/GO_PLAN_IT_war_exploded/WEB-INF/classes/com/example/jersey/rest/Test.class&#10;#&#9;src/main/java/com/example/jersey/database/DatabaseHelper.java&#10;#&#9;src/main/java/com/example/jersey/rest/Test.java">
       <created>1531220179622</created>
@@ -818,11 +818,18 @@
       <option name="project" value="LOCAL" />
       <updated>1535449242803</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary=" - added function to get all rules&#10; - added function to get tables&#10; - added function to get columns">
+      <created>1535464212881</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1535464212881</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76351000" />
+    <option name="totallyTimeSpent" value="78094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
@@ -906,20 +913,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/Exeptions/AttributeRangeValidateExeption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/Exeptions/OperatorValidateExeption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/Exeptions/AttributeCompareValidateExeption.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="42">
@@ -1343,7 +1336,7 @@
         <state relative-caret-position="609">
           <caret line="30" column="32" lean-forward="false" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
           <folding>
-            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1372,7 +1365,7 @@
         <state relative-caret-position="567">
           <caret line="37" column="6" lean-forward="false" selection-start-line="37" selection-start-column="6" selection-end-line="37" selection-end-column="6" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1419,20 +1412,6 @@
         <state relative-caret-position="504">
           <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-            <element signature="e#651#652#0" expanded="true" />
-            <element signature="e#723#724#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1504,11 +1483,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
+        <state relative-caret-position="693">
           <caret line="127" column="32" lean-forward="false" selection-start-line="127" selection-start-column="32" selection-end-line="127" selection-end-column="32" />
           <folding>
             <element signature="e#4629#4637#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#536#537#0" expanded="true" />
+            <element signature="e#651#652#0" expanded="true" />
+            <element signature="e#723#724#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/script/rest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="47" selection-end-line="37" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>
