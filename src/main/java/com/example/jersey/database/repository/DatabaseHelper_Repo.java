@@ -68,10 +68,10 @@ public class DatabaseHelper_Repo {
         statement.execute();
     }
 
-    public void insertRule(JSONObject object, int id) throws Exception{
+    public void insertRule(JSONObject object, int id, int composite_id) throws Exception{
         PreparedStatement statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS, database_id) values (?, ?, ?, ?)");
         statement.setInt(1, id);
-        statement.setString(2, object.getString("name"));
+        statement.setString(2, object.getString("name") + composite_id);
         statement.setString(3, object.getString("status"));
         statement.setInt(4, object.getInt("database_id"));
         statement.execute();

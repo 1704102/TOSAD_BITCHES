@@ -1,18 +1,22 @@
 package com.example.jersey.resources;
 
+import com.example.jersey.database.Target.TargetDatabaseFacade;
 import com.example.jersey.database.repository.RepoDatabaseFacade;
-import com.example.jersey.database.Target.TargetDatabase;
+import com.example.jersey.database.Target.GenerateDatabase;
 import com.example.jersey.domainTest.DomainFacade;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.concurrent.ExecutionException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ResourceFacade {
 
     DomainFacade domainFacade = new DomainFacade();
     RepoDatabaseFacade repoDatabaseFacade = new RepoDatabaseFacade();
+    TargetDatabaseFacade targetDatabaseFacade = new TargetDatabaseFacade();
 
     public Response getRule(JSONObject object, String type){
         try {
@@ -50,18 +54,20 @@ public class ResourceFacade {
         }
     }
 
-    public void generate(JSONObject object) {
-        TargetDatabase database = new TargetDatabase();
+    public Response generate(JSONObject object) {
+        GenerateDatabase database = new GenerateDatabase();
         try {
             database.generateBusinessRule(object);
         }catch (Exception e){
             e.printStackTrace();
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
         }
+        return Response.ok("{\"message\":\"rule generated\"}", MediaType.APPLICATION_JSON).build();
     }
 
     public Response deleteBusinessRule(JSONObject object){
         try {
-            //database.deleteConstraint(object);
+            targetDatabaseFacade.delete(object);
             repoDatabaseFacade.deleteRule(object);
         }catch (Exception e){
             e.printStackTrace();
@@ -72,7 +78,7 @@ public class ResourceFacade {
 
     public Response activateRule(JSONObject object){
         try {
-            new TargetDatabase().activateConstraint(object);
+            targetDatabaseFacade.activate(object);
             repoDatabaseFacade.activate(object);
         }catch (Exception e){
             e.printStackTrace();
@@ -82,11 +88,49 @@ public class ResourceFacade {
 
     public Response deactivateRule(JSONObject object){
         try {
-            new TargetDatabase().deactivateConstraint(object);
+            targetDatabaseFacade.deactivate(object);
             repoDatabaseFacade.deactivate(object);
         }catch (Exception e){
             e.printStackTrace();
         }
         return Response.ok("{\"message\":\"rule deactivated\"}", MediaType.APPLICATION_JSON).build();
+    }
+
+    public Response getColumns(JSONObject object){
+        try {
+            return Response.ok(targetDatabaseFacade.getColumns(object).toString(), MediaType.APPLICATION_JSON).build();
+        }catch (Exception e){
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+    }
+
+    public Response getTables(JSONObject object) {
+        try {
+            return Response.ok(targetDatabaseFacade.getTables(object).toString(), MediaType.APPLICATION_JSON).build();
+        }catch (Exception e){
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+    }
+
+    public Response getAll(JSONObject object) {
+        //TODO add other rules
+        try {
+            ArrayList<String> list = new ArrayList<String>(Arrays.asList("arr","acr","alr","aor","tcr","tor","eor"));
+            JSONArray array = new JSONArray();
+            for(int i = 0; i < list.size(); i++){
+                JSONObject rules = repoDatabaseFacade.getRules(object, list.get(i));
+                JSONArray array1 = rules.getJSONArray("rules");
+                for(int j = 0; j < array1.length(); j++){
+                    array.put(array1.get(j));
+                }
+            }
+            JSONObject output = new JSONObject();
+            output.put("rules", array);
+            return Response.ok(output.toString(), MediaType.APPLICATION_JSON).build();
+        }catch (Exception e){
+            e.printStackTrace();
+            return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
+        }
+
     }
 }

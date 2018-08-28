@@ -1,5 +1,6 @@
 package com.example.jersey.resources;
 
+import oracle.jdbc.proxy.annotation.Pre;
 import org.json.JSONObject;
 
 import javax.ws.rs.DELETE;
@@ -12,13 +13,20 @@ import javax.ws.rs.core.Response;
 @Path("/businessRule")
 public class BusinessRuleResource {
 
+    @Path("/all")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAll(String x){
+        ResourceFacade facade = new ResourceFacade();
+        return facade.getAll(new JSONObject(x));
+    }
+
     @Path("/generate")
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public Response generate(String x){
         ResourceFacade facade = new ResourceFacade();
-        facade.generate(new JSONObject(x));
-        return null;
+        return facade.generate(new JSONObject(x));
     }
 
     @Path("/activate")

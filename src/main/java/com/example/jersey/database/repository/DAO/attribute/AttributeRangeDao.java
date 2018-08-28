@@ -50,7 +50,7 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         statement.setInt(5,object.getInt("value2"));
         statement.execute();
 
-        insertRule(object ,rule_id);
+        insertRule(object ,rule_id, composite_id);
 
         statement = connection.prepareStatement("insert into BUSINESSRULE_COMPOSITE (RULE_ID, ARR_ID) values (?,?)");
         statement.setInt(1,rule_id);

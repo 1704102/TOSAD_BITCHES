@@ -29,8 +29,7 @@ public class BusinessRule {
     }
 
     private void generateName(){
-        //TODO get number for rule (temporarily 1)
-        name = composite.getName() + 1;
+        name = composite.getName();
     }
 
     public void addComposite(BusinessRuleComposite composite){

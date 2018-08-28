@@ -53,7 +53,7 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
         statement.setString(4,list.toString());
         statement.execute();
 
-        insertRule(object ,rule_id);
+        insertRule(object ,rule_id, composite_id);
 
         statement = connection.prepareStatement("insert into BUSINESSRULE_COMPOSITE (RULE_ID, ALR_ID) values (?,?)");
         statement.setInt(1,rule_id);
