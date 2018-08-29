@@ -1,14 +1,14 @@
-package com.example.jersey.resources;
+package com.example.jersey.resources.entity;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-import org.json.JSONObject;
+import com.example.jersey.resources.ResourceFacade;
+import com.example.jersey.resources.ResourceInterface;
 
-import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
-@Path("/businessRule/tcr")
-public class TupleCompareResource implements ResourceInterface{
+
+public class EntityCompareResource implements ResourceInterface {
     @Override
     public Response get(String x) {
+        ResourceFacade facade = new ResourceFacade();
         return null;
     }
 
@@ -19,8 +19,7 @@ public class TupleCompareResource implements ResourceInterface{
 
     @Override
     public Response define(String x) {
-        ResourceFacade facade = new ResourceFacade();
-        return facade.defineTupleCompareRule(new JSONObject(x));
+        return null;
     }
 
     @Override

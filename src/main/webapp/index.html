@@ -51,8 +51,128 @@
 											Failure Handler
 										</a>
 									</li>
-							</ul>
+								</ul>
+									<ul class="nav nav-tabs" id="myTab" role="tablist">
+										<li class="nav-item">
+											<a class="nav-link active" id="ruledefinition-tab" data-toggle="tab" href="#ruledefinition" role="tab" aria-controls="ruledefinition" aria-selected="true">
+											Attribute Range
 
+										</a>
+										</li>
+										<li class="nav-item">
+											<a class="nav-link" id="failurehandler-tab" data-toggle="tab" href="#failurehandler" role="tab" aria-controls="failurehandler" aria-selected="false">
+												Attribute Compare
+												<div class="container">
+													<h1>Define Business Rule</h1>
+													<form (ngSubmit)="onSubmit()" #defineBusinessRuleForm="ngForm">
+														<div class="form-group">
+															<label for="minValue">Minimum Value</label>
+															<input type="text" class="form-control" id="minValue">
+														</div>
+
+														<div class="form-group">
+															<label for="maxValue">Maximum Value</label>
+															<input type="text" class="form-control" id="maxValue">
+														</div>
+
+														<div class="form-group">
+															<label for="table1">table1</label>
+
+																	 <input type="text" class="form-control" id="table1" required [(ngModel)]="model.table1" name="table1"
+																 class="alert alert-danger">
+																 <div [hidden]="table1.valid || table1.pristine"
+																table1 is required
+															</div>
+														</div>
+
+														<div class="form-group">
+															<label for="column1">column1</label>
+															<input type="text" class="form-control" id="column1" required>
+														</div>
+
+														<div class="form-group">
+															<label for="table"></label>
+															<select class="form-control" id="table" required>
+																<option *ngFor="let tbl of table" [value]="table">{{tbl}}</option>
+															</select>
+														</div>
+
+														<div class="form-group">
+															<label for="attribute">Attribute</label>
+															<select class="form-control" id="attribute" required>
+																<option *ngFor="let attr of attribute" [value]="attribute">car</option>
+															</select>
+														</div>
+
+														<div class="form-group">
+															<label for="errorMsg">Error Message</label>
+															<input type="text" class="form-control" id="errorMsg" required>
+														</div>
+
+														<button type="submit" class="btn btn-success" [disabled]="!defineBusinessRuleForm.form.valid">Submit</button>
+														<button type="button" class="btn btn-default" (click)="defineNewBusinessRule(); defineBusinessRuleForm.reset()">Define New BR</button>
+													</form>
+												</div>
+											</a>
+										</li>
+									</ul>
+									<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="attributeRange-tab">
+									</div>
+									<div class="container">
+										<h1>Define Business Rule</h1>
+										<form (ngSubmit)="onSubmit()" #defineBusinessRuleForm="ngForm">
+											<div class="form-group">
+												<label for="minValue">Minimum Value</label>
+												<input type="text" class="form-control" id="minValue">
+											</div>
+
+											<div class="form-group">
+												<label for="maxValue">Maximum Value</label>
+												<input type="text" class="form-control" id="maxValue">
+											</div>
+
+											<div class="form-group">
+												<label for="table1">table1</label>
+
+														 <input type="text" class="form-control" id="table1" required [(ngModel)]="model.table1" name="table1"
+													 class="alert alert-danger">
+													 <div [hidden]="table1.valid || table1.pristine"
+													table1 is required
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label for="column1">column1</label>
+												<input type="text" class="form-control" id="column1" required>
+											</div>
+
+											<div class="form-group">
+												<label for="table"></label>
+												<select class="form-control" id="table" required>
+													<option *ngFor="let tbl of table" [value]="table">{{tbl}}</option>
+												</select>
+											</div>
+
+											<div class="form-group">
+												<label for="attribute">Attribute</label>
+												<select class="form-control" id="attribute" required>
+													<option *ngFor="let attr of attribute" [value]="attribute">car</option>
+												</select>
+											</div>
+
+											<div class="form-group">
+												<label for="errorMsg">Error Message</label>
+												<input type="text" class="form-control" id="errorMsg" required>
+											</div>
+
+											<button type="submit" class="btn btn-success" [disabled]="!defineBusinessRuleForm.form.valid">Submit</button>
+											<button type="button" class="btn btn-default" (click)="defineNewBusinessRule(); defineBusinessRuleForm.reset()">Define New BR</button>
+										</form>
+									</div>
+								</div>
+
+									<div class="tab-pane fade" id="failurehandler" role="tabpanel" aria-labelledby="attributeCompare-tab">
+									</div>
 									<!-- content for tabs -->
 									<div class="tab-content" id="myTabContent">
 										<!-- Content for tab Rule Definition -->

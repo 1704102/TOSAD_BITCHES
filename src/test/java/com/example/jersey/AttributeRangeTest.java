@@ -1,14 +1,6 @@
 package com.example.jersey;
 
-import com.example.jersey.database.repository.DatabaseHelper_Repo;
-import com.example.jersey.domainTest.BusinessRule;
-import com.example.jersey.domainTest.Composit.AttributeRange;
-
-import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
-import junit.framework.Assert;
 import junit.framework.TestCase;
-
-import java.sql.PreparedStatement;
 
 public class AttributeRangeTest extends TestCase {
 

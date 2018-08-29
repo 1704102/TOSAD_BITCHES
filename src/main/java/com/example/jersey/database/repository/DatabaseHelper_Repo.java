@@ -1,6 +1,10 @@
 package com.example.jersey.database.repository;
 
 
+import com.example.jersey.resources.ResourceFacade;
+import org.json.JSONObject;
+
+import java.lang.ref.PhantomReference;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -36,24 +40,59 @@ public class DatabaseHelper_Repo {
         }
     }
 
-    public int getRuleInitId(){
-        connect();
+    public int getId(String table) throws Exception{
         int id = 0;
-        try {
-            PreparedStatement statement = connection.prepareStatement("select max(id) as max from businessrule");
-            ResultSet s = statement.executeQuery();
-            while (s.next()){
-                id = s.getInt("max");
-            }
-        }catch (Exception e){
-            e.printStackTrace();
+        connect();
+        PreparedStatement statement = connection.prepareStatement("select max(id) as max from " + table);
+        ResultSet s = statement.executeQuery();
+        while (s.next()){
+            id = s.getInt("max");
         }
-
         disconnect();
-        if (id == 0){
-            return 1;
-        }
         return id + 1;
+    }
+
+    public void deleteRule(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement("delete from businessrule where id = ?");
+        statement.setInt(1, object.getInt("id"));
+        statement.execute();
+        disconnect();
+    }
+
+    public void saveRule(JSONObject object) throws Exception{
+        PreparedStatement statement = connection.prepareStatement("update BUSINESSRULE set NAME = ?, STATUS = ? where id = ?");
+        statement.setString(1, object.getString("name"));
+        statement.setString(2, object.getString("status"));
+        statement.setInt(3, object.getInt("id"));
+        statement.execute();
+    }
+
+    public void insertRule(JSONObject object, int id, int composite_id) throws Exception{
+        PreparedStatement statement = connection.prepareStatement("insert into BUSINESSRULE (ID, NAME, STATUS, database_id) values (?, ?, ?, ?)");
+        statement.setInt(1, id);
+        statement.setString(2, object.getString("name") + composite_id);
+        statement.setString(3, object.getString("status"));
+        statement.setInt(4, object.getInt("database_id"));
+        statement.execute();
+    }
+
+    public void activate(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement("update businessrule set status = ? where id = ?");
+        statement.setString(1, "activated");
+        statement.setInt(2, object.getInt("id"));
+        statement.execute();
+        disconnect();
+    }
+
+    public void deactivate(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement("update businessrule set status = ? where id = ?");
+        statement.setString(1, "deactivated");
+        statement.setInt(2, object.getInt("id"));
+        statement.execute();
+        disconnect();
     }
 
 }

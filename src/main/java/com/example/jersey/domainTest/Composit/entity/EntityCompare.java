@@ -1,16 +1,9 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.entity;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
-public class OtherRule implements BusinessRuleComposite {
-
-    @Override
-    public String getRuleCode(String name) {
-        return null;
-    }
-
+public class EntityCompare implements BusinessRuleComposite {
     @Override
     public String getName() {
         return null;
@@ -25,5 +18,4 @@ public class OtherRule implements BusinessRuleComposite {
     public JSONObject getComposite() {
         return null;
     }
-
 }

@@ -1,5 +1,6 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.tuple;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import org.json.JSONObject;
 
@@ -28,13 +29,8 @@ public class TupleCompare implements BusinessRuleComposite {
     }
 
     @Override
-    public String getRuleCode(String name) {
-        return "alter table " + table +  " add constraint " + name + " check(" + columnOne + " " + operator.getValue() + " " + columnTwo + ") ENABLE NOVALIDATE";
-    }
-
-    @Override
     public String getName() {
-        return table + "_CNS_TCR";
+        return table + "_CNS_TCR_";
     }
 
     @Override

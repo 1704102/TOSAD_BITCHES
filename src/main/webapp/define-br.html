@@ -38,7 +38,7 @@
 						<input type="text" class="form-control" id="maxValue">
 					</div>
 
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="table1">table1</label>
 
 								 <input type="text" class="form-control" id="table1" required [(ngModel)]="model.table1" name="table1"
@@ -46,34 +46,34 @@
 							 <div [hidden]="table1.valid || table1.pristine"
 							table1 is required
 						</div>
+					</div> -->
+
+					<!-- <div class="form-group">
+						<label for="column1">column1</label>
+						<input type="text" class="form-control" id="column1" required>
+					</div> -->
+
+					<div class="form-group">
+						<label for="table1">table1</label>
+						<select class="form-control" id="table1" required>
+							<option *ngFor="let tbl of table" [value]="table">car</option>
+						</select>
 					</div>
 
 					<div class="form-group">
 						<label for="column1">column1</label>
-						<input type="text" class="form-control" id="column1" required>
-					</div>
-
-					<div class="form-group">
-						<label for="table"></label>
-						<select class="form-control" id="table" required>
-							<option *ngFor="let tbl of table" [value]="table">{{tbl}}</option>
+						<select class="form-control" id="column1" required>
+							<option *ngFor="let attr of attribute" [value]="attribute">type</option>
 						</select>
 					</div>
 
-					<div class="form-group">
-						<label for="attribute">Attribute</label>
-						<select class="form-control" id="attribute" required>
-							<option *ngFor="let attr of attribute" [value]="attribute">car</option>
-						</select>
-					</div>
-
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label for="errorMsg">Error Message</label>
 						<input type="text" class="form-control" id="errorMsg" required>
-					</div>
+					</div> -->
 
-					<button type="submit" class="btn btn-success" [disabled]="!defineBusinessRuleForm.form.valid">Submit</button>
-					<button type="button" class="btn btn-default" (click)="defineNewBusinessRule(); defineBusinessRuleForm.reset()">Define New BR</button>
+					<!-- <button type="submit" class="btn btn-success" [disabled]="!defineBusinessRuleForm.form.valid">Submit</button> -->
+					<button type="button" class="btn btn-default" id="define" (click)="defineNewBusinessRule(); defineBusinessRuleForm.reset()">Define New BR</button>
 				</form>
 			</div>
 		</main>
@@ -81,16 +81,21 @@
 
 		<script>
 		// attribute range rule
+
+		const subUrl = "rest/businessRule/";
 		var object = JSON.parse("{}");
-			document.querySelector.addEventListener("click", function(){
+		var baseUrl = subUrl + "arr";
+			document.querySelector("#define").addEventListener("click", function(){
 				object["table1"] = document.querySelector("#table1").value;
 				object["column1"] = document.querySelector("#column1").value;
-				object["minValue"] = document.querySelector("#minValue").value;
-				object["maxValue"] = document.querySelector("#maxValue").value;
-				object["database_id"] = document.querySelector("#database_id").value;
-				postCall(object);
+				object["value1"] = document.querySelector("#minValue").value;
+				object["value2"] = document.querySelector("#maxValue").value;
+				object["database_id"] = 1;
+				postCall(object, baseUrl, "json");
 			});
-		}
+
+			addOptions(targetTableItem,"table1_define");
+
 		</script>
 	</body>
 </html>

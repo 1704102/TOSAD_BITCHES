@@ -1,12 +1,10 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class AttributeList implements BusinessRuleComposite{
+public class AttributeList implements BusinessRuleComposite {
 
     private int id;
     private String table;
@@ -26,11 +24,6 @@ public class AttributeList implements BusinessRuleComposite{
         this.column = column;
         this.list = list;
 
-    }
-
-    @Override
-    public String getRuleCode(String name) {
-        return null;
     }
 
     @Override
