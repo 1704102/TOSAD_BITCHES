@@ -1,78 +1,87 @@
 package com.example.jersey.database.Target;
 
-import oracle.jdbc.proxy.annotation.Pre;
 import org.json.JSONObject;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
+import java.sql.*;
 
 public class GenerateDatabase extends DatabaseHelper_Target {
 
-   public void generateBusinessRule(JSONObject object) throws Exception{
-      String type = object.getString("name").split("_")[2];
-      switch (type){
-         case "ARR" : generateAttributeRangeRule(object); break;
-         case "ACR" : generateAttributeCompareRule(object); break;
-         case "ALR" : generateAttributeListRule(object); break;
-         case "AOR" : generateAttributeOtherRule(object); break;
-         case "TCR" : generateTupleCompareRule(object); break;
-         case "TOR" : break;
-         case "IECR" : break;
-         case "EOR" : break;
-      }
-   }
 
-   public void generateAttributeRangeRule(JSONObject object) throws Exception{
-      connect();
 
-      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint "+ object.getString("name") +" check(" + object.getString("column1") + " between ? and ?) ENABLE NOVALIDATE");
-      statement.setInt(1, object.getInt("value1"));
-      statement.setInt(2, object.getInt("value2"));
-      statement.execute();
+    public void generateBusinessRule(JSONObject object) throws Exception{
+        switch (object.getString("type")){
+            case "arr" : generateAttributeRangeRule(object); break;
+            case "acr" : generateAttributeCompareRule(object); break;
+            case "alr" : generateAttributeListRule(object); break;
+            case "eor" : generateOtherRule(object); break;
+            case "tcr" : generateTupleCompareRule(object); break;
+            case "or" : generateOtherRule(object);break;
+            case "iecr" : break;
+        }
+    }
 
-      disconnect();
-   }
+    private String createTrigger(JSONObject object, String constraint){
+        return "CREATE OR REPLACE TRIGGER " + object.getString("name") +
+                " BEFORE INSERT OR UPDATE ON " + object.getString("table1") +
+                " FOR EACH ROW " +
+                "BEGIN " +
+                constraint +
+                " then RAISE_APPLICATION_ERROR (-20000, 'UPGRADE DENIED!'); " +
+                " END IF; " +
+                "END;";
+    }
 
-   public void generateAttributeCompareRule(JSONObject object) throws Exception{
-      connect();
+    private String createOtherTrigger(JSONObject object, String constraint) {
+        return "CREATE OR REPLACE TRIGGER " + object.getString("name") + " " +
+                "BEFORE INSERT OR UPDATE ON " + object.getString("table1") + " " +
+                "FOR EACH ROW " +
+                constraint;
+    }
 
-      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint " + object.getString("name") + " check(" + object.getString("column1") + object.getString("operator") + object.getInt("value1") +") ENABLE NOVALIDATE");
-      statement.execute();
+    public void generateAttributeRangeRule(JSONObject object) throws Exception{
+        connect();
+        Statement statement = connection.createStatement();
+        String constrain = "IF NOT :NEW." + object.getString("column1") + " BETWEEN " + object.getInt("value1")+ " AND " + object.getInt("value2");
+        statement.execute(createTrigger(object, constrain));
+        disconnect();
+    }
 
-      disconnect();
-   }
+    public void generateAttributeCompareRule(JSONObject object) throws Exception{
+        connect();
+        Statement statement = connection.createStatement();
+        String constraint =  "IF NOT :NEW." + object.getString("column1") + " " + object.getString("operator") + " " + object.getInt("value1");
+        statement.execute(createTrigger(object, constraint));
+        disconnect();
+    }
 
-   public void generateAttributeListRule(JSONObject object) throws Exception{
-      connect();
+    public void generateAttributeListRule(JSONObject object) throws Exception{ ;
 
-      StringBuilder list = new StringBuilder();
-      object.getJSONArray("list").forEach(e->{
-         list.append("'" +e + "',");
-      });
-      list.deleteCharAt(list.length() - 1);
+        StringBuilder list = new StringBuilder();
+        object.getJSONArray("value1").forEach(e->{
+            list.append("'" +e + "',");
+        });
+        list.deleteCharAt(list.length() - 1);
 
-      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint " + object.getString("name") + " check(" + object.getString("column1") + " in (" + list.toString() + ")) ENABLE NOVALIDATE");
-      statement.execute();
+        connect();
+        Statement statement = connection.createStatement();
+        String constraint = "IF NOT :NEW." + object.getString("column1") + " IN (" + list+ ")";
+        statement.execute(createTrigger(object, constraint));
 
-      disconnect();
-   }
+        disconnect();
+    }
 
-   public void generateAttributeOtherRule(JSONObject object) throws  Exception{
-      connect();
+    public void generateOtherRule(JSONObject object) throws  Exception{
+        connect();
+        Statement statement = connection.createStatement();
+        statement.execute(createOtherTrigger(object, object.getString("plsql")));
+        disconnect();
+    }
 
-      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint " + object.getString("name") + " " + object.getString("plSQL") + " ENABLE NOVALIDATE");
-      statement.execute();
-
-      disconnect();
-   }
-
-   public void generateTupleCompareRule(JSONObject object) throws Exception{
-      connect();
-
-      PreparedStatement statement = connection.prepareStatement("alter table " + object.getString("table1") + " add constraint " + object.getString("name") + " check(" + object.getString("column1") + object.getString("operator") + object.getString("column2") +") ENABLE NOVALIDATE");
-      statement.execute();
-
-      disconnect();
-   }
+    public void generateTupleCompareRule(JSONObject object) throws Exception{
+        connect();
+        Statement statement = connection.createStatement();
+        String constraint = "IF NOT :NEW." + object.getString("column1") + " " + object.getString("operator") + " :NEW." + object.getString("column2");
+        statement.execute(createTrigger(object, constraint));
+        disconnect();
+    }
 }

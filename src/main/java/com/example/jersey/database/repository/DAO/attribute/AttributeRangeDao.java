@@ -19,7 +19,7 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.value2 from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributerange c on b.arr_id = c.id where b.arr_id is not null and a.database_id = ?");
         statement.setInt(1, object.getInt("database_id"));
         ResultSet s = statement.executeQuery();
-        JSONObject output = Util.ResultSetToJSONArray(s);
+        JSONObject output = Util.ResultSetToJSONArray(s, "arr");
         disconnect();
         return output;
     }
@@ -30,7 +30,7 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.value1, c.value2 from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributerange c on b.arr_id = c.id where b.arr_id is not null and a.id = ?");
         statement.setInt(1, object.getInt("id"));
         ResultSet s = statement.executeQuery();
-        JSONObject output = Util.ResultSetToJSONObject(s);
+        JSONObject output = Util.ResultSetToJSONObject(s, "arr");
         disconnect();
         return output;
     }

@@ -8,7 +8,7 @@ import java.sql.ResultSetMetaData;
 
 public class Util {
 
-    public static JSONObject ResultSetToJSONArray(ResultSet s) throws Exception{
+    public static JSONObject ResultSetToJSONArray(ResultSet s,String type) throws Exception{
         JSONArray array = new JSONArray();
         ResultSetMetaData rsmd = s.getMetaData();
         while (s.next()){
@@ -24,12 +24,13 @@ public class Util {
                     }
                 }
             }
+            object.put("type", type);
             array.put(object);
         }
         return new JSONObject(){{put("rules", array);}};
     }
 
-    public static JSONObject ResultSetToJSONObject(ResultSet s) throws Exception{
+    public static JSONObject ResultSetToJSONObject(ResultSet s, String type) throws Exception{
         JSONObject object = new JSONObject();
         ResultSetMetaData rsmd = s.getMetaData();
         while (s.next()){
@@ -39,12 +40,13 @@ public class Util {
                     object.put("value1", array1);
                 }else {
                     switch (rsmd.getColumnType(i)){
-                        case 2: object.put(rsmd.getColumnName(i), s.getInt(i)); break;
-                        case 12: object.put(rsmd.getColumnName(i), s.getString(i)); break;
+                        case 2: object.put(rsmd.getColumnName(i).toLowerCase(), s.getInt(i));break;
+                        case 12: object.put(rsmd.getColumnName(i).toLowerCase(), s.getString(i));break;
                     }
                 }
             }
         }
+        object.put("type", type);
         return object;
     }
 }

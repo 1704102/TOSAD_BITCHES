@@ -1,17 +1,17 @@
-package com.example.jersey.domainTest.Composit.entity;
+package com.example.jersey.domainTest.Composit.other;
 
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import org.json.JSONObject;
 
-public class EntityOther implements BusinessRuleComposite {
+public class Other implements BusinessRuleComposite {
 
     private int id;
 
     private String table;
     private Constraint constraint;
 
-    public EntityOther(String table, Constraint constraint) {
+    public Other(String table, Constraint constraint) {
         this.table = table;
         this.constraint = constraint;
 
@@ -20,7 +20,7 @@ public class EntityOther implements BusinessRuleComposite {
 
     @Override
     public String getName() {
-        return table + "_CNS_EOR_";
+        return table + "_CNS_OR_";
     }
 
     @Override

@@ -35,6 +35,7 @@ public class Constraint {
             case "CHECK" : type = "CHECK"; break;
             case "DEFAULT" : type = "DEFAULT"; break;
             case "INDEX" : type = "INDEX"; break;
+            default : type = "other rule"; break;
         }
     }
 

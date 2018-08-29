@@ -27,7 +27,7 @@
       var data = postCall(input, "http://localhost:8080/rest/target/tables", "json");
       $.each(data.tables, function () {
           $("#table1").append("<option value='" + this +"'>" + this +"</option>")
-      })
+      });
 
       $("#table1").change(function () {
           var input1 = JSON.parse("{}");

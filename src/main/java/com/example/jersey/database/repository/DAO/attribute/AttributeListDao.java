@@ -18,7 +18,7 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
         PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.list from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributelist c on b.alr_id = c.id where b.alr_id is not null and a.database_id = ?");
         statement.setInt(1, object.getInt("database_id"));
         ResultSet s = statement.executeQuery();
-        JSONObject output = Util.ResultSetToJSONArray(s);
+        JSONObject output = Util.ResultSetToJSONArray(s, "alr");
         disconnect();
         return output;
     }
@@ -29,7 +29,7 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
         PreparedStatement statement = connection.prepareStatement("select a.id as rule_id, a.name, a.status, c.id as composite_id, c.table1, c.column1, c.list from businessrule a left join businessrule_composite b on a.id = b.rule_id left join attributelist c on b.alr_id = c.id where b.alr_id is not null and a.id = ?");
         statement.setInt(1, object.getInt("id"));
         ResultSet s = statement.executeQuery();
-        JSONObject output = Util.ResultSetToJSONObject(s);
+        JSONObject output = Util.ResultSetToJSONObject(s, "alr");
         disconnect();
         return output;
     }

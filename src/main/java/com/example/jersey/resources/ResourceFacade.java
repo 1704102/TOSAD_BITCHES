@@ -46,6 +46,7 @@ public class ResourceFacade {
 
     public Response updateRule(JSONObject object, String type){
         try {
+            //TODO only send rule_id composite_id type
             repoDatabaseFacade.updateRule(object, type);
             return Response.ok("{\"response\":\" rule updated in database \"}", MediaType.APPLICATION_JSON).build();
         }catch (Exception e){
@@ -57,7 +58,7 @@ public class ResourceFacade {
     public Response generate(JSONObject object) {
         GenerateDatabase database = new GenerateDatabase();
         try {
-            database.generateBusinessRule(object);
+            database.generateBusinessRule(repoDatabaseFacade.getRule(object, object.getString("type")));
         }catch (Exception e){
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();

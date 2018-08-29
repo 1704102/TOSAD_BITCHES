@@ -1,4 +1,4 @@
-package com.example.jersey.resources.attributeResources;
+package com.example.jersey.resources.other;
 
 import com.example.jersey.resources.ResourceFacade;
 import com.example.jersey.resources.ResourceInterface;
@@ -6,11 +6,10 @@ import org.json.JSONObject;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
+@Path("/businessRule/or")
+public class OtherRuleResource implements ResourceInterface {
 
-@Path("/businessRule/aor")
-public class AttributeOtherResource implements ResourceInterface {
-
-    private final String TYPE = "aor";
+    private String TYPE = "or";
 
     @Override
     public Response get(String x) {
