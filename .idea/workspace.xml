@@ -7,52 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db180cb5-c012-4f6f-98a4-337f97700298" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/BusinessRuleDatabase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/BusinessRuleResource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/Elements/Constraint.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/entity/EntityCompareDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/GenerateDatabase.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/other/Other.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/other/OtherRuleDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/other/OtherRuleResource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/RepoDatabaseFacade.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabaseFacade.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/tuple/TupleCompareDao.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/tupleResources/TupleCompareResource.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/script/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/script/rest.js" />
-      <change type="DELETED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\database\RepoDatabaseFacade.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\database\repository\DAO\TupleCompareDao.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\resources\UserResource.java" afterPath="" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\database\repository\DAO\AttributeCompareDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeCompareDao.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\database\repository\DAO\AttributeListDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeListDao.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\database\repository\DAO\AttributeRangeDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/attribute/AttributeRangeDao.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\domainTest\Composit\AttributeCompare.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeCompare.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\domainTest\Composit\AttributeList.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeList.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\domainTest\Composit\AttributeRange.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeRange.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\domainTest\Composit\OtherRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/entity/EntityCompare.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\domainTest\Composit\TupleCompare.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/tuple/TupleCompare.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\resources\AttributeCompareResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/attributeResources/AttributeCompareResource.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\resources\AttributeListResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/attributeResources/AttributeListResource.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\resources\AttributeRangeResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/attributeResources/AttributeRangeResource.java" />
-      <change type="MOVED" beforePath="C:\eclipseprojects\Tosad-bitches\ikwilnaarhuis\TOSAD_BITCHES\src\main\java\com\example\jersey\resources\TupleCompareResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/entity/EntityCompareResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/example/jersey/AttributeCompareTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/example/jersey/AttributeCompareTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/example/jersey/AttributeRangeTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/example/jersey/AttributeRangeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/BusinessRule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/BusinessRuleComposite.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/Composit/BusinessRuleComposite.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/BusinessRuleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DAO/BusinessRuleDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DatabaseHelper_Repo.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/repository/DatabaseHelper_Repo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/domainTest/DomainFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/ResourceFacade.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabase.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/database/Target/TargetDatabase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/resources/TargetResource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/example/jersey/util/Util.java" afterPath="$PROJECT_DIR$/src/main/java/com/example/jersey/util/Util.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/define-br.html" afterPath="$PROJECT_DIR$/src/main/webapp/define-br.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/generate-br.html" afterPath="$PROJECT_DIR$/src/main/webapp/generate-br.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/GO_PLAN_IT_war_exploded/index.jsp" afterPath="$PROJECT_DIR$/out/artifacts/GO_PLAN_IT_war_exploded/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/repo.sql" afterPath="$PROJECT_DIR$/src/main/resources/repo.sql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/assets/script/show.js" afterPath="$PROJECT_DIR$/src/main/webapp/assets/script/show.js" />
@@ -92,21 +48,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="define-br.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="define-br.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/define-br.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.280488">
-              <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+            <state vertical-scroll-proportion="0.18771331">
+              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="show.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/script/show.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.43263474">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="28" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -201,8 +157,8 @@
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/script/rest.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/generate-br.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/define-br.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/assets/script/show.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/define-br.html" />
       </list>
     </option>
   </component>
@@ -234,8 +190,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="962" />
-    <option name="width" value="969" />
+    <option name="x" value="335" />
+    <option name="width" value="1596" />
     <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -912,7 +868,7 @@
       <workItem from="1535460715230" duration="1140000" />
       <workItem from="1535462387240" duration="9560000" />
       <workItem from="1535523489143" duration="12218000" />
-      <workItem from="1535565366811" duration="17357000" />
+      <workItem from="1535565366811" duration="18176000" />
     </task>
     <task id="LOCAL-00001" summary="Merge branch 'development' of https://github.com/1704102/TOSAD_BITCHES into development&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;out/artifacts/GO_PLAN_IT_war_exploded/WEB-INF/classes/com/example/jersey/Generator/BusinessRuleGenearator.class&#10;#&#9;out/artifacts/GO_PLAN_IT_war_exploded/WEB-INF/classes/com/example/jersey/rest/Test.class&#10;#&#9;src/main/java/com/example/jersey/database/DatabaseHelper.java&#10;#&#9;src/main/java/com/example/jersey/rest/Test.java">
       <created>1531220179622</created>
@@ -1038,25 +994,25 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113662000" />
+    <option name="totallyTimeSpent" value="114481000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="962" y="0" width="969" height="1047" extended-state="0" />
-    <editor active="false" />
+    <frame x="335" y="0" width="1596" height="1047" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.36770833" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21709786" sideWeight="0.31133112" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21709786" sideWeight="0.30859375" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22682446" sideWeight="0.49562362" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21709786" sideWeight="0.68866885" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21709786" sideWeight="0.69140625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2420242" sideWeight="0.4923664" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14322917" sideWeight="0.4923664" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2420242" sideWeight="0.50763357" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1858,14 +1814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/define-br.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.280488">
-          <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/generate-br.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.2641509">
@@ -1878,8 +1826,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/script/show.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43263474">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="28" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/define-br.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18771331">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
           <folding />
         </state>
       </provider>
