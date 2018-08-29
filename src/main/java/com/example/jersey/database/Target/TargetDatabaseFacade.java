@@ -27,8 +27,7 @@ public class TargetDatabaseFacade {
     }
 
     public JSONObject getTables(JSONObject object) throws Exception{
-//        return new TargetDatabase().getTables(object);
-        return null;
+        return new TargetDatabase().getTables(object);
     }
 
     public ArrayList<ArrayList<String>> getForeignkeys() throws Exception{

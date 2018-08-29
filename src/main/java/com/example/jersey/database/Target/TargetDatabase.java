@@ -32,6 +32,20 @@ public class TargetDatabase extends DatabaseHelper_Target{
         return object1;
     }
 
+    public JSONObject getTables(JSONObject object) throws Exception{
+        connect();
+        PreparedStatement statement = connection.prepareStatement(TABLESQUERY);
+        JSONObject object1 = new JSONObject();
+        JSONArray array = new JSONArray();
+        ResultSet s = statement.executeQuery();
+        while (s.next()){
+            array.put(s.getString("TABLE_NAME"));
+        }
+        disconnect();
+        object1.put("tables", array);
+        return object1;
+    }
+
     public String interEntityRuleFk(String table1,String table2) throws Exception{
         TargetDatabaseFacade f = new TargetDatabaseFacade();
         ArrayList<ArrayList<String>> array=getForeignKeys();
