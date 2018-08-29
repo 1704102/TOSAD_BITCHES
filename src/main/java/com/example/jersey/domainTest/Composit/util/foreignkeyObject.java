@@ -18,14 +18,14 @@ public class foreignkeyObject {
     private String column2;
 
     public foreignkeyObject(String table1,  String column1,String table2, String column2) {
-        this.table1 = table1;
-        this.table2 = table2;
-        this.column1 = column1;
-        this.column2 = column2;
+        this.table1 = table1.toUpperCase();
+        this.table2 = table2.toUpperCase();
+        this.column1 = column1.toUpperCase();
+        this.column2 = column2.toUpperCase();
     }
 
     public boolean Alligned(String s){
-        if(s== table1 || s==table2){
+        if(s.equals(table1) || s.equals(table2)){
             return true;
         }
         return false;

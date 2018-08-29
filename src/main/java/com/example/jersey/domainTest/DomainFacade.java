@@ -3,6 +3,7 @@ package com.example.jersey.domainTest;
 import com.example.jersey.Exeptions.AttributeCompareValidateExeption;
 import com.example.jersey.Exeptions.AttributeRangeValidateExeption;
 import com.example.jersey.Exeptions.OperatorValidateExeption;
+
 import com.example.jersey.database.Target.TargetDatabase;
 import com.example.jersey.domainTest.Composit.AttributeCompare;
 import com.example.jersey.domainTest.Composit.AttributeRange;
@@ -17,16 +18,29 @@ import java.util.ArrayList;
 public class DomainFacade {
 
     //<editor-fold desc="interEntityRule">
-    public void interEntityRulefk(String table1,String table2, String column1, String column2){
-        interEntityRulefk(table1, table2);
-
+    public void interEntityRule(String table1,String table2, String column1, String column2,String operator){
+        //makebuisinessrule
+        System.out.println(table1+table2+column1+column2);
+        table1= table1.toUpperCase();
+        table2= table2.toUpperCase();
+        column1=column1.toUpperCase();
+        column2=column2.toUpperCase();
+        System.out.println("gogo");
+        String s=interEntityRulefk(table1, table2);
+        TargetDatabaseFacade d1 = new TargetDatabaseFacade();
+        d1.createInterEntityRule(s, table1,table2,column1,column2,operator,"test");
 
     }
     public String interEntityRulefk(String table1,String table2){
+        table1=table1.toUpperCase();
+        table2=table2.toUpperCase();
         TargetDatabaseFacade f = new TargetDatabaseFacade();
         ArrayList<ArrayList<String>> array=f.getForeignkeys();
         Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
         String s = fks.getKeyChainSQL();
+        String s1= fks.getFrom();
+        System.out.println(s1+"greetings from from function");
+        System.out.println(s);
         return s;
 
     }

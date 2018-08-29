@@ -15,7 +15,7 @@ public class foreignKeyPath {
     @Produces(MediaType.TEXT_XML)
     public String excecute(){
         DomainFacade d = new DomainFacade();
-        d.interEntityRulefk("PRODUCTS", "PERSONS");
+        d.interEntityRule("ORDERS","PERSONS","ORDERID","PERSONNUM","=");
 
         return "<word>hello world</word>";
 

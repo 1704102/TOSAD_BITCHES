@@ -52,6 +52,7 @@ public class ForeignkeyDao extends DatabaseHelper_Target {
 
 
                 }
+                stmt3.close();
                 Statement stmt2 = null;
 
                 String sql2= "SELECT UCC.TABLE_NAME, UCC.COLUMN_NAME FROM USER_CONSTRAINTS  UC, USER_CONS_COLUMNS UCC WHERE UC.R_CONSTRAINT_NAME = UCC.CONSTRAINT_NAME AND UC.CONSTRAINT_TYPE = 'R' And UC.R_CONSTRAINT_NAME='"+f+"'";
@@ -67,8 +68,9 @@ public class ForeignkeyDao extends DatabaseHelper_Target {
 
 
                 array2.add(objectcollect);
+                stmt2.close();
             }
-
+            stmt.close();
             disconnect();
         }
         catch (SQLException e) {
