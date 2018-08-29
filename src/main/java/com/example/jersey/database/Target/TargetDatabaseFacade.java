@@ -36,9 +36,4 @@ public class TargetDatabaseFacade {
         ArrayList<ArrayList<String>> e= f.getForeignKeys();
         return e;
     }
-
-    public void createInterEntityRule(JSONObject object) throws Exception{
-        GenerateDatabase d =new GenerateDatabase();
-        d.generateEntityCompare(object);
-    }
 }

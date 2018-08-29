@@ -43,37 +43,12 @@ public class DomainFacade {
                 return new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
             case "iecr" :
                 Operator operator2 = new Operator(object.getString("operator"));
-                return new EntityCompare(object.getString("table1"), object.getString("table2"), object.getString("column1"), object.getString("column2"), operator2);
+                Chainforeignkeys foreignkey = new Chainforeignkeys(new TargetDatabaseFacade().getForeignkeys(), object.getString("table1"), object.getString("table2"));
+                return new EntityCompare(object.getString("table1"), object.getString("table2"), object.getString("column1"), object.getString("column2"), operator2, foreignkey);
             default: return null;
         }
     }
 
-    public void interEntityRule(String table1,String table2, String column1, String column2,String operator) throws Exception{
-        //makebuisinessrule
-        System.out.println(table1+table2+column1+column2);
-        table1= table1.toUpperCase();
-        table2= table2.toUpperCase();
-        column1=column1.toUpperCase();
-        column2=column2.toUpperCase();
-        String s=interEntityRuleFk(table1, table2);
-        TargetDatabaseFacade d1 = new TargetDatabaseFacade();
-//        d1.createInterEntityRule(s, table1,table2,column1,column2,operator,name);
-
-    }
-
-    public String interEntityRuleFk(String table1,String table2) throws Exception{
-        table1=table1.toUpperCase();
-        table2=table2.toUpperCase();
-        TargetDatabaseFacade f = new TargetDatabaseFacade();
-        ArrayList<ArrayList<String>> array=f.getForeignkeys();
-        Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
-        String s = fks.getKeyChainSQL();
-//        String s1= fks.getFrom();
-//        System.out.println(s1+"greetings from from function");
-//        System.out.println(s);
-        return s;
-
-    }
 
 
 }

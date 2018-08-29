@@ -16,7 +16,7 @@ public class GenerateDatabase extends DatabaseHelper_Target {
             case "eor" : generateOtherRule(object); break;
             case "tcr" : generateTupleCompareRule(object); break;
             case "or" : generateOtherRule(object);break;
-            case "iecr" : break;
+            case "iecr" : generateEntityCompare(object);
         }
     }
 
@@ -92,10 +92,10 @@ public class GenerateDatabase extends DatabaseHelper_Target {
                                 "v_number number; " +
                                 "begin " +
                                 "select count("+object.getString("table1") + "." + object.getString("column1") +") into v_number " +
-                                object.getString("foreignKeys") + " and " +
+                                object.getString("foreignkey") + " and " +
                                 ":new." + object.getString("column1") + " " + object.getString("operator") + " " + object.getString("table2") + "." + object.getString("column2") + "; " +
-                                "if v_number > 0 then " +
-                                "RAISE_APPLICATION_ERROR(-20000, 'UPGRADE DENIED!'); " +
+                                "if v_number = 0 then " +
+                                "RAISE_APPLICATION_ERROR (-20000, 'UPGRADE DENIED!'); " +
                                 "end if;" +
                                 "end;";
             String sql = createOtherTrigger(object, constraint);
