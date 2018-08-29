@@ -38,7 +38,7 @@ public class RepoDatabaseFacade {
             case "alr" : return new AttributeListDao();
             case "tcr" : return new TupleCompareDao();
             case "or" : return new OtherRuleDao();
-            case "eicr" : return new EntityCompareDao();
+            case "iecr" : return new EntityCompareDao();
             default : return null;
         }
     }

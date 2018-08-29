@@ -1,6 +1,8 @@
 package com.example.jersey.domainTest;
 
+import com.example.jersey.database.Target.TargetDatabaseFacade;
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
+import com.example.jersey.domainTest.Composit.Elements.Chainforeignkeys;
 import com.example.jersey.domainTest.Composit.Elements.Constraint;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.attribute.AttributeCompare;
@@ -12,6 +14,7 @@ import com.example.jersey.domainTest.Composit.tuple.TupleCompare;
 import org.json.JSONObject;
 
 import javax.swing.text.html.parser.Entity;
+import java.util.ArrayList;
 
 public class DomainFacade {
 
@@ -39,10 +42,13 @@ public class DomainFacade {
                 Operator operator1 = new Operator(object.getString("operator"));
                 return new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
             case "iecr" :
-                EntityCompare compare = new EntityCompare();
-                return compare;
+                Operator operator2 = new Operator(object.getString("operator"));
+                Chainforeignkeys foreignkey = new Chainforeignkeys(new TargetDatabaseFacade().getForeignkeys(), object.getString("table1"), object.getString("table2"));
+                return new EntityCompare(object.getString("table1"), object.getString("table2"), object.getString("column1"), object.getString("column2"), operator2, foreignkey);
             default: return null;
         }
     }
+
+
 
 }
