@@ -2,5 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/add-br.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/assets/script/rest.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/define-br.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/definebr.js" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/edit-br.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/edit-generate-br.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/generate-br.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/index.html" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/index.jsp" charset="windows-1252" />
   </component>
 </project>

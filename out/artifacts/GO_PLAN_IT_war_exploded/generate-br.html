@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Business Rule Generator</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+		<!--<script src="assets/script/jquery.js"></script>-->
+		<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
+		<!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>-->
+		<script src="assets/script/rest.js"></script>
+		<!--<script src="assets/script/show.js"></script>-->
+		<script src="assets/script/jquery.js"></script>
+  	</head>
+  	<body>
+   		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      		<h5 class="my-0 mr-md-auto font-weight-normal">Business Rule Generator</h5>
+      		<nav class="my-2 my-md-0 mr-md-3">
+        		<a class="p-2 text-dark" href="index.html">Dashboard</a>
+        		<a class="p-2 text-dark" href="define-br.html">Define Business Rule</a>
+        		<a class="p-2 text-dark" href="generate-br.html">Generate Business Rule</a>
+      		</nav>
+    	</div>
+
+    	<main role="main" class="container">
+				<div class="jumbotron-wrapper" style="text-align: center;">
+					<h1>Business Rules for generation</h1>
+					<hr>
+
+					<div class="table-responsive">
+						<table class="table" id="generateTable"
+							   style="max-width: 90%; margin: 10px auto;">
+						<thead class="thead-dark">
+								<tr>
+									<th>Name</th>
+									<th>Status</th>
+									<th>Type</th>
+									<th>Action</th>
+								</tr>
+						</thead>
+						<tbody>
+								<tr>
+									<td>Name 1</td>
+									<td>Active</td>
+									<td>Type 1</td>
+									<td>
+										<button type="submit" name="generate" id="generate" class="btn btn-success" onclick="">Generate Business Rule</button>
+									</td>
+								</tr>
+						</tbody>
+				</table>
+			</div>
+				</div>
+    	</main>
+		<script src="assets/script/show.js"></script>
+		<script src="assets/script/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+		<script>
+			// attribute range rule
+
+			const subUrl = "rest/businessRule/";
+			var database_id = JSON.parse('{"database_id":1}');
+			var baseUrl = subUrl + "generate/arr";
+			(function Initpage() {
+				var MyJson = postCall(database_id, "rest/businessRule/arr/all", "json");
+				for( const bRDefinition of MyJson["rules"]){
+					renderNewBusinessRules(bRDefinition, "#generateTable");
+				}
+				var MyJson = postCall(database_id, "rest/businessRule/acr/all", "json");
+				for( const bRDefinition of MyJson["rules"]){
+					renderNewBusinessRules(bRDefinition, "#generateTable");
+				}
+				var MyJson = postCall(database_id, "rest/businessRule/alr/all", "json");
+				for( const bRDefinition of MyJson["rules"]){
+					renderNewBusinessRules(bRDefinition, "#generateTable");
+				}
+				var MyJson = postCall(database_id, "rest/businessRule/tcr/all", "json");
+				for( const bRDefinition of MyJson["rules"]){
+					renderNewBusinessRules(bRDefinition, "#generateTable");
+				}
+				var MyJson = postCall(database_id, "rest/businessRule/iec/all", "json");
+				for( const bRDefinition of MyJson["rules"]){
+					renderNewBusinessRules(bRDefinition, "#generateTable");
+				}
+
+			})();
+
+
+		</script>
+
+	</body>
+</html>
