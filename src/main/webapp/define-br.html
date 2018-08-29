@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<title>Business Rule Generator</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+  		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+		<script src="assets/script/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="assets/script/rest.js"></script>
+		<script src="assets/script/show.js"></script>
+  	</head>
+  	<body>
+   		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      		<h5 class="my-0 mr-md-auto font-weight-normal">Business Rule Generator</h5>
+      		<nav class="my-2 my-md-0 mr-md-3">
+        		<a class="p-2 text-dark" href="index.html">Dashboard</a>
+        		<a class="p-2 text-dark" href="define-br.html">Define Business Rule</a>
+        		<a class="p-2 text-dark" href="generate-br.html">Generate Business Rule</a>
+      		</nav>
+    	</div>
+
+
+		<main role="main" class="container">
+			<div class="container">
+				<h1>Define Business Rule</h1>
+				<form (ngSubmit)="onSubmit()" #defineBusinessRuleForm="ngForm">
+					<div class="form-group">
+						<label for="minValue">Minimum Value</label>
+						<input type="text" class="form-control" id="minValue">
+					</div>
+
+					<div class="form-group">
+						<label for="maxValue">Maximum Value</label>
+						<input type="text" class="form-control" id="maxValue">
+					</div>
+
+					<div class="form-group">
+						<label for="table1">table1</label>
+
+								 <input type="text" class="form-control" id="table1" required [(ngModel)]="model.table1" name="table1"
+							 class="alert alert-danger">
+							 <div [hidden]="table1.valid || table1.pristine"
+							table1 is required
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="column1">column1</label>
+						<input type="text" class="form-control" id="column1" required>
+					</div>
+
+					<div class="form-group">
+						<label for="table"></label>
+						<select class="form-control" id="table" required>
+							<option *ngFor="let tbl of table" [value]="table">{{tbl}}</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="attribute">Attribute</label>
+						<select class="form-control" id="attribute" required>
+							<option *ngFor="let attr of attribute" [value]="attribute">car</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label for="errorMsg">Error Message</label>
+						<input type="text" class="form-control" id="errorMsg" required>
+					</div>
+
+					<button type="submit" class="btn btn-success" [disabled]="!defineBusinessRuleForm.form.valid">Submit</button>
+					<button type="button" class="btn btn-default" (click)="defineNewBusinessRule(); defineBusinessRuleForm.reset()">Define New BR</button>
+				</form>
+			</div>
+		</main>
+
+
+		<script>
+		// attribute range rule
+		var object = JSON.parse("{}");
+			document.querySelector.addEventListener("click", function(){
+				object["table1"] = document.querySelector("#table1").value;
+				object["column1"] = document.querySelector("#column1").value;
+				object["minValue"] = document.querySelector("#minValue").value;
+				object["maxValue"] = document.querySelector("#maxValue").value;
+				object["database_id"] = document.querySelector("#database_id").value;
+				postCall(object);
+			});
+		}
+		</script>
+	</body>
+</html>
