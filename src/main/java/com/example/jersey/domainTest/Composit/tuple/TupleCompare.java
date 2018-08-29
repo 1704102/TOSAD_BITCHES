@@ -30,7 +30,7 @@ public class TupleCompare implements BusinessRuleComposite {
 
     @Override
     public String getName() {
-        return table + "_CNS_TCR";
+        return table + "_CNS_TCR_";
     }
 
     @Override

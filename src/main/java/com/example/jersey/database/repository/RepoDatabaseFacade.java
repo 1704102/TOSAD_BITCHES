@@ -4,6 +4,7 @@ import com.example.jersey.database.repository.DAO.BusinessRuleDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeCompareDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeListDao;
 import com.example.jersey.database.repository.DAO.attribute.AttributeRangeDao;
+import com.example.jersey.database.repository.DAO.entity.EntityCompareDao;
 import com.example.jersey.database.repository.DAO.other.OtherRuleDao;
 import com.example.jersey.database.repository.DAO.tuple.TupleCompareDao;
 import org.json.JSONObject;
@@ -37,6 +38,7 @@ public class RepoDatabaseFacade {
             case "alr" : return new AttributeListDao();
             case "tcr" : return new TupleCompareDao();
             case "or" : return new OtherRuleDao();
+            case "eicr" : return new EntityCompareDao();
             default : return null;
         }
     }

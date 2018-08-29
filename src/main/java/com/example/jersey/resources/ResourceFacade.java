@@ -48,6 +48,9 @@ public class ResourceFacade {
         try {
             //TODO only send rule_id composite_id type
             repoDatabaseFacade.updateRule(object, type);
+            if (object.getString("status").equals("activated") || object.getString("status").equals("deactivated")){
+                targetDatabaseFacade.Generate(repoDatabaseFacade.getRule(object, type));
+            }
             return Response.ok("{\"response\":\" rule updated in database \"}", MediaType.APPLICATION_JSON).build();
         }catch (Exception e){
             e.printStackTrace();

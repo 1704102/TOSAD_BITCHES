@@ -6,9 +6,12 @@ import com.example.jersey.domainTest.Composit.Elements.Operator;
 import com.example.jersey.domainTest.Composit.attribute.AttributeCompare;
 import com.example.jersey.domainTest.Composit.attribute.AttributeList;
 import com.example.jersey.domainTest.Composit.attribute.AttributeRange;
+import com.example.jersey.domainTest.Composit.entity.EntityCompare;
 import com.example.jersey.domainTest.Composit.other.Other;
 import com.example.jersey.domainTest.Composit.tuple.TupleCompare;
 import org.json.JSONObject;
+
+import javax.swing.text.html.parser.Entity;
 
 public class DomainFacade {
 
@@ -36,8 +39,8 @@ public class DomainFacade {
                 Operator operator1 = new Operator(object.getString("operator"));
                 return new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
             case "iecr" :
-                //TODO add code for inter entity compare rule
-                return null;
+                EntityCompare compare = new EntityCompare();
+                return compare;
             default: return null;
         }
     }
