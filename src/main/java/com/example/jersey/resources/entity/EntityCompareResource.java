@@ -30,18 +30,6 @@ public class EntityCompareResource implements ResourceInterface {
         return facade.getRules(new JSONObject(x), TYPE);
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response test(){
-        try {
-            new DomainFacade().interEntityRuleFk("PERSONS", "PRODUCTS");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-        return Response.ok("{\"response\":\" rule added to test \"}", MediaType.APPLICATION_JSON).build();
-    }
-
     @Override
     public Response define(String x) {
         ResourceFacade facade = new ResourceFacade();

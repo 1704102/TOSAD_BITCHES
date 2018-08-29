@@ -42,8 +42,8 @@ public class DomainFacade {
                 Operator operator1 = new Operator(object.getString("operator"));
                 return new TupleCompare(object.getString("table1"), object.getString("column1"), object.getString("column2"), operator1);
             case "iecr" :
-//                EntityCompare compare = new EntityCompare();
-                return null;
+                Operator operator2 = new Operator(object.getString("operator"));
+                return new EntityCompare(object.getString("table1"), object.getString("table2"), object.getString("column1"), object.getString("column2"), operator2);
             default: return null;
         }
     }
@@ -57,7 +57,7 @@ public class DomainFacade {
         column2=column2.toUpperCase();
         String s=interEntityRuleFk(table1, table2);
         TargetDatabaseFacade d1 = new TargetDatabaseFacade();
-        d1.createInterEntityRule(s, table1,table2,column1,column2,operator,name);
+//        d1.createInterEntityRule(s, table1,table2,column1,column2,operator,name);
 
     }
 
@@ -68,9 +68,9 @@ public class DomainFacade {
         ArrayList<ArrayList<String>> array=f.getForeignkeys();
         Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
         String s = fks.getKeyChainSQL();
-        String s1= fks.getFrom();
-        System.out.println(s1+"greetings from from function");
-        System.out.println(s);
+//        String s1= fks.getFrom();
+//        System.out.println(s1+"greetings from from function");
+//        System.out.println(s);
         return s;
 
     }

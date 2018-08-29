@@ -37,7 +37,7 @@ public class TargetDatabase extends DatabaseHelper_Target{
         ArrayList<ArrayList<String>> array=getForeignKeys();
         Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
         String s = fks.getKeyChainSQL();
-        String s1= fks.getFrom();
+//        String s1= fks.getFrom();
         return s;
 
     }
