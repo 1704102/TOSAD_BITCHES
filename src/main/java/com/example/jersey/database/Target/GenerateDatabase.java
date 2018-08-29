@@ -84,4 +84,27 @@ public class GenerateDatabase extends DatabaseHelper_Target {
         statement.execute(createTrigger(object, constraint));
         disconnect();
     }
+
+    public void generateEntityCompare(JSONObject object) throws Exception{
+
+            connect();
+            String constraint = "declare " +
+                                "v_number number; " +
+                                "begin " +
+                                "select count("+object.getString("table1") + "." + object.getString("column1") +") into v_number " +
+                                object.getString("foreignKeys") + " and " +
+                                ":new." + object.getString("column1") + " " + object.getString("operator") + " " + object.getString("table2") + "." + object.getString("column2") + "; " +
+                                "if v_number > 0 then " +
+                                "RAISE_APPLICATION_ERROR(-20000, 'UPGRADE DENIED!'); " +
+                                "end if;" +
+                                "end;";
+            String sql = createOtherTrigger(object, constraint);
+
+
+        connection.createStatement().execute(sql);
+        System.out.println("succes");
+        System.out.println(sql);
+        disconnect();
+
+    }
 }
