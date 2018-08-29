@@ -15,9 +15,8 @@ public class InterentityruleDAO extends DatabaseHelper_Target {
                     "declare " +"\n"+
                     "v_number number; " +"\n"+
                     "begin " +"\n"+
-                    "select count("+table1+"."+column1+ ") into v_number " +"\n"+
-                    "from ORDERS , persons ,products  " +"\n"+
-                    "where "+foreignkeys+" and" +"\n"+
+                    "select count("+table1+"."+column1+ ") into v_number " +"\n"
+                    +foreignkeys+" and" +"\n"+
                     " :new."+column1+""+operator+""+table2+"."+column2+"; " +"\n"+
                     "if v_number > 0 then " +"\n"+
                     "RAISE_APPLICATION_ERROR(-200,'Breaking BRRULE'); " +"\n"+
@@ -25,6 +24,7 @@ public class InterentityruleDAO extends DatabaseHelper_Target {
                     "end;";
             connection.createStatement().execute(sql);
             System.out.println("succes");
+            System.out.println(sql);
             disconnect();
         } catch (SQLException e) {
             e.printStackTrace();

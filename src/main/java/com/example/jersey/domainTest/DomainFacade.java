@@ -38,10 +38,12 @@ public class DomainFacade {
         ArrayList<ArrayList<String>> array=f.getForeignkeys();
         Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
         String s = fks.getKeyChainSQL();
-        String s1= fks.getFrom();
-        System.out.println(s1+"greetings from from function");
+        String s1= fks.froms();
+        String s2 = s1+" where "+s;
+        System.out.println(s1);
         System.out.println(s);
-        return s;
+        System.out.println(s1+" where "+s);
+        return s2;
 
     }
     //</editor-fold>

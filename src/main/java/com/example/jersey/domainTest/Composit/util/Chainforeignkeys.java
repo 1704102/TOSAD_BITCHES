@@ -22,19 +22,34 @@ public class Chainforeignkeys {
         startTable=StartTable;
         endTable=EndTable;
     }
-    public String getFrom(){
-        String s= "";
-
-
-        return s;
-    }
 
     public String froms() {
+        boolean b = true;
+        boolean ch = false;
+        boolean ch2 = false;
         String s = null;
         ArrayList<String> fromstring= new ArrayList<>();
-        for(foreignkeyObject f:fko){
-            //herro
+        for(foreignkeyObject f:fko) {
+            ch =false;
+            ch2= false;
+            if(b==true){
+                s ="from "+ f.getTable1()+",";
+                s = s + f.getTable2();
+                fromstring.add(f.getTable2());
+                fromstring.add(f.getTable1());
+                b=false;
+            }
+
+            if(!fromstring.contains(f.getTable1())){
+                fromstring.add(f.getTable1());
+                s = s + ","+ f.getTable1();
+            }
+            if(!fromstring.contains(f.getTable2())){
+                fromstring.add(f.getTable2());
+                s = s + ","+ f.getTable2();
+            }
         }
+        System.out.println(fromstring);
         return s;
     }
 
@@ -44,6 +59,7 @@ public class Chainforeignkeys {
         ArrayList<foreignkeyObject> array3=new ArrayList<foreignkeyObject>();
         ArrayList<foreignkeyObject> array2 = new ArrayList<>();
         for(foreignkeyObject f: array){
+
             if(startTable.equals(f.getTable1()) || startTable.equals(f.getTable2())){
                if(endTable.equals(f.getTable1()) || endTable.equals(f.getTable2())){
                    s = f.getTable1()+"."+f.getColumn1()+"="+f.getTable2()+"."+f.getColumn2();
