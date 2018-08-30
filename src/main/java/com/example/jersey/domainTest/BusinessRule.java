@@ -3,9 +3,6 @@ package com.example.jersey.domainTest;
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-
 public class BusinessRule {
 
     int id;
@@ -23,20 +20,13 @@ public class BusinessRule {
         this.status = "new";
     }
 
-
-    // TODO move to target database
-    public String getCode(){
-        return composite.getRuleCode(getName());
-    }
-
     public String getName(){
         if (name == null) generateName();
         return name;
     }
 
     private void generateName(){
-        //TODO get number for rule (temporarily 1)
-        name = composite.getName() + 1;
+        name = composite.getName();
     }
 
     public void addComposite(BusinessRuleComposite composite){
@@ -52,4 +42,7 @@ public class BusinessRule {
     }
 
 
+    public void validate() {
+        composite.validate();
+    }
 }

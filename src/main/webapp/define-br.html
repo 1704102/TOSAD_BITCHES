@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+    	<title>Business Rule Generator</title>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+  		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+		<script src="assets/script/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="assets/script/rest.js"></script>
+		<script src="assets/script/show.js"></script>
+  	</head>
+  	<body>
+   		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      		<h5 class="my-0 mr-md-auto font-weight-normal">Business Rule Generator</h5>
+      		<nav class="my-2 my-md-0 mr-md-3">
+        		<a class="p-2 text-dark" href="index.html">Dashboard</a>
+        		<a class="p-2 text-dark" href="define-br.html">Define Business Rule</a>
+        		<a class="p-2 text-dark" href="generate-br.html">Generate Business Rule</a>
+                <a class="p-2 text-dark" href="overview-br.html">Overview Rule</a>
+      		</nav>
+    	</div>
+
+
+		<main role="main" class="container">
+			<div class="container">
+				<h1>Define Business Rule</h1>
+				<form (ngSubmit)="onSubmit()" #defineBusinessRuleForm="ngForm">
+
+                    <select id="type">
+                        <option value="arr">arr</option>
+                        <option value="acr">acr</option>
+                        <option value="alr">alr</option>
+                        <option value="tcr">tcr</option>
+                        <option value="or">or</option>
+                        <option value="iecr">iecr</option>
+                    </select>
+
+					<div class="form-group" id="minValue_container">
+						<label for="minValue">Minimum Value</label>
+						<input type="text" class="form-control" id="minValue">
+					</div>
+
+					<div class="form-group" id="maxValue_container">
+						<label for="maxValue">Maximum Value</label>
+						<input type="text" class="form-control" id="maxValue">
+					</div>
+
+                    <div class="form-group" id="plsql_container">
+                        <label for="maxValue">pl/sql Value</label>
+                        <input type="text" class="form-control" id="plsql">
+                    </div>
+
+                    <div class="form-group" id="value_container">
+                        <label for="maxValue">Value</label>
+                        <input type="text" class="form-control" id="value">
+                    </div>
+
+                    <div class="form-group" id="operator_container">
+                        <label for="operator">Operator</label>
+                        <input type="text" class="form-control" id="operator">
+                    </div>
+
+
+                    <div class="form-group" id="table1_container">
+						<label for="table1">table1</label>
+						<select class="form-control" id="table1" required>
+							<option *ngFor="let tbl of table" [value]="table">select table</option>
+						</select>
+					</div>
+
+					<div class="form-group" id="column1_container">
+						<label for="column1">column1</label>
+						<select class="form-control" id="column1" required>
+							<option *ngFor="let attr of attribute" [value]="attribute">select column</option>
+						</select>
+					</div>
+
+                    <div class="form-group" id="table2_container">
+                        <label for="table2">table2</label>
+                        <select class="form-control" id="table2" required>
+                            <option *ngFor="let tbl of table" [value]="table">select table2</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="tuple_container">
+                        <label for="column2">column2</label>
+                        <select class="form-control" id="tuple" required>
+                            <option *ngFor="let attr of attribute" [value]="attribute">select column2</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="column2_container">
+                        <label for="column2">column2</label>
+                        <select class="form-control" id="column2" required>
+                            <option *ngFor="let attr of attribute" [value]="attribute">select column2</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn btn-default" id="define" (click)="defineNewBusinessRule(); defineBusinessRuleForm.reset()">Define New BR</button>
+				</form>
+			</div>
+		</main>
+
+
+		<script>
+		// attribute range rule
+        $("#type").val("arr");
+        $("#type").change(function () {
+            switch($("#type").val()){
+                case "arr" : showArr(); break;
+                case "acr" : showAcr(); break;
+                case "alr" : showAlr(); break;
+                case "tcr" : showTcr(); break;
+                case "or" : showOr(); break;
+                case "iecr" : showIecr(); break;
+            }
+
+
+        });
+
+		const subUrl = "rest/businessRule/";
+		var object = JSON.parse("{}");
+			document.querySelector("#define").addEventListener("click", function(){
+                switch($("#type").val()){
+                    case "arr" : defineArr(); break;
+                    case "acr" : defineAcr(); break;
+                    case "alr" : defineAlr(); break;
+                    case "tcr" : defineTcr(); break;
+                    case "or" : defineOr(); break;
+                    case "iecr" : defineIecr(); break;
+                }
+			});
+
+		initalizeNewOptions("#table1","#column1");
+        initalizeNewOptions("#table1","#tuple");
+        initalizeNewOptions("#table2","#column2");
+
+        showArr();
+
+        function defineArr() {
+            object["table1"] = document.querySelector("#table1").value;
+            object["column1"] = document.querySelector("#column1").value;
+            object["value1"] = document.querySelector("#minValue").value;
+            object["value2"] = document.querySelector("#maxValue").value;
+            object["database_id"] = 1;
+            console.log(postCall(object, subUrl + $("#type").val(), "json"));
+        }
+        function defineAcr() {
+            object["table1"] = document.querySelector("#table1").value;
+            object["column1"] = document.querySelector("#column1").value;
+            object["value1"] = document.querySelector("#value").value;
+            object["operator"] = document.querySelector("#operator").value;
+            object["database_id"] = 1;
+            postCall(object, subUrl + $("#type").val(), "json");
+        }
+        function defineAlr() {
+            object["table1"] = document.querySelector("#table1").value;
+            object["column1"] = document.querySelector("#column1").value;
+            object.value1 = [];
+            var list = document.querySelector("#value").value.split(",");
+            for(var i = 0; i < list.length; i++){
+                object.value1[i] = list[i];
+            }
+            console.log(object);
+            object["database_id"] = 1;
+            postCall(object, subUrl + $("#type").val(), "json");
+        }
+        function defineTcr() {
+            object["table1"] = document.querySelector("#table1").value;
+            object["column1"] = document.querySelector("#column1").value;
+            object["column2"] = document.querySelector("#tuple").value;
+            object["operator"] = document.querySelector("#operator").value;
+            object["database_id"] = 1;
+            postCall(object, subUrl + $("#type").val(), "json");
+        }
+        function defineOr() {
+            object["table1"] = document.querySelector("#table1").value;
+            object["plSQL"] = document.querySelector("#plsql").value;
+            object["database_id"] = 1;
+            postCall(object, subUrl + $("#type").val(), "json");
+        }
+        function defineIecr() {
+            object["table1"] = document.querySelector("#table1").value;
+            object["column1"] = document.querySelector("#column1").value;
+            object["table2"] = document.querySelector("#table2").value;
+            object["column2"] = document.querySelector("#column2").value;
+            object["operator"] = document.querySelector("#operator").value;
+            object["database_id"] = 1;
+            postCall(object, subUrl + $("#type").val(), "json");
+        }
+
+        function showArr() {
+            $("#table2_container").hide();
+            $("#column2_container").hide();
+            $("#maxValue_container").show();
+            $("#minValue_container").show();
+            $("#table1_container").show();
+            $("#column1_container").show();
+            $("#operator_container").hide();
+            $("#value_container").hide();
+            $("#tuple_container").hide();
+            $("#plsql_container").hide();
+        }
+
+        function showAcr() {
+            $("#table2_container").hide();
+            $("#column2_container").hide();
+            $("#maxValue_container").hide();
+            $("#minValue_container").hide();
+            $("#table1_container").show();
+            $("#column1_container").show();
+            $("#operator_container").show();
+            $("#value_container").show();
+            $("#tuple_container").hide();
+            $("#plsql_container").hide();
+        }
+
+        function showAlr() {
+            $("#table2_container").hide();
+            $("#column2_container").hide();
+            $("#maxValue_container").hide();
+            $("#minValue_container").hide();
+            $("#table1_container").show();
+            $("#column1_container").show();
+            $("#operator_container").hide();
+            $("#value_container").show();
+            $("#tuple_container").hide();
+            $("#plsql_container").hide();
+        }
+
+        function showTcr() {
+            $("#table2_container").hide();
+            $("#column2_container").hide();
+            $("#maxValue_container").hide();
+            $("#minValue_container").hide();
+            $("#table1_container").show();
+            $("#column1_container").show();
+            $("#operator_container").show();
+            $("#value_container").hide();
+            $("#tuple_container").show();
+            $("#plsql_container").hide();
+        }
+
+        function showOr() {
+            $("#table2_container").hide();
+            $("#column2_container").hide();
+            $("#maxValue_container").hide();
+            $("#minValue_container").hide();
+            $("#table1_container").show();
+            $("#column1_container").hide();
+            $("#operator_container").hide();
+            $("#value_container").hide();
+            $("#tuple_container").hide();
+            $("#plsql_container").show();
+        }
+
+        function showIecr() {
+            $("#table2_container").show();
+            $("#column2_container").show();
+            $("#maxValue_container").hide();
+            $("#minValue_container").hide();
+            $("#table1_container").show();
+            $("#column1_container").show();
+            $("#operator_container").show();
+            $("#value_container").hide();
+            $("#tuple_container").hide();
+            $("#plsql_container").hide();
+        }
+
+		</script>
+	</body>
+</html>

@@ -1,9 +1,7 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AttributeRange implements BusinessRuleComposite {
 
@@ -27,11 +25,6 @@ public class AttributeRange implements BusinessRuleComposite {
         this.column = column;
         this.valueLow = valueLow;
         this.valueHigh = valueHigh;
-    }
-
-    @Override
-    public String getRuleCode(String name) {
-        return "alter table " + table + " add constraint " + name + " check(" + column + " between " + valueLow + " and " + valueHigh + ") ENABLE NOVALIDATE";
     }
 
     @Override

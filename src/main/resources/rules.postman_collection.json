@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "98c88a61-d9cd-400c-babd-22ca632b186b",
+		"name": "rules",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "attributerange",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"database_id\": 1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/arr/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"arr",
+								"all"
+							]
+						},
+						"description": "get all rangerule"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":3}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/arr/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"arr",
+								"get"
+							]
+						},
+						"description": "get a rangerule"
+					},
+					"response": []
+				},
+				{
+					"name": "define",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"table1\":\"car\", \"column1\":\"type\", \"value1\":8, \"value2\":20, \"database_id\":1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/arr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"arr"
+							]
+						},
+						"description": "add a rangerule"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rule_id\":3, \"composite_id\":1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/arr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"arr"
+							]
+						},
+						"description": "delete a rangerule"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rule_id\":6, \"composite_id\":2,\"table1\":'car', 'column1':'type', 'value1':8, 'value2':20, \"name\":\"car_CNS_ARR_2\", \"status\":\"updatet\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/arr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"arr"
+							]
+						},
+						"description": "update a rangerule"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "attributecompare",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"database_id\": 1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/acr/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"acr",
+								"all"
+							]
+						},
+						"description": "get all comparerules"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": 4}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/acr/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"acr",
+								"get"
+							]
+						},
+						"description": "get a comparerules"
+					},
+					"response": []
+				},
+				{
+					"name": "define",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"table1\":'car', 'column1':'type', 'value1':8, 'operator':'<', 'database_id':1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/acr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"acr"
+							]
+						},
+						"description": "add a comparerule"
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rule_id\":4, \"composite_id\":1,\"table1\":'mobile', 'column1':'brand', 'value1':100, 'operator':'<', \"name\":\"car_CNS_ARR_2\", \"status\":\"activated\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/acr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"acr"
+							]
+						},
+						"description": "update a comparerule"
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rule_id\":4, \"composite_id\":2}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/acr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"acr"
+							]
+						},
+						"description": "delete a comparerule"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "attributelistrule",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{'database_id':1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/alr/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"alr",
+								"all"
+							]
+						},
+						"description": "add a listrule\n"
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{'id':8}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/alr/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"alr",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "define",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"table1\":'car', 'column1':'type', 'value1':['one', 'two'], 'database_id':1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/alr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"alr"
+							]
+						},
+						"description": "add a listrule\n"
+					},
+					"response": []
+				},
+				{
+					"name": "alter",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rule_id\":1, \"composite_id\":1,\"table1\":'mobile', 'column1':'brand', 'value1':['test', 'test', 'test'], \"name\":\"car_CNS_ALR_2\", \"status\":\"activated\"}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/alr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"alr"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"rule_id\":1, \"composite_id\":1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/alr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"alr"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tuplecompare",
+			"item": [
+				{
+					"name": "define",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"table1\":\"car\", \"column1\":\"type\", \"column2\":\"travel\", \"operator\":\">\", 'database_id':1}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/rest/businessRule/tcr",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"rest",
+								"businessRule",
+								"tcr"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

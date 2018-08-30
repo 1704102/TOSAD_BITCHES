@@ -1,10 +1,5 @@
 package com.example.jersey;
 
-import com.example.jersey.domainTest.BusinessRule;
-import com.example.jersey.domainTest.Composit.AttributeCompare;
-import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
-import com.example.jersey.domainTest.Composit.Elements.Operator;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class AttributeCompareTest extends TestCase {
