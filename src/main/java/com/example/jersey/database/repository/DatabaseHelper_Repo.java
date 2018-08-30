@@ -60,11 +60,11 @@ public class DatabaseHelper_Repo {
         disconnect();
     }
 
-    public void saveRule(JSONObject object) throws Exception{
+    public void saveRule(JSONObject object, int id) throws Exception{
         PreparedStatement statement = connection.prepareStatement("update BUSINESSRULE set NAME = ?, STATUS = ? where id = ?");
         statement.setString(1, object.getString("name"));
         statement.setString(2, object.getString("status"));
-        statement.setInt(3, object.getInt("id"));
+        statement.setInt(3, id);
         statement.execute();
     }
 

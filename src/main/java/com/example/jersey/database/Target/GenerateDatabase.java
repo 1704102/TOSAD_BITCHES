@@ -57,7 +57,7 @@ public class GenerateDatabase extends DatabaseHelper_Target {
     public void generateAttributeListRule(JSONObject object) throws Exception{ ;
 
         StringBuilder list = new StringBuilder();
-        object.getJSONArray("value1").forEach(e->{
+        object.getJSONArray("list").forEach(e->{
             list.append("'" +e + "',");
         });
         list.deleteCharAt(list.length() - 1);

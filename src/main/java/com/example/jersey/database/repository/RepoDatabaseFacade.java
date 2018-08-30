@@ -26,9 +26,9 @@ public class RepoDatabaseFacade {
         dao.define(object);
     }
 
-    public void updateRule(JSONObject object, String type) throws Exception{
+    public void updateRule(JSONObject object, String type, int id, int comp_id) throws Exception{
         BusinessRuleDao dao = getDao(type);
-        dao.update(object);
+        dao.update(object, id, comp_id);
     }
 
     private BusinessRuleDao getDao(String type){

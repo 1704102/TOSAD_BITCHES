@@ -55,17 +55,17 @@ public class OtherRuleDao extends DatabaseHelper_Repo implements BusinessRuleDao
     }
 
     @Override
-    public void update(JSONObject object) throws Exception {
+    public void update(JSONObject object,int id, int comp_id) throws Exception {
         connect();
 
-        PreparedStatement statement = connection.prepareStatement("update TUPLECOMPARE set TABLE1 = ?, TYPE = ?, PLSQL = ? where ID = ?");
+        PreparedStatement statement = connection.prepareStatement("update OTHER set TABLE1 = ?, TYPE = ?, PLSQL = ? where ID = ?");
         statement.setString(1, object.getString("table1"));
         statement.setString(2, object.getString("type"));
         statement.setString(3, object.getString("plSQL"));
-        statement.setInt(4, object.getInt("composite_id"));
+        statement.setInt(4, comp_id);
         statement.execute();
 
-        saveRule(object);
+        saveRule(object, id);
 
         disconnect();
     }

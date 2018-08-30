@@ -11,5 +11,5 @@ public interface BusinessRuleDao{
     JSONObject getAll(JSONObject object) throws Exception;
     JSONObject get(JSONObject object) throws Exception;
     void define(JSONObject object) throws Exception;
-    void update(JSONObject object) throws Exception;
+    void update(JSONObject object, int id, int comp_id) throws Exception;
 }

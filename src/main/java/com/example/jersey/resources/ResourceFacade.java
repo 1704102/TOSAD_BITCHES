@@ -47,9 +47,10 @@ public class ResourceFacade {
     public Response updateRule(JSONObject object, String type){
         try {
             //TODO only send rule_id composite_id type
-            repoDatabaseFacade.updateRule(object, type);
+            JSONObject rule = domainFacade.defineRule(object, type);
+            repoDatabaseFacade.updateRule(rule, type, object.getInt("id"), object.getInt("composite_id"));
             if (object.getString("status").equals("activated") || object.getString("status").equals("deactivated")){
-                targetDatabaseFacade.Generate(repoDatabaseFacade.getRule(object, type));
+                targetDatabaseFacade.Generate(repoDatabaseFacade.getRule(rule, type));
             }
             return Response.ok("{\"response\":\" rule updated in database \"}", MediaType.APPLICATION_JSON).build();
         }catch (Exception e){
@@ -61,7 +62,12 @@ public class ResourceFacade {
     public Response generate(JSONObject object) {
         GenerateDatabase database = new GenerateDatabase();
         try {
-            database.generateBusinessRule(repoDatabaseFacade.getRule(object, object.getString("type")));
+            JSONObject rule = repoDatabaseFacade.getRule(object, object.getString("type"));
+            database.generateBusinessRule(rule);
+            rule.put("status", "activated");
+            rule.put("id", rule.getInt("rule_id"));
+            updateRule(rule, object.getString("type"));
+
         }catch (Exception e){
             e.printStackTrace();
             return Response.status(Response.Status.CONFLICT).entity(e.getMessage()).build();
@@ -72,6 +78,8 @@ public class ResourceFacade {
     public Response deleteBusinessRule(JSONObject object){
         try {
             targetDatabaseFacade.delete(object);
+        }catch (Exception e){}
+        try {
             repoDatabaseFacade.deleteRule(object);
         }catch (Exception e){
             e.printStackTrace();
@@ -119,7 +127,7 @@ public class ResourceFacade {
     public Response getAll(JSONObject object) {
         //TODO add other rules
         try {
-            ArrayList<String> list = new ArrayList<String>(Arrays.asList("arr","acr","alr","aor","tcr","tor","eor"));
+            ArrayList<String> list = new ArrayList<String>(Arrays.asList("arr","acr","alr","or","tcr","iecr"));
             JSONArray array = new JSONArray();
             for(int i = 0; i < list.size(); i++){
                 JSONObject rules = repoDatabaseFacade.getRules(object, list.get(i));

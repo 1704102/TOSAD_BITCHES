@@ -62,7 +62,7 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
     }
 
     @Override
-    public void update(JSONObject object) throws Exception {
+    public void update(JSONObject object, int id, int comp_id) throws Exception {
         connect();
 
         PreparedStatement statement = connection.prepareStatement("update ATTRIBUTECOMPARE set TABLE1 = ?, COLUMN1 = ?, VALUE1 = ?, OPERATOR = ? where ID = ?");
@@ -70,10 +70,10 @@ public class AttributeCompareDao extends DatabaseHelper_Repo implements Business
         statement.setString(2, object.getString("column1"));
         statement.setInt(3, object.getInt("value1"));
         statement.setString(4, object.getString("operator"));
-        statement.setInt(5, object.getInt("composite_id"));
+        statement.setInt(5, comp_id);
         statement.execute();
 
-       saveRule(object);
+       saveRule(object, id);
 
         disconnect();
     }

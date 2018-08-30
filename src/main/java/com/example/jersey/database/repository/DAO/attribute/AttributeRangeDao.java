@@ -61,7 +61,7 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
     }
 
     @Override
-    public void update(JSONObject object) throws Exception {
+    public void update(JSONObject object,int id, int comp_id) throws Exception {
         connect();
 
         PreparedStatement statement = connection.prepareStatement("update ATTRIBUTERANGE set TABLE1 = ?, COLUMN1 = ?, VALUE1 = ?, VALUE2 = ? where ID = ?");
@@ -69,10 +69,10 @@ public class AttributeRangeDao extends DatabaseHelper_Repo implements BusinessRu
         statement.setString(2, object.getString("column1"));
         statement.setInt(3, object.getInt("value1"));
         statement.setInt(4, object.getInt("value2"));
-        statement.setInt(5, object.getInt("composite_id"));
+        statement.setInt(5, comp_id);
         statement.execute();
 
-        saveRule(object);
+        saveRule(object,id);
 
         disconnect();
     }
