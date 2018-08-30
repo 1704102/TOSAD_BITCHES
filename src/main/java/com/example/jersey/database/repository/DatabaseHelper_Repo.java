@@ -1,18 +1,11 @@
 package com.example.jersey.database.repository;
 
-<<<<<<< HEAD
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-=======
 
 import com.example.jersey.resources.ResourceFacade;
 import org.json.JSONObject;
 
 import java.lang.ref.PhantomReference;
 import java.sql.*;
->>>>>>> origin/martijndev
 import java.util.ArrayList;
 
 public class DatabaseHelper_Repo {
@@ -47,14 +40,7 @@ public class DatabaseHelper_Repo {
         }
     }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-    public int getRuleInitId(){
-        connect();
-=======
     public int getId(String table) throws Exception{
->>>>>>> development
         int id = 0;
         connect();
         PreparedStatement statement = connection.prepareStatement("select max(id) as max from " + table);
@@ -66,8 +52,6 @@ public class DatabaseHelper_Repo {
         return id + 1;
     }
 
-<<<<<<< HEAD
-=======
     public void deleteRule(JSONObject object) throws Exception{
         connect();
         PreparedStatement statement = connection.prepareStatement("delete from businessrule where id = ?");
@@ -111,6 +95,4 @@ public class DatabaseHelper_Repo {
         disconnect();
     }
 
->>>>>>> development
->>>>>>> origin/martijndev
 }

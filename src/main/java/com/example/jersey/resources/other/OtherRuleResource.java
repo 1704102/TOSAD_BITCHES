@@ -19,16 +19,8 @@ public class OtherRuleResource implements ResourceInterface {
 
     @Override
     public Response getAll(String x) {
-<<<<<<< HEAD
-        return null;
-=======
         ResourceFacade facade = new ResourceFacade();
-<<<<<<< HEAD:src/main/java/com/example/jersey/resources/AttributeRangeResource.java
-        return facade.getAllAttributeRangeRules(new JSONObject(x));
->>>>>>> origin/martijndev
-=======
         return facade.getRules(new JSONObject(x), TYPE);
->>>>>>> development:src/main/java/com/example/jersey/resources/other/OtherRuleResource.java
     }
 
     @Override

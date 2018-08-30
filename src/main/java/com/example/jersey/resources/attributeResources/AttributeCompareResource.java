@@ -22,21 +22,8 @@ public class AttributeCompareResource implements ResourceInterface {
 
     @Override
     public Response getAll(String x) {
-<<<<<<< HEAD:src/main/java/com/example/jersey/resources/AttributeCompareResource.java
-<<<<<<< HEAD
-        return null;
-=======
-        ResourceFacade facade = new ResourceFacade();
-        return facade.getAllAttributeCompareRules(new JSONObject(x));
->>>>>>> origin/martijndev
-=======
-<<<<<<< HEAD:src/main/java/com/example/jersey/resources/AttributeCompareResource.java
-        return null;
-=======
         ResourceFacade facade = new ResourceFacade();
         return facade.getRules(new JSONObject(x), TYPE);
->>>>>>> origin/martijndev:src/main/java/com/example/jersey/resources/attributeResources/AttributeCompareResource.java
->>>>>>> development:src/main/java/com/example/jersey/resources/attributeResources/AttributeCompareResource.java
     }
 
     @Override

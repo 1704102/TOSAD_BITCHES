@@ -22,12 +22,8 @@ public class AttributeRangeResource implements ResourceInterface {
 
     @Override
     public Response getAll(String x) {
-<<<<<<< HEAD:src/main/java/com/example/jersey/resources/AttributeRangeResource.java
-        return null;
-=======
         ResourceFacade facade = new ResourceFacade();
         return facade.getRules(new JSONObject(x), TYPE);
->>>>>>> origin/martijndev:src/main/java/com/example/jersey/resources/attributeResources/AttributeRangeResource.java
     }
 
     @Override

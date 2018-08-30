@@ -43,21 +43,9 @@ public class AttributeCompare implements BusinessRuleComposite {
     public JSONObject getComposite() {
         JSONObject object = new JSONObject();
         object.put("id", id);
-<<<<<<< HEAD:src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java
-<<<<<<< HEAD
-        object.put("table", table);
-        object.put("column", column);
-        object.put("value", value);
-=======
         object.put("table1", table);
         object.put("column1", column);
         object.put("value1", value);
->>>>>>> origin/martijndev
-=======
-        object.put("table", table);
-        object.put("column", column);
-        object.put("value", value);
->>>>>>> development:src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeCompare.java
         object.put("operator", operator.getValue());
         return object;
     }

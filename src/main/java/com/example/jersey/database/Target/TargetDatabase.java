@@ -8,16 +8,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.sql.PreparedStatement;
-<<<<<<< HEAD
-=======
 import java.sql.ResultSet;
-<<<<<<< HEAD
-import java.sql.ResultSetMetaData;
->>>>>>> origin/martijndev
-=======
 import java.sql.Statement;
 import java.util.ArrayList;
->>>>>>> development
 
 public class TargetDatabase extends DatabaseHelper_Target{
 
@@ -64,7 +57,6 @@ public class TargetDatabase extends DatabaseHelper_Target{
     }
 
     public ArrayList<ArrayList<String>> getForeignKeys() throws Exception{
->>>>>>> origin/martijndev
 
         ArrayList<String> array= new ArrayList<>();
         ArrayList<ArrayList<String>> array2= new ArrayList<>();
@@ -81,32 +73,6 @@ public class TargetDatabase extends DatabaseHelper_Target{
 
         stmt.close();
 
-<<<<<<< HEAD
-   public void getForeignKeys(){
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-      connect();
-      try {
-         PreparedStatement statement = connection.prepareStatement("select * from all_constraints where Constraint_type=? and owner = ?");
-         statement.setString(1, "R");
-         statement.setString(2, "TOSAD_2017_HER_TEAM1_TARGET");
-         ResultSet s = statement.executeQuery();
-         while (s.next()){
-            System.out.println(s.getString("TABLE_NAME"));
-         }
-
-      }catch (Exception e){
-
-      }
-      disconnect();
->>>>>>> origin/martijndev
-=======
-
->>>>>>> development
-   }
-=======
         for(String f: array){
             ArrayList<String> objectCollect= new ArrayList<>();
 
@@ -145,6 +111,5 @@ public class TargetDatabase extends DatabaseHelper_Target{
     }
 
 
->>>>>>> origin/martijndev
 }
 
