@@ -19,8 +19,8 @@ public class Util {
                     object.put("value1", array1);
                 }else {
                     switch (rsmd.getColumnType(i)){
-                        case 2: object.put(rsmd.getColumnName(i), s.getInt(i)); break;
-                        case 12: object.put(rsmd.getColumnName(i), s.getString(i)); break;
+                        case 2: object.put(rsmd.getColumnName(i).toLowerCase(), s.getInt(i)); break;
+                        case 12: object.put(rsmd.getColumnName(i).toLowerCase(), s.getString(i)); break;
                     }
                 }
             }

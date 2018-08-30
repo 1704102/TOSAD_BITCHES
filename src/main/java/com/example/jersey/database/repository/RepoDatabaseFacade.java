@@ -22,6 +22,7 @@ public class RepoDatabaseFacade {
     }
 
     public void defineRule(JSONObject object, String type) throws Exception{
+        System.out.println(type);
         BusinessRuleDao dao = getDao(type);
         dao.define(object);
     }

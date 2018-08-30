@@ -25,6 +25,10 @@ public class DomainFacade {
         return rule.getRule();
     }
 
+    public String getForeignKey(JSONObject object) throws Exception{
+        Chainforeignkeys foreignkey = new Chainforeignkeys(new TargetDatabaseFacade().getForeignkeys(), object.getString("table1"), object.getString("table2"));
+        return foreignkey.froms() + " where " + foreignkey.getKeyChainSQL();
+    }
 
     private BusinessRuleComposite getComposite(JSONObject object, String type) throws Exception{
         switch (type){

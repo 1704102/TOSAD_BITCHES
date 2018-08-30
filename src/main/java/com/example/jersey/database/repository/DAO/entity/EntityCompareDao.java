@@ -66,13 +66,13 @@ public class EntityCompareDao extends DatabaseHelper_Repo implements BusinessRul
     public void update(JSONObject object) throws Exception {
         connect();
 
-        PreparedStatement statement = connection.prepareStatement("update ATTRIBUTECOMPARE set TABLE1 = ?, TABLE2 = ?, COLUMN1 = ?, COLUMN2 = ?, OPERATOR = ?, FOREIGNKEY = ? where ID = ?");
+        PreparedStatement statement = connection.prepareStatement("update INTERENTITYCOMPARE set TABLE1 = ?, TABLE2 = ?, COLUMN1 = ?, COLUMN2 = ?, OPERATOR = ?, FOREIGNKEY = ? where ID = ?");
         statement.setString(1, object.getString("table1"));
         statement.setString(2, object.getString("table2"));
         statement.setString(3, object.getString("column1"));
         statement.setString(4, object.getString("column2"));
         statement.setString(5, object.getString("operator"));
-        statement.setString(6, object.getString("foreignKey"));
+        statement.setString(6, object.getString("foreignkey"));
         statement.setInt(7, object.getInt("composite_id"));
         statement.execute();
 
