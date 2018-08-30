@@ -34,8 +34,7 @@ public class BusinessRuleResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response activate(String x){
         ResourceFacade facade = new ResourceFacade();
-        facade.activateRule(new JSONObject(x));
-        return null;
+        return facade.activateRule(new JSONObject(x));
     }
 
     @Path("/deactivate")
@@ -43,15 +42,13 @@ public class BusinessRuleResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response deactivate(String x){
         ResourceFacade facade = new ResourceFacade();
-        facade.deactivateRule(new JSONObject(x));
-        return null;
+        return facade.deactivateRule(new JSONObject(x));
     }
 
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     public Response delete(String x){
         ResourceFacade facade = new ResourceFacade();
-        facade.deleteBusinessRule(new JSONObject(x));
-        return null;
+        return facade.deleteBusinessRule(new JSONObject(x));
     }
 }

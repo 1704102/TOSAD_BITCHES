@@ -39,6 +39,21 @@
               $("#column1").append("<option value='" + this +"'>" + this +"</option>")
           })
       });
+
+
+      function enable(){
+          var object = JSON.parse("{}");
+          object["id"] = temp;
+          object["name"] = temp;
+          postCall(object, "http://localhost:8080/rest/businessRule/activate", "json")
+      }
+
+      function disable(){
+          var object = JSON.parse("{}");
+          object["id"] = temp;
+          object["name"] = temp;
+          postCall(object, "http://localhost:8080/rest/businessRule/deactivate", "json")
+      }
     </script>
   </body>
 </html>
