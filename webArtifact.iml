@@ -11,6 +11,7 @@
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
         <sourceRoots>
+          <root url="file://$USER_HOME$/Desktop/webapp" />
           <root url="file://$MODULE_DIR$/src/main/java" />
           <root url="file://$MODULE_DIR$/src/main/resources" />
         </sourceRoots>
@@ -27,12 +28,16 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$USER_HOME$/Desktop/webapp" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JAX-WS-Glassfish / JAX-WS 2.2 RI / Metro 1.X / JWSDP 2.2" level="project" />
     <orderEntry type="library" name="Arquillian JUnit:Release" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-servlet:1.19.4" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-server:1.19.4" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.19.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-servlet:1.19.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-server:1.19.4" level="project" />
     <orderEntry type="library" name="Maven: com.sun.jersey:jersey-core:1.19.4" level="project" />

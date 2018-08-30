@@ -19,7 +19,10 @@ public interface BusinessRuleDao{
     JSONObject get(JSONObject object) throws Exception;
     void define(JSONObject object) throws Exception;
     void update(JSONObject object) throws Exception;
+<<<<<<< HEAD
     void delete(JSONObject object) throws Exception;
     int getInitId() throws Exception;
+=======
+>>>>>>> development
 >>>>>>> origin/martijndev
 }

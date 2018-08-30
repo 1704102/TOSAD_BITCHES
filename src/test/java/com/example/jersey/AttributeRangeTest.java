@@ -1,18 +1,13 @@
 package com.example.jersey;
 
-import com.example.jersey.database.repository.DatabaseHelper_Repo;
-import com.example.jersey.domainTest.BusinessRule;
-import com.example.jersey.domainTest.Composit.AttributeRange;
-
-import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
-import junit.framework.Assert;
 import junit.framework.TestCase;
-
-import java.sql.PreparedStatement;
 
 public class AttributeRangeTest extends TestCase {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> development
     public void testAttributeRangeName() throws Exception {
         String expected = "CAR_CNS_ARR_1";
         BusinessRule rule = new BusinessRule();
@@ -44,6 +39,7 @@ public class AttributeRangeTest extends TestCase {
 //            }catch (Exception err){
 //                err.printStackTrace();
 //            }
+<<<<<<< HEAD
 //
 //        });
         database.disconnect();
@@ -99,6 +95,19 @@ public class AttributeRangeTest extends TestCase {
 //        DatabaseHelper_Repo database = new DatabaseHelper_Repo();
 //        database.connect();
 >>>>>>> origin/martijndev
+=======
+//
+//        });
+        database.disconnect();
+    }
+
+    public void testAttributeRangeAlter() throws Exception {
+        BusinessRule rule = new BusinessRule(1);
+        BusinessRuleComposite composite = new AttributeRange(1,"BUS","PETROL", 5, 10);
+        rule.addComposite(composite);
+        DatabaseHelper_Repo database = new DatabaseHelper_Repo();
+        database.connect();
+>>>>>>> development
 //        rule.alterRule().forEach(e->{
 //            try {
 //                System.out.println(e);
@@ -110,10 +119,15 @@ public class AttributeRangeTest extends TestCase {
 //
 //        });
 <<<<<<< HEAD
+<<<<<<< HEAD
         database.disconnect();
     }
 =======
 //        database.disconnect();
 //    }
 >>>>>>> origin/martijndev
+=======
+        database.disconnect();
+    }
+>>>>>>> development
 }

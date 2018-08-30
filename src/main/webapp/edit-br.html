@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Business Rule Generator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	<script src="assets/script/jquery.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	<script src="assets/script/rest.js"></script>
+	<script src="assets/script/show.js"></script>
+</head>
+<body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+	<h5 class="my-0 mr-md-auto font-weight-normal">Business Rule Generator</h5>
+	<nav class="my-2 my-md-0 mr-md-3">
+		<a class="p-2 text-dark" href="index.html">Dashboard</a>
+		<a class="p-2 text-dark" href="define-br.html">Define Business Rule</a>
+		<a class="p-2 text-dark" href="generate-br.html">Generate Business Rule</a>
+		<a class="p-2 text-dark" href="overview-br.html">Overview Rule</a>
+	</nav>
+</div>
+
+
+<main role="main" class="container">
+	<div class="container">
+		<h1>Define Business Rule</h1>
+		<form (ngSubmit)="onSubmit()" #defineBusinessRuleForm="ngForm">
+			<div class="form-group" id="minValue_container">
+				<label for="minValue">Minimum Value</label>
+				<input type="text" class="form-control" id="minValue">
+			</div>
+
+			<div class="form-group" id="maxValue_container">
+				<label for="maxValue">Maximum Value</label>
+				<input type="text" class="form-control" id="maxValue">
+			</div>
+
+			<div class="form-group" id="plsql_container">
+				<label for="maxValue">pl/sql Value</label>
+				<input type="text" class="form-control" id="plsql">
+			</div>
+
+			<div class="form-group" id="value_container">
+				<label for="maxValue">Value</label>
+				<input type="text" class="form-control" id="value">
+			</div>
+
+			<div class="form-group" id="operator_container">
+				<label for="operator">Operator</label>
+				<input type="text" class="form-control" id="operator">
+			</div>
+
+
+			<div class="form-group" id="table1_container">
+				<label for="table1">table1</label>
+				<select class="form-control" id="table1" required>
+					<option *ngFor="let tbl of table" [value]="table">select table</option>
+				</select>
+			</div>
+
+			<div class="form-group" id="column1_container">
+				<label for="column1">column1</label>
+				<select class="form-control" id="column1" required>
+					<option *ngFor="let attr of attribute" [value]="attribute">select column</option>
+				</select>
+			</div>
+
+			<div class="form-group" id="table2_container">
+				<label for="table2">table2</label>
+				<select class="form-control" id="table2" required>
+					<option *ngFor="let tbl of table" [value]="table">select table2</option>
+				</select>
+			</div>
+			<div class="form-group" id="tuple_container">
+				<label for="column2">column2</label>
+				<select class="form-control" id="tuple" required>
+					<option *ngFor="let attr of attribute" [value]="attribute">select column2</option>
+				</select>
+			</div>
+			<div class="form-group" id="column2_container">
+				<label for="column2">column2</label>
+				<select class="form-control" id="column2" required>
+					<option *ngFor="let attr of attribute" [value]="attribute">select column2</option>
+				</select>
+			</div>
+
+			<button type="button" class="btn btn-default" id="update">Update</button>
+			<button type="button" class="btn btn-default" id="delete">Delete</button>
+			<button type="button" class="btn btn-default" id="activate">Activate</button>
+			<button type="button" class="btn btn-default" id="deactivate">Deactivate</button>
+		</form>
+	</div>
+</main>
+
+
+<script>
+    // attribute range rule
+
+    const subUrl = "rest/businessRule/";
+    var object = JSON.parse("{}");
+    document.querySelector("#update").addEventListener("click", function(){
+        switch (JSON.parse(sessionStorage.getItem("json")).type){
+            case "arr" : saveArr(rule); break;
+            case "acr" : saveAcr(rule); break;
+            case "alr" : saveAlr(rule); break;
+            case "tcr" : saveTcr(rule); break;
+            case "or" : saveOr(rule); break;
+            case "iecr" : saveIecr(rule); break;
+        }
+
+    });
+
+    function saveAcr() {
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["composite_id"] = JSON.parse(sessionStorage.getItem("json")).composite_id;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["table1"] = document.querySelector("#table1").value;
+        object["column1"] = document.querySelector("#column1").value;
+        object["value1"] = document.querySelector("#value").value;
+        object["operator"] = document.querySelector("#operator").value;
+        object["database_id"] = 1;
+        putCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    }
+
+    function saveAlr() {
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["composite_id"] = JSON.parse(sessionStorage.getItem("json")).composite_id;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["table1"] = document.querySelector("#table1").value;
+        object["column1"] = document.querySelector("#column1").value;
+        object.value1 = [];
+        var list = document.querySelector("#value").value.split(",");
+        for(var i = 0; i < list.length; i++) {
+            object.value1[i] = list[i];
+        }
+        object["database_id"] = 1;
+        putCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    }
+
+    function saveTcr() {
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["composite_id"] = JSON.parse(sessionStorage.getItem("json")).composite_id;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["table1"] = document.querySelector("#table1").value;
+        object["column1"] = document.querySelector("#column1").value;
+        object["column2"] = document.querySelector("#tuple").value;
+        object["operator"] = document.querySelector("#operator").value;
+        object["database_id"] = 1;
+        putCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    }
+
+    function saveOr() {
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["composite_id"] = JSON.parse(sessionStorage.getItem("json")).composite_id;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["table1"] = document.querySelector("#table1").value;
+        object["plSQL"] = document.querySelector("#value").value;
+        object["type"] = "other";
+        object["database_id"] = 1;
+        putCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    }
+
+    function saveIecr() {
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["composite_id"] = JSON.parse(sessionStorage.getItem("json")).composite_id;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["table1"] = document.querySelector("#table1").value;
+        object["column1"] = document.querySelector("#column1").value;
+        object["table2"] = document.querySelector("#table2").value;
+        object["column2"] = document.querySelector("#column2").value;
+        object["operator"] = document.querySelector("#operator").value;
+        object["database_id"] = 1;
+        putCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    }
+
+    function saveArr() {
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["composite_id"] = JSON.parse(sessionStorage.getItem("json")).composite_id;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["table1"] = document.querySelector("#table1").value;
+        object["column1"] = document.querySelector("#column1").value;
+        object["value1"] = document.querySelector("#minValue").value;
+        object["value2"] = document.querySelector("#maxValue").value;
+        object["database_id"] = 1;
+        putCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    }
+
+    var rule = JSON.parse(sessionStorage.getItem("json"));
+    initalizeNewOptions("#table1","#column1");
+    initalizeNewOptions("#table1","#tuple");
+    initalizeNewOptions("#table2","#column2");
+    console.log(rule);
+    switch (rule.type){
+        case "arr" : showArr(rule); break;
+        case "acr" : showAcr(rule); break;
+        case "alr" : showAlr(rule); break;
+        case "tcr" : showTcr(rule); break;
+        case "or" : showOr(rule); break;
+        case "iecr" : showIecr(rule); break;
+	}
+    document.querySelector("#delete").addEventListener("click", function(){
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        object["status"] = JSON.parse(sessionStorage.getItem("json")).status;
+        deleteCall(object, subUrl + JSON.parse(sessionStorage.getItem("json")).type, "json");
+    });
+
+    document.querySelector("#activate").addEventListener("click", function(){
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        postCall(object, subUrl + "activate", "json");
+    });
+
+    document.querySelector("#deactivate").addEventListener("click", function(){
+        object["id"] = JSON.parse(sessionStorage.getItem("json")).rule_id;
+        object["name"] = JSON.parse(sessionStorage.getItem("json")).name;
+        postCall(object, subUrl + "deactivate" , "json");
+    });
+
+    function loadColumns(rule) {
+		$("#table1").val(rule.table1);
+        var input1 = JSON.parse("{}");
+        input1["table"] = rule.table1;
+        var columns = postCall(input1, "http://localhost:8080/rest/target/columns", "json");
+        $("#column1").empty();
+        $("#column1").append("<option value='" + null +"'>" + 'select column' +"</option>");
+        $.each(columns.columns, function () {
+            $("#column1").append("<option value='" + this +"'>" + this +"</option>")
+        })
+    }
+    function loadColumns2(rule) {
+        $("#table2").val(rule.table2);
+        var input1 = JSON.parse("{}");
+        input1["table"] = rule.table2;
+        var columns = postCall(input1, "http://localhost:8080/rest/target/columns", "json");
+        $("#column2").empty();
+        $("#column2").append("<option value='" + null +"'>" + 'select column' +"</option>");
+        $.each(columns.columns, function () {
+            $("#column2").append("<option value='" + this +"'>" + this +"</option>")
+        })
+    }
+
+    function loadColumns3(rule) {
+        $("#table1").val(rule.table1);
+        var input1 = JSON.parse("{}");
+        input1["table"] = rule.table1;
+        var columns = postCall(input1, "http://localhost:8080/rest/target/columns", "json");
+        $("#tuple").empty();
+        $("#tuple").append("<option value='" + null +"'>" + 'select column' +"</option>");
+        $.each(columns.columns, function () {
+            $("#tuple").append("<option value='" + this +"'>" + this +"</option>")
+        })
+    }
+    function showArr(rule) {
+        $("#table2_container").hide();
+        $("#column2_container").hide();
+        $("#maxValue_container").show();
+        $("#maxValue").val(rule.value2);
+        $("#minValue_container").show();
+        $("#minValue").val(rule.value1);
+        $("#table1_container").show();
+        loadColumns(rule);
+        $("#column1_container").show();
+        $("#column1").val(rule.column1);
+        $("#operator_container").hide();
+        $("#value_container").hide();
+        $("#tuple_container").hide();
+        $("#plsql_container").hide();
+
+    }
+
+    function showAcr(rule) {
+        $("#table2_container").hide();
+        $("#column2_container").hide();
+        $("#maxValue_container").hide();
+        $("#minValue_container").hide();
+        $("#table1_container").show();
+        loadColumns(rule);
+        $("#column1_container").show();
+        $("#column1").val(rule.column1);
+        $("#operator_container").show();
+        $("#operator").val(rule.operator);
+        $("#value_container").show();
+        $("#value").val(rule.value1);
+        $("#tuple_container").hide();
+        $("#plsql_container").hide();
+    }
+
+    function showAlr(rule) {
+        $("#table2_container").hide();
+        $("#column2_container").hide();
+        $("#maxValue_container").hide();
+        $("#minValue_container").hide();
+        $("#table1_container").show();
+        loadColumns(rule);
+        $("#column1_container").show();
+        $("#column1").val(rule.column1);
+        $("#operator_container").hide();
+        $("#value_container").show();
+        $("#value").val(rule.value1);
+        $("#tuple_container").hide();
+        $("#plsql_container").hide();
+    }
+
+    function showTcr(rule) {
+        $("#table2_container").hide();
+        $("#column2_container").hide();
+        $("#maxValue_container").hide();
+        $("#minValue_container").hide();
+        $("#table1_container").show();
+        loadColumns(rule);
+        $("#column1_container").show();
+        $("#column1").val(rule.column1);
+        $("#operator_container").show();
+        $("#operator").val(rule.operator);
+        $("#value_container").hide();
+        $("#tuple_container").show();
+        loadColumns3(rule);
+        $("#tuple").val(rule.column2);
+        $("#plsql_container").hide();
+    }
+
+    function showOr(rule) {
+        $("#table2_container").hide();
+        $("#column2_container").hide();
+        $("#maxValue_container").hide();
+        $("#minValue_container").hide();
+        $("#table1_container").show();
+        loadColumns(rule);
+        $("#column1_container").hide();
+        $("#column1").val(rule.column1);
+        $("#operator_container").hide();
+        $("#value_container").hide();
+        $("#tuple_container").hide();
+        $("#plsql_container").show();
+        $("#plsql").val(rule.plsql);
+    }
+
+    function showIecr(rule) {
+        $("#table2_container").show();
+        loadColumns2(rule);
+        $("#column2_container").show();
+        $("#column2").val(rule.column2);
+        $("#maxValue_container").hide();
+        $("#minValue_container").hide();
+        $("#table1_container").show();
+        loadColumns(rule);
+        $("#column1_container").show();
+        $("#column1").val(rule.column1);
+        $("#operator_container").show();
+        $("#operator").val(rule.operator);
+        $("#value_container").hide();
+        $("#tuple_container").hide();
+        $("#plsql_container").hide();
+    }
+</script>
+</body>
+</html>

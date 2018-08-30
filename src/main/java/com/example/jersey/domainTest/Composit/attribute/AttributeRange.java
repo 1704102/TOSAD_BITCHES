@@ -1,9 +1,7 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AttributeRange implements BusinessRuleComposite {
 
@@ -30,11 +28,6 @@ public class AttributeRange implements BusinessRuleComposite {
     }
 
     @Override
-    public String getRuleCode(String name) {
-        return "alter table " + table + " add constraint " + name + " check(" + column + " between " + valueLow + " and " + valueHigh + ") ENABLE NOVALIDATE";
-    }
-
-    @Override
     public String getName() {
         return table + "_CNS_ARR_";
     }
@@ -51,17 +44,23 @@ public class AttributeRange implements BusinessRuleComposite {
     public JSONObject getComposite() {
         JSONObject object = new JSONObject();
         object.put("id", id);
+<<<<<<< HEAD:src/main/java/com/example/jersey/domainTest/Composit/AttributeRange.java
 <<<<<<< HEAD
+=======
+>>>>>>> development:src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeRange.java
         object.put("table", table);
         object.put("column", column);
         object.put("valueLow", valueLow);
         object.put("valueHigh", valueHigh);
+<<<<<<< HEAD:src/main/java/com/example/jersey/domainTest/Composit/AttributeRange.java
 =======
         object.put("table1", table);
         object.put("column1", column);
         object.put("value1", valueLow);
         object.put("value2", valueHigh);
 >>>>>>> origin/martijndev
+=======
+>>>>>>> development:src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeRange.java
         return object;
     }
 

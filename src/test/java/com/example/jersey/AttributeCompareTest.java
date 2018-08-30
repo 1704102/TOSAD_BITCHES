@@ -1,15 +1,13 @@
 package com.example.jersey;
 
-import com.example.jersey.domainTest.BusinessRule;
-import com.example.jersey.domainTest.Composit.AttributeCompare;
-import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
-import com.example.jersey.domainTest.Composit.Elements.Operator;
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 public class AttributeCompareTest extends TestCase {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> development
     public void testAttributeRangeName() throws Exception {
         String expected = "CAR_CNS_ACR_1";
         BusinessRule rule = new BusinessRule();
@@ -27,6 +25,7 @@ public class AttributeCompareTest extends TestCase {
         rule.addComposite(composite);
         Assert.assertEquals(expected,rule.getCode());
     }
+<<<<<<< HEAD
 =======
 //    public void testAttributeRangeName() throws Exception {
 //        String expected = "CAR_CNS_ACR_1";
@@ -46,4 +45,6 @@ public class AttributeCompareTest extends TestCase {
 //        Assert.assertEquals(expected,rule.getCode());
 //    }
 >>>>>>> origin/martijndev
+=======
+>>>>>>> development
 }

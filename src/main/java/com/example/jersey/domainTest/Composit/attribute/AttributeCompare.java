@@ -1,12 +1,10 @@
-package com.example.jersey.domainTest.Composit;
+package com.example.jersey.domainTest.Composit.attribute;
 
+import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import com.example.jersey.domainTest.Composit.Elements.Operator;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class AttributeCompare implements BusinessRuleComposite{
+public class AttributeCompare implements BusinessRuleComposite {
 
     private int id;
 
@@ -31,11 +29,6 @@ public class AttributeCompare implements BusinessRuleComposite{
     }
 
     @Override
-    public String getRuleCode(String name) {
-        return "alter table " + table +  " add constraint " + name + " check(" + column + " " + operator.getValue() + " " + value + ") ENABLE NOVALIDATE";
-    }
-
-    @Override
     public String getName() {
         return table + "_CNS_ACR_";
     }
@@ -50,6 +43,7 @@ public class AttributeCompare implements BusinessRuleComposite{
     public JSONObject getComposite() {
         JSONObject object = new JSONObject();
         object.put("id", id);
+<<<<<<< HEAD:src/main/java/com/example/jersey/domainTest/Composit/AttributeCompare.java
 <<<<<<< HEAD
         object.put("table", table);
         object.put("column", column);
@@ -59,6 +53,11 @@ public class AttributeCompare implements BusinessRuleComposite{
         object.put("column1", column);
         object.put("value1", value);
 >>>>>>> origin/martijndev
+=======
+        object.put("table", table);
+        object.put("column", column);
+        object.put("value", value);
+>>>>>>> development:src/main/java/com/example/jersey/domainTest/Composit/attribute/AttributeCompare.java
         object.put("operator", operator.getValue());
         return object;
     }

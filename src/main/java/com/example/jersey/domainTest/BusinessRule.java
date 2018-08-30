@@ -3,14 +3,12 @@ package com.example.jersey.domainTest;
 import com.example.jersey.domainTest.Composit.BusinessRuleComposite;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.zip.ZipEntry;
-
 public class BusinessRule {
 
     int id;
     String name;
     String status;
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     BusinessRuleComposite composite;
@@ -24,17 +22,19 @@ public class BusinessRule {
         this.status = "new";
 =======
     int database_id;
+=======
+>>>>>>> development
 
     BusinessRuleComposite composite;
 
-    public BusinessRule(int database_id){
+    public BusinessRule(){
         this.status = "new";
-        this.database_id = database_id;
     }
 
-    public BusinessRule(int id, int database_id){
+    public BusinessRule(int id){
         this.id = id;
         this.status = "new";
+<<<<<<< HEAD
         this.database_id = database_id;
 >>>>>>> origin/martijndev
     }
@@ -43,6 +43,8 @@ public class BusinessRule {
     // TODO move to target database
     public String getCode(){
         return composite.getRuleCode(getName());
+=======
+>>>>>>> development
     }
 
     public String getName(){
@@ -51,8 +53,7 @@ public class BusinessRule {
     }
 
     private void generateName(){
-        //TODO get number for rule (temporarily 1)
-        name = composite.getName() + 1;
+        name = composite.getName();
     }
 
     public void addComposite(BusinessRuleComposite composite){
@@ -65,11 +66,17 @@ public class BusinessRule {
         object.put("name", getName());
         object.put("status", status);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         object.put("database_id", database_id);
 >>>>>>> origin/martijndev
+=======
+>>>>>>> development
         return object;
     }
 
 
+    public void validate() {
+        composite.validate();
+    }
 }
