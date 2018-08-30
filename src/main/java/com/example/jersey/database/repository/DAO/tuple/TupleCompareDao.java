@@ -56,7 +56,7 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
     }
 
     @Override
-    public void update(JSONObject object,int id, int comp_id) throws Exception {
+    public void update(JSONObject object) throws Exception {
         connect();
 
         PreparedStatement statement = connection.prepareStatement("update TUPLECOMPARE set TABLE1 = ?, COLUMN1 = ?, COLUMN2 = ?, OPERATOR = ? where ID = ?");
@@ -64,10 +64,10 @@ public class TupleCompareDao extends DatabaseHelper_Repo implements BusinessRule
         statement.setString(2, object.getString("column1"));
         statement.setString(3, object.getString("column2"));
         statement.setString(4, object.getString("operator"));
-        statement.setInt(5, comp_id);
+        statement.setInt(5, object.getInt("composite_id"));
         statement.execute();
 
-        saveRule(object,id);
+        saveRule(object);
 
         disconnect();
     }

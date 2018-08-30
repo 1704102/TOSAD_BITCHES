@@ -4,6 +4,7 @@ import com.example.jersey.database.Target.TargetDatabase;
 import com.example.jersey.domainTest.DomainFacade;
 import com.example.jersey.resources.ResourceFacade;
 import com.example.jersey.resources.ResourceInterface;
+import org.jboss.shrinkwrap.api.Domain;
 import org.json.JSONObject;
 
 import javax.ws.rs.GET;

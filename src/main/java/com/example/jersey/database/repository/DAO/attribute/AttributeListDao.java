@@ -64,23 +64,23 @@ public class AttributeListDao extends DatabaseHelper_Repo implements BusinessRul
     }
 
     @Override
-    public void update(JSONObject object, int id, int comp_id)throws Exception {
+    public void update(JSONObject object)throws Exception {
         connect();
 
         StringBuilder list = new StringBuilder();
-        for (int i = 0; i < object.getJSONArray("list").length(); i++){
-            list.append(object.getJSONArray("list").getString(i) + ";");
+        for (int i = 0; i < object.getJSONArray("value1").length(); i++){
+            list.append(object.getJSONArray("value1").getString(i) + ";");
         }
         list.deleteCharAt(list.length() - 1);
 
-        PreparedStatement statement = connection.prepareStatement("update ATTRIBUTELIST set TABLE1 = ?, COLUMN1 = ?, LIST = ? where ID = ?");
+        PreparedStatement statement = connection.prepareStatement("update ATTRIBUTELIST set TABLE1 = ?, TYPE = ?, CODE = ? where ID = ?");
         statement.setString(1, object.getString("table1"));
-        statement.setString(2, object.getString("column1"));
-        statement.setString(3, list.toString());
-        statement.setInt(4, comp_id);
+        statement.setString(2, object.getString("type"));
+        statement.setString(3, object.getString("code"));
+        statement.setInt(4, object.getInt("composite_id"));
         statement.execute();
 
-        saveRule(object, id);
+        saveRule(object);
 
         disconnect();
     }

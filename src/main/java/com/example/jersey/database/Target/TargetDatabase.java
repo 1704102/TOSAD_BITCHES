@@ -46,6 +46,15 @@ public class TargetDatabase extends DatabaseHelper_Target{
         return object1;
     }
 
+    public String interEntityRuleFk(String table1,String table2) throws Exception{
+        TargetDatabaseFacade f = new TargetDatabaseFacade();
+        ArrayList<ArrayList<String>> array=getForeignKeys();
+        Chainforeignkeys fks = new Chainforeignkeys(array,table1,table2);
+        String s = fks.getKeyChainSQL();
+//        String s1= fks.getFrom();
+        return s;
+
+    }
 
     public ArrayList<ArrayList<String>> getForeignKeys() throws Exception{
 
